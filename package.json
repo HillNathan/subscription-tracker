@@ -1,0 +1,40 @@
+{
+  "name": "subscription-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HillNathan/subscription-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.18.7"
+  },
+  "bugs": {
+    "url": "https://github.com/HillNathan/subscription-tracker/issues"
+  },
+  "homepage": "https://github.com/HillNathan/subscription-tracker#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-passport": "^0.1.0",
+    "express-session": "^1.16.2",
+    "express-winston": "^4.0.0",
+    "if-env": "^1.0.4",
+    "winston": "^3.2.1"
+  }
+}
