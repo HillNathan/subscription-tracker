@@ -1,7 +1,7 @@
 const middleware = require("../middleware");
 const passport = middleware.passport;
 const User = require("../models/User")
-const API = require("../controller/controller");
+const API = require("../controller");
 
 module.exports = app => {
 
@@ -20,20 +20,6 @@ module.exports = app => {
   app.get("/logout", (req, res) => {
     req.logout();
     res.send({ result: "success" })
-  });
-
-  // Endpoint to get current user
-  app.get("/api/getuser", (req, res) => {
-    if (!req.user) return res.json({ result: "no user" })
-    try {
-        API.getUser(req.user._id, response => {
-          return res.json(response)
-      })
-    }
-    catch(err) {
-      console.log("======== ERROR ==========")
-      console.log(err)
-    }
   });
 
 // Register User
@@ -61,16 +47,31 @@ module.exports = app => {
     }
   });
 
+  // Endpoint to get current user
+  app.get("/api/getuser", (req, res) => {
+    if (!req.user) return res.json({ result: "no user" })
+    try {
+        API.controller.getUser(req.user._id, response => {
+          return res.json(response)
+      })
+    }
+    catch(err) {
+      console.log("======== ERROR ==========")
+      console.log(err)
+    }
+  });
+
   app.post("/api/addsub", (req, res) => {
-    API.addSubscription(req.user._id, req.body, response => {
+    API.controller.addSubscription(req.user._id, req.body, response => {
       res.json(response);
     })
   });
 
-
-
-
-
+  app.post("/api/removesub", (req, res) => {
+    API.controller.removeSubscription(req.user._id, req.body.name, response => {
+      res.json(response);
+    })
+  })
 
 }
   
