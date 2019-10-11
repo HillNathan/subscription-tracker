@@ -52,10 +52,10 @@ module.exports.getUserByUsername = (username, callback) => {
     var query = {username: username};
     User.findOne(query, callback);
 }
-    
-module.exports.getUserById = (id, callback) => {
+
+module.exports.getUserById = function(id, callback){
     User.findById(id, callback);
-}
+  }
   
 module.exports.comparePassword = (candidatePassword, hash, callback) => {
     bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
@@ -63,3 +63,4 @@ module.exports.comparePassword = (candidatePassword, hash, callback) => {
         callback(null, isMatch);
     });
 }
+
