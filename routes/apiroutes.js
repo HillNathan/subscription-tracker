@@ -1,49 +1,76 @@
 const middleware = require("../middleware");
-const API = require("../utils")
 const passport = middleware.passport;
-// const isAuthenticated = middleware.isAuthenticated;
+const User = require("../models/User")
+const API = require("../controller/controller");
 
 module.exports = app => {
 
   // create a GET route
-  app.get('/express_backend', (req, res) => {
-    var answer = API.getExpressBackend()
-    res.send(answer);
+  app.get("/express_backend", (req, res) => {
+    res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
   });
 
-  app.post('/login',
-    passport.authenticate('local'), (req, res) => {
+  // Endpoint to login
+  app.post("/login",
+    passport.authenticate("local"), (req, res) => {
       res.send(req.user);
     }
   );
 
-  app.get('/logout', (req, res) => {
+  app.get("/logout", (req, res) => {
     req.logout();
-    res.send(null)
+    res.send({ result: "success" })
   });
 
   // Endpoint to get current user
-  app.get('/getuser', (req, res) => {
-    res.send(req.user);
+  app.get("/api/getuser", (req, res) => {
+    if (!req.user) return res.json({ result: "no user" })
+    try {
+        API.getUser(req.user._id, response => {
+          return res.json(response)
+      })
+    }
+    catch(err) {
+      console.log("======== ERROR ==========")
+      console.log(err)
+    }
   });
 
-  // Register User
-  app.post('/register', (req, res) => {
+// Register User
+  app.post("/register", (req, res) => {
+    var password = req.body.password;
+    var password2 = req.body.password2;
 
-    var newUser = new User({
-      name: req.body.name,
-      email: req.body.email,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      password: req.body.password,
-      income: req.body.income
-    });
+    if (password == password2){
+      var newUser = new User({
+        name: req.body.name,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        income: req.body.income,
+        username: req.body.username,
+        password: req.body.password
+      });
 
-    User.createUser(newUser, (err, user) => {
-      if(err) throw err;
-      res.send(user).end()
-    });
+      User.createUser(newUser, (err, user) => {
+        if(err) console.log(err);
+        res.send(user).end();
+      });
+    } else{
+      res.status(500).send("{ errors: \"Passwords don't match\" }").end()
+    }
   });
+
+  app.post("/api/addsub", (req, res) => {
+    API.addSubscription(req.user._id, req.body, response => {
+      res.json(response);
+    })
+  });
+
+
+
+
+
 
 }
   

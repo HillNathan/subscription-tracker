@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/HillNathan/subscription-tracker#readme",
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-passport": "^0.1.0",
