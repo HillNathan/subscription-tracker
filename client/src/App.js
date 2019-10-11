@@ -6,6 +6,7 @@ import Stats from "./pages/Stats"
 import NoMatch from "./pages/NoMatch"
 import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   state = {
@@ -33,11 +34,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">{this.state.data}</p>
+          <Navbar/>
           <Switch>
             <Route exact path="/" component={Splash} />
             <Route exact path="/main" component={Main} />
