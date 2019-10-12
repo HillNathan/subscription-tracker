@@ -68,7 +68,7 @@ module.exports = app => {
   });
 
   app.post("/api/removesub", (req, res) => {
-    API.controller.removeSubscription(req.user._id, req.body.name, response => {
+    API.controller.removeSubscription(req.user._id, req.body.id, response => {
       res.json(response);
     })
   })
