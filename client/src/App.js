@@ -7,6 +7,7 @@ import NoMatch from "./pages/NoMatch"
 import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar";
+import Login from "./components/login";
 
 class App extends Component {
   state = {
@@ -36,7 +37,7 @@ class App extends Component {
         <div className="App">
           <Navbar/>
           <Switch>
-            <Route exact path="/" component={Splash} />
+            <Route exact path="/" component={Login} />
             <Route exact path="/main" component={Main} />
             <Route exact path="/stats" component={Stats} />
             <Route component={NoMatch} />

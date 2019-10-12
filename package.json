@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/HillNathan/subscription-tracker#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
@@ -36,11 +37,13 @@
     "express-session": "^1.16.2",
     "express-winston": "^4.0.0",
     "if-env": "^1.0.4",
+    "material-ui": "^0.20.2",
     "mongojs": "^2.6.0",
     "mongoose": "^5.7.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react-router-dom": "^5.1.2",
+    "react-tap-event-plugin": "^3.0.3",
     "winston": "^3.2.1"
   }
 }
