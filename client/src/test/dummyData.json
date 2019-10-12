@@ -1,0 +1,62 @@
+[
+    {   
+        "id": 1,
+        "name": "Hulu",
+        "cost": 5.99,
+        "frequency": "Monthly"
+    },
+    {   
+        "id": 2,
+        "name": "Netflix",
+        "cost": 14.99,
+        "frequency": "Monthly"
+    },
+    {
+        "id": 3,
+        "name": "Scientific American",
+        "cost": 35.99,
+        "frequency": "Annual"
+    },
+    {
+        "id": 4,
+        "name": "Spotify",
+        "cost": 9.99,
+        "frequency": "Monthly"
+    },
+    {
+        "id": 5,
+        "name": "Apple Music",
+        "cost": 9.99,
+        "frequency": "Monthly"
+    },
+    {
+        "id": 6,
+        "name": "Dropbox",
+        "cost": 12.99,
+        "frequency": "Monthly"
+    },
+    {
+        "id": 7,
+        "name": "Time Magazine",
+        "cost": 35.99,
+        "frequency": "Annual"
+    },
+    {
+        "id": 8,
+        "name": "Amazon Prime",
+        "cost": 120.00,
+        "frequency": "Annual"
+    },
+    {
+        "id": 9,
+        "name": "AMEX Card Fee",
+        "cost": 95.00,
+        "frequency": "Annual"
+    },
+    {
+        "id": 10,
+        "name": "Blue Apron",
+        "cost": 25.00,
+        "frequency": "Weekly"
+    }
+]
