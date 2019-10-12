@@ -1,10 +1,13 @@
 import React, {Component} from "react"
 import SubList from "../components/SubList"
+import SubForm from "../components/SubForm"
+
 class Main extends Component {
     render () {
         return (
-        <div>
+        <div className="container">
             <SubList/>
+            <SubForm/>
         </div>
         )
     }
