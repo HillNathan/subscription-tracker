@@ -1,23 +1,28 @@
 var mongojs = require("mongojs");
-const User = require("../models/User")
+const db = require("../models")
+// const User = require("../models/User")
 
 const Controller = {
 
     getUser: (id, callback) => {
-        User.findOne({ _id: mongojs.ObjectId(id)})
+        db.User.findOne({ _id: mongojs.ObjectId(id)})
+        .populate("subscriptions")
         .then(theUser => callback(theUser) );
     },
 
     addSubscription: (userId, newSub, callback) => {
-        User.findOneAndUpdate({ _id: mongojs.ObjectId(userId)}, 
-            { $push: { subscriptions: newSub }}, 
+        db.Subscription.create(newSub)
+        .then(response => {
+            db.User.findOneAndUpdate({ _id: mongojs.ObjectId(userId)}, 
+            { $push: { subscriptions: response._id }}, 
             { new: true })
-        .then(theUser => callback(theUser) );
+            .then(theUser => callback(theUser) );
+        })
     },
 
-    removeSubscription: (userId, subName, callback) => {
-        User.findOneAndUpdate({ _id: mongojs.ObjectId(userId)}, 
-            { $pull: { subscriptions: { name: subName }}}, 
+    removeSubscription: (userId, subId, callback) => {
+        db.User.findOneAndUpdate({ _id: mongojs.ObjectId(userId)}, 
+            { $pull: { subscriptions: mongojs.ObjectId(subId)}}, 
             { new: true })
         .then(theUser => callback(theUser) );
     }

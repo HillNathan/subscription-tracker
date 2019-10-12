@@ -26,15 +26,17 @@ var UserSchema = new Schema ({
     income: {
         type: Number
     },
-    subscriptions: {
-        type: Array
-    }
+    subscriptions: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Subscription"
+        }
+    ]
 })
 
 var User = module.exports = mongoose.model("User", UserSchema);
 
 module.exports.createUser = (newUser, callback) => {
-    console.log(newUser)
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(newUser.password, salt, (err, hash) => {
         newUser.password = hash;
