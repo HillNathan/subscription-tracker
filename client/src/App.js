@@ -1,35 +1,29 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Splash from "./pages/Splash"
 import Main from "./pages/Main"
 import Stats from "./pages/Stats"
 import NoMatch from "./pages/NoMatch"
-import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar";
 import Login from "./components/login";
 
 class App extends Component {
   state = {
-    data: null
+    subscriptions: [],
+    firstname: "",
+    lastname: "",
+    email: "",
+    income: 0
   };
 
-  componentDidMount() {
-    // Call our fetch function below once the component mounts
-    this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
-      .catch(err => console.log(err));
+  componentDidMount () {
+    
   }
-  // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-  callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
-    const body = await response.json();
 
-    if (response.status !== 200) {
-      throw Error(body.message)
-    }
-    return body;
-  };
+  updateUserInfo = (userObject) => {
+    this.setstate(userObject)
+  }
+
 
   render() {
     return (
