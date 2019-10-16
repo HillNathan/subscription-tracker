@@ -3,12 +3,17 @@ const passport = middleware.passport;
 const User = require("../models/User")
 const API = require("../controller");
 
-module.exports = app => {
+const scrubUser = (userObject) => {
+  let cleanUser = {};
+  cleanUser.subscriptions = userObject.subscriptions;
+  cleanUser.firstname = userObject.firstname;
+  cleanUser.lastname = userObject.lastname;
+  cleanUser.email = userObject.email;
+  cleanUser.income = userObject.income;
+  return cleanUser
+}
 
-  // create a GET route
-  app.get("/express_backend", (req, res) => {
-    res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
-  });
+module.exports = app => {
 
   // Endpoint to login
   app.post("/login",
@@ -52,7 +57,7 @@ module.exports = app => {
     if (!req.user) return res.json({ result: "no user" })
     try {
         API.controller.getUser(req.user._id, response => {
-          return res.json(response)
+          return res.json(scrubUser(response))
       })
     }
     catch(err) {
@@ -63,13 +68,13 @@ module.exports = app => {
 
   app.post("/api/addsub", (req, res) => {
     API.controller.addSubscription(req.user._id, req.body, response => {
-      res.json(response);
+      res.json(scrubUser(response));
     })
   });
 
   app.post("/api/removesub", (req, res) => {
     API.controller.removeSubscription(req.user._id, req.body.id, response => {
-      res.json(response);
+      res.json(scrubUser(response));
     })
   })
 
