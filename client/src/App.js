@@ -6,6 +6,7 @@ import NoMatch from "./pages/NoMatch"
 import './App.css';
 import Navbar from "./components/Navbar";
 import Login from "./components/login";
+const API = require("./utils/API");
 
 class App extends Component {
   state = {
@@ -22,6 +23,13 @@ class App extends Component {
 
   updateUserInfo = (userObject) => {
     this.setstate(userObject)
+  }
+
+  userLogin = (userInfo) => {
+    API.loginUser(userInfo)
+    .then(response => {
+      this.updateUserInfo(response)
+    })
   }
 
 
