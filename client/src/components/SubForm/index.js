@@ -7,23 +7,23 @@ function SubForm() {
                 <div className="col-10">
                     <form id="sub-form">
                         <div className="form-group">
-                            <label for="name">Subscription Name</label>
+                            <label htmlFor="name">Subscription Name</label>
                             <input className="form-control form-control-lg" id="name-input"></input>
                         </div>
                         <div className="form-group">
-                            <label for="cost">Cost (USD):</label>
+                            <label htmlFor="cost">Cost (USD):</label>
                             <input className="form-control form-control-lg" id="cost-input"></input>
                         </div>
                         <div className="form-group">
-                            <label for="frequency">Frequency</label>
-                            <select class="form-control form-control-lg" id="frequency-input">
+                            <label htmlFor="frequency">Frequency</label>
+                            <select className="form-control form-control-lg" id="frequency-input">
                                 <option>Daily</option>
                                 <option>Weekly</option>
                                 <option>Monthly</option>
                                 <option>Yearly</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-dark" id="form-submit">Submit</button>
+                        <button type="submit" className="btn btn-dark" id="form-submit">Submit</button>
                     </form>
                 </div>
             </div>
