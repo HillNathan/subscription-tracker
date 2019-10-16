@@ -6,26 +6,16 @@ function SubList() {
     return (
         <div className="row d-flex justify-content-center">
             <div className="col-10">
-                <div className="accordian" id="sub-list">
+                <ul className="list-group" id="sub-list">
                     {dummyData.map(data => {
                         return (
-                            <div className="card" key={data.id}>
-                                <div className="card-header" id={"heading" + data.id}>
-                                    <h2 className="mb-0">
-                                        <button className="btn btn-link" type="button" data-toggle="collapse" data-target={"#collapse" + data.id} aria-expanded="true" aria-controls={"#collapse" + data.id}>
-                                            {data.name}
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id={"collapse" + data.id} className="collapse show" aria-labelledby={"heading" + data.id} data-parent="#sub-list">
-                                    <div className="card-body">
-                                        Price: {data.cost} per {data.frequency}
-                                    </div>
-                                </div>
-                            </div>
+                            <li className="list-group-item" key={data.id}><strong>{data.name}</strong>
+                            <i className="fas fa-minus-circle"></i>
+                            <div className="details">${data.cost} per {data.frequency}</div>
+                            </li>
                         )
                     })}
-                </div>
+                </ul>
             </div>
         </div >
     )

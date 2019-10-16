@@ -1,3 +1,20 @@
-#sub-list {
-    text-align: center;
+.list-group {
+    margin: 20px;
 }
+
+.fas {
+    float: right;
+}
+
+.list-group-item {
+    width: 100%;
+    /* display: flex; */
+} 
+.details {
+    /* display: inline; */
+    float: right;
+    margin-right: 10px;
+} 
+
+
+  
