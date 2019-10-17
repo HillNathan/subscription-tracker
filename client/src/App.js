@@ -5,7 +5,8 @@ import Stats from "./pages/Stats"
 import NoMatch from "./pages/NoMatch"
 import './App.css';
 import Navbar from "./components/Navbar";
-import Login from "./components/login";
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 const API = require("./utils/API");
 
 class App extends Component {
@@ -36,10 +37,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="Main-App">
           <Navbar/>
           <Switch>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/" component={SignUp} />
+            <Route path="/sign-in" component={SignIn} />
             <Route exact path="/main" component={Main} />
             <Route exact path="/stats" component={Stats} />
             <Route component={NoMatch} />
