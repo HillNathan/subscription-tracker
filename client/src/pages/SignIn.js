@@ -7,13 +7,10 @@ class SignIn extends Component {
       <div className="App">
         <div className="App__Aside"></div>
           <div className="App__Form">
-            <div className="PageSwitcher">
-              <a href="#" className="PageSwitcher__Item">Sign In</a>
-              <a href="#" className="PageSwitcher__Item PageSwitcher__Item--Active">Sign Up</a>
-            </div>
 
             <div className="FormTitle">
-              <a href="/sign-in" className="FormTitle__Link">Sign In</a> or <a href="/" className="FormTitle__Link FormTitle__Link--Active">Sign Up</a>
+              <a href="/sign-in" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
+              <a href="/" className="FormTitle__Link">Sign Up</a>
             </div>
             <div className="FormCenter">
           <form className="Formfields" onSubmit={this.handleSubmit}>
@@ -32,6 +29,11 @@ class SignIn extends Component {
             </div>
           </form>
         </div>
+
+        <div className="FormField">
+          <button className="FormField__Button mr-20">Sign In</button> <a href="/" className="FormField__Link">Create Account</a>
+          </div>
+
         </div>
       </div>
     );
