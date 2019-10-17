@@ -1,6 +1,6 @@
-import axios from "axios";
+const axios = require("axios");
 
-export default {
+const API = {
     loginUser: function (userInfo) {
         return axios.post("/login", userInfo)
     },
@@ -25,3 +25,5 @@ export default {
         return axios.post("api/removesub", subData)
     }
 }
+
+module.exports = API;

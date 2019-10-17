@@ -11,6 +11,7 @@ const API = require("./utils/API");
 
 class App extends Component {
   state = {
+    isAuthenticated: false,
     subscriptions: [],
     firstname: "",
     lastname: "",
@@ -19,11 +20,16 @@ class App extends Component {
   };
 
   componentDidMount () {
-    
   }
 
   updateUserInfo = (userObject) => {
-    this.setstate(userObject)
+    this.setState({
+      firstname: userObject.firstname,
+      lastname: userObject.lastName,
+      subscriptions: userObject.subscriptions,
+      email: userObject.email,
+      income: userObject.income 
+    })
   }
 
   userLogin = (userInfo) => {
@@ -33,6 +39,13 @@ class App extends Component {
     })
   }
 
+  isUserAuth = () => {
+    return this.state.isAuthenticated
+  }
+
+  updateAuthStatus = (status) => {
+    this.setState ({ isAuthenticated: status })
+  }
 
   render() {
     return (
@@ -40,9 +53,18 @@ class App extends Component {
         <div className="Main-App">
           <Navbar/>
           <Switch>
-            <Route exact path="/" component={SignUp} />
-            <Route path="/sign-in" component={SignIn} />
-            <Route exact path="/main" component={Main} />
+            <Route exact path="/">
+              <SignIn 
+                isUserAuth = {this.isUserAuth} 
+                updateAuthStatus = {this.updateAuthStatus}
+                updateUserInfo = {this.updateUserInfo} />
+            </Route> 
+            <Route path="/sign-up" component={SignUp} />
+            <Route exact path="/main">
+              <Main 
+                state={this.state}
+              />
+            </Route> 
             <Route exact path="/stats" component={Stats} />
             <Route component={NoMatch} />
           </Switch>

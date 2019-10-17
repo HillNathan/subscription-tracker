@@ -40,7 +40,7 @@ class SignUp extends Component {
           <div className="App__Form">
 
             <div className="FormTitle">
-              <a href="/sign-in" className="FormTitle__Link">Sign In</a><a href="/" className="FormTitle__Link FormTitle__Link--Active">Sign Up</a>
+              <a href="/" className="FormTitle__Link">Sign In</a><a href="/sign-up" className="FormTitle__Link FormTitle__Link--Active">Sign Up</a>
             </div>
 
             <div className="FormCenter">
@@ -85,7 +85,7 @@ class SignUp extends Component {
         </div>
 
         <div className="FormField">
-          <button className="FormField__Button mr-20" onClick={this.handleSubmit}>Sign Up</button> <a href="/sign-in" className="FormField__Link">I'm already a member</a>
+          <button className="FormField__Button mr-20" onClick={this.handleSubmit}>Sign Up</button> <a href="/" className="FormField__Link">I'm already a member</a>
         </div>
         </div>
       </div>
