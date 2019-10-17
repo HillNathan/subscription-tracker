@@ -18,7 +18,7 @@ const API = {
     },
 
     addSubscription: function (subData) {
-        return axios.post("/api/getsub", subData)
+        return axios.post("/api/addsub", subData)
     },
 
     deleteSubscription: function (subData) {

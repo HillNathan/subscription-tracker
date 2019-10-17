@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 
-function SubForm() {
+function SubForm(props) {
     return (
             <div className="row d-flex justify-content-center">
                 <div className="col-10">
@@ -23,7 +23,14 @@ function SubForm() {
                                 <option>Yearly</option>
                             </select>
                         </div>
-                        <button type="submit" className="btn btn-dark" id="form-submit">Submit</button>
+                        <button onClick={(event) => props.addSub(event, 
+                            { 
+                                name: document.getElementById("name-input").value,
+                                cost: document.getElementById("cost-input").value,
+                                frequency: document.getElementById("frequency-input").value 
+                            })}
+                            className="btn btn-dark" 
+                            id="form-submit">Submit</button>
                     </form>
                 </div>
             </div>

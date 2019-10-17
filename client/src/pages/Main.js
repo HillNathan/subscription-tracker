@@ -7,8 +7,10 @@ function Main (props) {
     return (
     <div className="container">
         <SubList
-            subscriptions={props.state.subscriptions}/>
-        <SubForm/>
+            subscriptions={props.state.subscriptions}
+            removeSub={props.removeSub} />
+        <SubForm
+            addSub={props.addSub}/>
     </div>
     )
 }

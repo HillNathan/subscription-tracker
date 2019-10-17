@@ -25,7 +25,7 @@ class App extends Component {
   updateUserInfo = (userObject) => {
     this.setState({
       firstname: userObject.firstname,
-      lastname: userObject.lastName,
+      lastname: userObject.lastname,
       subscriptions: userObject.subscriptions,
       email: userObject.email,
       income: userObject.income 
@@ -35,7 +35,7 @@ class App extends Component {
   userLogin = (userInfo) => {
     API.loginUser(userInfo)
     .then(response => {
-      this.updateUserInfo(response)
+      this.updateUserInfo(response.data)
     })
   }
 
@@ -45,6 +45,23 @@ class App extends Component {
 
   updateAuthStatus = (status) => {
     this.setState ({ isAuthenticated: status })
+  }
+
+  addSub = (event, subInfo) => {
+    event.preventDefault()
+    console.log(subInfo)
+    API.addSubscription(subInfo)
+    .then(response => {
+      this.updateUserInfo(response.data);
+    })
+  }
+
+  removeSub = (subId) => {
+    console.log(subId);
+    API.deleteSubscription({ id: subId })
+    .then(response => {
+      this.updateUserInfo(response.data)
+    })
   }
 
   render() {
@@ -63,6 +80,8 @@ class App extends Component {
             <Route exact path="/main">
               <Main 
                 state={this.state}
+                addSub={this.addSub}
+                removeSub={this.removeSub}
               />
             </Route> 
             <Route exact path="/stats" component={Stats} />
