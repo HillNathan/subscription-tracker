@@ -18,7 +18,15 @@ module.exports = app => {
   // Endpoint to login
   app.post("/login",
     passport.authenticate("local"), (req, res) => {
-      res.send(req.user);
+      try {
+        API.controller.getUser(req.user._id, response => {
+          return res.json(scrubUser(response))
+      })
+    }
+    catch(err) {
+      console.log("======== ERROR ==========")
+      console.log(err)
+    }
     }
   );
 

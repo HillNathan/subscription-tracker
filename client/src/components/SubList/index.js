@@ -2,12 +2,12 @@ import React from "react";
 import "./style.css"
 let dummyData = require("../../test/dummyData.json");
 
-function SubList() {
+function SubList(props) {
     return (
         <div className="row d-flex justify-content-center">
             <div className="col-10">
                 <ul className="list-group" id="sub-list">
-                    {dummyData.map(data => {
+                    {props.subscriptions.map(data => {
                         return (
                             <li className="list-group-item" key={data.id}><strong>{data.name}</strong>
                             <i className="fas fa-minus-circle"></i>

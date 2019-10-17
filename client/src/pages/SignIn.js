@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 import "./SignIn.css";
+let API = require("../utils/API")
 
-class SignIn extends Component {
-  constructor() {
+class SignIn extends Component  {
+  constructor(props) {
     super();
 
     this.state = {
@@ -24,8 +26,23 @@ class SignIn extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(`form submitted with data:`)
-    console.log(this.state)
+    API.loginUser(this.state)
+    .then(response => {
+      if (response.status === 200) {
+        console.log("login successful")
+        this.props.updateAuthStatus(true)
+        this.props.updateUserInfo(response.data)
+        this.props.history.push("/main");
+      }
+      if (response.status === 401) {
+        console.log("please try again")
+      }
+    })
+    .catch(err => {
+      console.log("please try again")
+      console.log(err)
+    })
+
   }
 
   render () {
@@ -35,8 +52,8 @@ class SignIn extends Component {
           <div className="App__Form">
 
             <div className="FormTitle">
-              <a href="/sign-in" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
-              <a href="/" className="FormTitle__Link">Sign Up</a>
+              <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
+              <a href="/sign-up" className="FormTitle__Link">Sign Up</a>
             </div>
 
             <div className="FormCenter">
@@ -49,20 +66,21 @@ class SignIn extends Component {
                 
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="password">password</label>
-                  <input type="text" id="password" className="FormField__Input" placeholder="enter password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                  <input type="password" id="password" className="FormField__Input" placeholder="enter password" name="password" value={this.state.password} onChange={this.handleChange}/>
                 </div>
               </form>
             </div>
 
             <div className="FormField">
-              <button onClick={this.handleSubmit} className="FormField__Button mr-20">Sign In</button> <a href="/" className="FormField__Link">Create Account</a>
+              <button onClick={this.handleSubmit} className="FormField__Button mr-20">Sign In</button> <a href="/sign-up" className="FormField__Link">Create Account</a>
             </div>
 
         </div>
+
       </div>
     );
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
 
