@@ -76,13 +76,23 @@ module.exports = app => {
 
   app.post("/api/addsub", (req, res) => {
     API.controller.addSubscription(req.user._id, req.body, response => {
-      res.json(scrubUser(response));
+      try {
+        API.controller.getUser(req.user._id, response => {
+          return res.json(scrubUser(response))
+        })
+      }
+      catch (err) { throw err }
     })
   });
 
   app.post("/api/removesub", (req, res) => {
     API.controller.removeSubscription(req.user._id, req.body.id, response => {
-      res.json(scrubUser(response));
+      try {
+        API.controller.getUser(req.user._id, response => {
+          return res.json(scrubUser(response))
+        })
+      }
+      catch (err) { throw err }
     })
   })
 
