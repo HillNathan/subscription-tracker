@@ -14,7 +14,7 @@ function Navbar() {
                         <a className="nav-link text-white" href="/stats">Statistics</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link text-white" href="/">Logout</a>
+                        <a className="nav-link text-white" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>
