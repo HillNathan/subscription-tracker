@@ -19,10 +19,17 @@ class App extends Component {
     income: 0
   };
 
-  componentDidMount () {
+  componentDidMount() {
+    API.getUser()
+    .then(response => {
+      this.updateUserInfo(response.data)
+    })
   }
 
   updateUserInfo = (userObject) => {
+    // console.log("update user info called: ")
+    // console.log("================================")
+    // console.log(this.state)
     this.setState({
       firstname: userObject.firstname,
       lastname: userObject.lastname,
@@ -70,25 +77,32 @@ class App extends Component {
         <div className="Main-App">
           <Navbar/>
           <Switch>
-            <Route exact path="/">
-              <SignIn 
+            <Route exact path="/"
+              render={(props) => <SignIn {...props}
                 isUserAuth = {this.isUserAuth} 
                 updateAuthStatus = {this.updateAuthStatus}
-                updateUserInfo = {this.updateUserInfo} />
-            </Route> 
-            <Route path="/sign-up" component={SignUp} />
-            <Route exact path="/main">
-              <Main 
-                state={this.state}
+                updateUserInfo = {this.updateUserInfo} /> }
+            /> 
+            <Route exact path="/sign-up" component={SignUp} />
+            <Route exact path="/main"
+              render={(props) => <Main {...props}
+                subscriptions={this.state.subscriptions}
                 addSub={this.addSub}
                 removeSub={this.removeSub}
-              />
-            </Route> 
-            <Route exact path="/stats" component={Stats} />
+              />}
+            /> 
+            <Route exact path="/stats" 
+              render={(props) => <Stats {...props}
+                subscriptions = {this.state.subscriptions} 
+                income = {this.state.income} 
+                firstname = {this.state.firstname}
+                lastname = {this.state.lastname}
+                 />}
+            />
             <Route component={NoMatch} />
-          </Switch>
+          </ Switch>
         </div>
-      </Router>
+      </ Router>
     );
   }
 }

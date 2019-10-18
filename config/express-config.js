@@ -16,7 +16,7 @@ app.use(middleware.logger);
 
 // We need to use sessions to keep track of our user's login status
 app.use(
-    middleware.session({ secret: process.env.secret, resave: true, saveUninitialized: true })
+    middleware.session({ secret: "sandwich", resave: true, saveUninitialized: true })
 );
 
 app.use(middleware.passport.initialize());
