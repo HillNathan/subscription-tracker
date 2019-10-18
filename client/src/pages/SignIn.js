@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import "./SignIn.css";
-let API = require("../utils/API")
+const API = require("../utils/API")
 
 class SignIn extends Component  {
   constructor(props) {

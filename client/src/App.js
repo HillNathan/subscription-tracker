@@ -75,7 +75,8 @@ class App extends Component {
     return (
       <Router>
         <div className="Main-App">
-          <Navbar/>
+          <Navbar
+            firstname = {this.state.firstname} />
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
@@ -83,7 +84,11 @@ class App extends Component {
                 updateAuthStatus = {this.updateAuthStatus}
                 updateUserInfo = {this.updateUserInfo} /> }
             /> 
-            <Route exact path="/sign-up" component={SignUp} />
+            <Route exact path="/sign-up" 
+              render = {(props) => <SignUp {...props}
+                updateAuthStatus = {this.updateAuthStatus}
+                updateUserInfo = {this.updateUserInfo} /> }
+            />
             <Route exact path="/main"
               render={(props) => <Main {...props}
                 subscriptions={this.state.subscriptions}

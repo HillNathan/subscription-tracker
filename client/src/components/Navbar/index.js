@@ -1,12 +1,22 @@
 import React from "react";
 
+function displayGreeting(nameObj) {
+    if (nameObj.firstname) {
+        return (
+            <li className="nav-item text-white">
+                Greetings, {nameObj.firstname}!
+            </li>
+        )
+    }
+}
 
-function Navbar() {
+function Navbar(props) {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <a className="navbar-brand text-white" href="/">Submarine</a>
             <div>
                 <ul className="nav justify-content-end">
+                    {displayGreeting(props)}
                     <li className="nav-item">
                         <a className="nav-link text-white" href="/main">Subscriptions</a>
                     </li>

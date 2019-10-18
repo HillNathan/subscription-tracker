@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 import "./SignIn.css";
+const API = require("../utils/API")
 
 class SignUp extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       username: '',
       password: '',
-      verifyPass: '',
-      firstName: '',
-      lastName: '',
+      password2: '',
+      firstname: '',
+      lastname: '',
       email: '',
       income: '',
     };
@@ -31,6 +33,28 @@ class SignUp extends Component {
     event.preventDefault();
     console.log(`form submitted with data:`)
     console.log(this.state)
+    API.registerUser(this.state)
+    .then(response => {
+      API.loginUser(this.state)
+      .then(response => {
+        if (response.status === 200) {
+          console.log("login successful")
+          this.props.updateAuthStatus(true)
+          this.props.updateUserInfo(response.data)
+          this.props.history.push("/main");
+        }
+        if (response.status === 401) {
+          console.log("please try again")
+        }
+      })
+      .catch(err => {
+        console.log("please try again")
+        console.log(err)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   render () {
@@ -58,17 +82,17 @@ class SignUp extends Component {
 
             <div className="FormField">
               <label className="FormField__Label" htmlFor="verifyPass">verify password</label>
-              <input type="text" id="verifyPass" className="FormField__Input" placeholder="re-enter password" name="verifyPass" value={this.verifyPass} />
+              <input type="text" id="verifyPass" className="FormField__Input" placeholder="re-enter password" name="password2" value={this.verifyPass} />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label" htmlFor="firstName">first name</label>
-              <input type="text" id="firstName" className="FormField__Input" placeholder="enter first name" name="firstName" value={this.firstName} />
+              <input type="text" id="firstName" className="FormField__Input" placeholder="enter first name" name="firstname" value={this.firstName} />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label" htmlFor="lastName">last name</label>
-              <input type="text" id="lastName" className="FormField__Input" placeholder="enter last name" name="lastName" value={this.lastName} />
+              <input type="text" id="lastName" className="FormField__Input" placeholder="enter last name" name="lastname" value={this.lastName} />
             </div>
 
             <div className="FormField">
@@ -93,5 +117,5 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
 
