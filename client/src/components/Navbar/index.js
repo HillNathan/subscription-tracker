@@ -3,8 +3,8 @@ import React from "react";
 function displayGreeting(nameObj) {
     if (nameObj.firstname) {
         return (
-            <li className="nav-item text-white">
-                Greetings, {nameObj.firstname}!
+            <li className="nav-item text-white nav-link pr-5">
+                <h4><strong>Greetings, {nameObj.firstname}!</strong></h4>
             </li>
         )
     }

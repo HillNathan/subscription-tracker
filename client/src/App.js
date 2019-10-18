@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Switch,
+  Redirect } from "react-router-dom";
 import Main from "./pages/Main"
 import Stats from "./pages/Stats"
 import NoMatch from "./pages/NoMatch"
@@ -27,15 +31,16 @@ class App extends Component {
   }
 
   updateUserInfo = (userObject) => {
-    // console.log("update user info called: ")
-    // console.log("================================")
-    // console.log(this.state)
+    let authStatus = false
+    if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
+
     this.setState({
       firstname: userObject.firstname,
       lastname: userObject.lastname,
       subscriptions: userObject.subscriptions,
       email: userObject.email,
-      income: userObject.income 
+      income: userObject.income,
+      isAuthenticated: authStatus
     })
   }
 
@@ -52,6 +57,7 @@ class App extends Component {
 
   updateAuthStatus = (status) => {
     this.setState ({ isAuthenticated: status })
+    localStorage.setItem("isAuthenticated", status)
   }
 
   addSub = (event, subInfo) => {
@@ -104,6 +110,9 @@ class App extends Component {
                 lastname = {this.state.lastname}
                  />}
             />
+            <ProtectedRoute exact path = "/testauth">
+              <AuthPage />
+            </ProtectedRoute>
             <Route component={NoMatch} />
           </ Switch>
         </div>
@@ -111,5 +120,44 @@ class App extends Component {
     );
   }
 }
+
+function fakeAuth() {
+  let authStatus = false
+  if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
+  return authStatus
+}
+
+function AuthPage () {
+  return (
+    <div>
+      <h2>You have been authorized to see this page. </h2>
+    </div>
+  )
+}
+
+function ProtectedComponent(props) {
+  return (
+    <div>{props.children}</div>  
+  )
+}
+
+function ProtectedRoute({ children, ...rest }, props) {
+  console.log(props)
+  return (
+    <Route 
+      {...rest}
+      render = {() => 
+        fakeAuth() ? (
+        // this.props.isUserAuth() ? (
+          children
+        ) : (
+          <Redirect 
+            to = {{ pathname: "/"}} 
+          />
+      )}
+    />      
+  )
+}
+
 
 export default App;
