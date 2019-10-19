@@ -49,6 +49,33 @@ class App extends Component {
     .then(response => {
       this.updateUserInfo(response.data)
     })
+    .catch (err => {
+      throw err
+    })
+  }
+
+  userLogout = (event, callback) => {
+    event.preventDefault()
+    console.log(this.isUserAuth())
+    if (this.isUserAuth) {
+      API.logoutUser()
+      .then(response => {
+        console.log(response)
+        this.setState({
+          firstname: "",
+          lastname: "",
+          subscriptions: [],
+          email: "",
+          income: 0,
+          isAuthenticated: false
+        })
+        localStorage.setItem("isAuthenticated", false)
+      })
+      .catch(err => {
+        throw err
+      })
+    }
+    return callback()
   }
 
   isUserAuth = () => {
@@ -82,7 +109,8 @@ class App extends Component {
       <Router>
         <div className="Main-App">
           <Navbar
-            firstname = {this.state.firstname} />
+            firstname = {this.state.firstname}
+            handleLogout = {this.userLogout} />
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
@@ -95,23 +123,20 @@ class App extends Component {
                 updateAuthStatus = {this.updateAuthStatus}
                 updateUserInfo = {this.updateUserInfo} /> }
             />
-            <Route exact path="/main"
-              render={(props) => <Main {...props}
+            <ProtectedRoute exact path="/main">
+              <Main
                 subscriptions={this.state.subscriptions}
                 addSub={this.addSub}
                 removeSub={this.removeSub}
-              />}
-            /> 
-            <Route exact path="/stats" 
-              render={(props) => <Stats {...props}
+              />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/stats" >
+              <Stats
                 subscriptions = {this.state.subscriptions} 
                 income = {this.state.income} 
                 firstname = {this.state.firstname}
                 lastname = {this.state.lastname}
-                 />}
-            />
-            <ProtectedRoute exact path = "/testauth">
-              <AuthPage />
+                 />
             </ProtectedRoute>
             <Route component={NoMatch} />
           </ Switch>
@@ -121,33 +146,18 @@ class App extends Component {
   }
 }
 
-function fakeAuth() {
+function testAuth() {
   let authStatus = false
   if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
   return authStatus
 }
 
-function AuthPage () {
-  return (
-    <div>
-      <h2>You have been authorized to see this page. </h2>
-    </div>
-  )
-}
-
-function ProtectedComponent(props) {
-  return (
-    <div>{props.children}</div>  
-  )
-}
-
-function ProtectedRoute({ children, ...rest }, props) {
-  console.log(props)
+function ProtectedRoute({ children, ...rest }) {
   return (
     <Route 
       {...rest}
       render = {() => 
-        fakeAuth() ? (
+        testAuth() ? (
         // this.props.isUserAuth() ? (
           children
         ) : (
