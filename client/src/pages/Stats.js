@@ -1,45 +1,6 @@
-import React from "react"
-var Chart = require("chart.js");
-
-function testChart () {
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-}
+import React from "react";
+import Chart1 from "../components/GaugeChart";
+import { PromiseProvider } from "mongoose";
 
 function getMonthlyTotal(subArray) {
     let sum = 0;
@@ -93,11 +54,43 @@ function getYearlyTotal(subArray) {
     return sum.toFixed(2);
 }
 
+function makeDataMonthly(subArr) {
+    let result = [];
+    if (subArr.length > 0) {
+        subArr.forEach(elem => {
+            switch (elem.frequency){
+                case "Monthly":
+                   result.push({ name: elem.name, cost: elem.cost });
+                   break;
+                case "Weekly":
+                    result.push({ name: elem.name, cost: ((elem.cost * 52) / 12)});
+                    break;
+                case "Yearly":
+                    result.push({ name: elem.name, cost: (elem.cost / 12) });
+                    break;
+                case "Daily":
+                    result.push({ name: elem.name, cost: ((elem.cost * 365) /12) });
+                    break;
+                default:
+                    result.push({ name: elem.name, cost: elem.cost });
+                    break;
+            }    
+        })
+    }
+    return result;
+}
+
 function Stats (props) {
     return (
-    <div>
-        <canvas id="myChart" style={{width: "400", height: "400"}}></canvas>
-        <script>{testChart}</script>
+    <div className="container justify-content-center">
+        <div className="row">
+            <div className = "col">
+                <Chart1 
+                data = {makeDataMonthly(props.subscriptions)} />
+            </div>
+        </div>
+
+        
     </div>
     )
 }
