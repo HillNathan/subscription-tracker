@@ -26,6 +26,8 @@ class App extends Component {
   componentDidMount() {
     API.getUser()
     .then(response => {
+      if (response.data.result === "no user")
+      localStorage.setItem("isAuthenticated", false)
       this.updateUserInfo(response.data)
     })
   }
