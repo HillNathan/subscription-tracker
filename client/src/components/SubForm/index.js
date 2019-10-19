@@ -1,6 +1,13 @@
 import React from "react";
 import "./style.css"
 
+function cb () {
+    console.log("Callback hit")
+    document.getElementById("name-input").value = "";
+    document.getElementById("cost-input").value = "";
+    document.getElementById("frequency-input").value = ""
+}
+
 function SubForm(props) {
     return (
             <div className="row d-flex justify-content-center">
@@ -23,7 +30,7 @@ function SubForm(props) {
                                 <option>Yearly</option>
                             </select>
                         </div>
-                        <button onClick={(event) => props.addSub(event, 
+                        <button onClick={(event) => props.addSub(event, cb, 
                             { 
                                 name: document.getElementById("name-input").value,
                                 cost: document.getElementById("cost-input").value,
