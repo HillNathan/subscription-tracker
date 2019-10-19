@@ -60,12 +60,20 @@ class SignUp extends Component {
   render () {
     return (
       <div className="App">
-        <div className="App__Aside"></div>
-          <div className="App__Form">
+        <div className="row sign-in-header">
+
+        <div className="col-sm App__Aside"></div>
+          <div className="col-sm App__Form">
 
             <div className="FormTitle">
               <a href="/" className="FormTitle__Link">Sign In</a><a href="/sign-up" className="FormTitle__Link FormTitle__Link--Active">Sign Up</a>
             </div>
+          </div>
+        </div>
+
+        <div className="row input-fields">
+          <div className="col-sm App__Aside"></div>
+          <div className="col-sm App__Form">
 
             <div className="FormCenter">
           <form className="Formfields" onChange={this.handleChange}>
@@ -112,6 +120,7 @@ class SignUp extends Component {
           <button className="FormField__Button mr-20" onClick={this.handleSubmit}>Sign Up</button> <a href="/" className="FormField__Link">I'm already a member</a>
         </div>
         </div>
+      </div>
       </div>
     );
   }
