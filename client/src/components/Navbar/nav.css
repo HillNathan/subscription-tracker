@@ -1,8 +1,9 @@
 .navbar, .font {
     background-color: #34495e;
     color: #F66B66;
+    font-size: 3rem;
 }
 
 .btn {
-    color: #F7C558;
+    /* color: #F7C558; */
 }
