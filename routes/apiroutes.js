@@ -32,7 +32,7 @@ module.exports = app => {
 
   app.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.send({ result:"success" });
   });
 
 // Register User

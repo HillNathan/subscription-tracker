@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Switch,
+  Redirect } from "react-router-dom";
 import Main from "./pages/Main"
 import Stats from "./pages/Stats"
 import NoMatch from "./pages/NoMatch"
@@ -27,15 +31,16 @@ class App extends Component {
   }
 
   updateUserInfo = (userObject) => {
-    // console.log("update user info called: ")
-    // console.log("================================")
-    // console.log(this.state)
+    let authStatus = false
+    if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
+
     this.setState({
       firstname: userObject.firstname,
       lastname: userObject.lastname,
       subscriptions: userObject.subscriptions,
       email: userObject.email,
-      income: userObject.income 
+      income: userObject.income,
+      isAuthenticated: authStatus
     })
   }
 
@@ -44,6 +49,33 @@ class App extends Component {
     .then(response => {
       this.updateUserInfo(response.data)
     })
+    .catch (err => {
+      throw err
+    })
+  }
+
+  userLogout = (event, callback) => {
+    event.preventDefault()
+    console.log(this.isUserAuth())
+    if (this.isUserAuth) {
+      API.logoutUser()
+      .then(response => {
+        console.log(response)
+        this.setState({
+          firstname: "",
+          lastname: "",
+          subscriptions: [],
+          email: "",
+          income: 0,
+          isAuthenticated: false
+        })
+        localStorage.setItem("isAuthenticated", false)
+      })
+      .catch(err => {
+        throw err
+      })
+    }
+    return callback()
   }
 
   isUserAuth = () => {
@@ -52,6 +84,7 @@ class App extends Component {
 
   updateAuthStatus = (status) => {
     this.setState ({ isAuthenticated: status })
+    localStorage.setItem("isAuthenticated", status)
   }
 
   addSub = (event, cb, subInfo) => {
@@ -77,7 +110,8 @@ class App extends Component {
       <Router>
         <div className="Main-App">
           <Navbar
-            firstname = {this.state.firstname} />
+            firstname = {this.state.firstname}
+            handleLogout = {this.userLogout} />
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
@@ -90,21 +124,21 @@ class App extends Component {
                 updateAuthStatus = {this.updateAuthStatus}
                 updateUserInfo = {this.updateUserInfo} /> }
             />
-            <Route exact path="/main"
-              render={(props) => <Main {...props}
+            <ProtectedRoute exact path="/main">
+              <Main
                 subscriptions={this.state.subscriptions}
                 addSub={this.addSub}
                 removeSub={this.removeSub}
-              />}
-            /> 
-            <Route exact path="/stats" 
-              render={(props) => <Stats {...props}
+              />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/stats" >
+              <Stats
                 subscriptions = {this.state.subscriptions} 
                 income = {this.state.income} 
                 firstname = {this.state.firstname}
                 lastname = {this.state.lastname}
-                 />}
-            />
+                 />
+            </ProtectedRoute>
             <Route component={NoMatch} />
           </ Switch>
         </div>
@@ -112,5 +146,29 @@ class App extends Component {
     );
   }
 }
+
+function testAuth() {
+  let authStatus = false
+  if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
+  return authStatus
+}
+
+function ProtectedRoute({ children, ...rest }) {
+  return (
+    <Route 
+      {...rest}
+      render = {() => 
+        testAuth() ? (
+        // this.props.isUserAuth() ? (
+          children
+        ) : (
+          <Redirect 
+            to = {{ pathname: "/"}} 
+          />
+      )}
+    />      
+  )
+}
+
 
 export default App;
