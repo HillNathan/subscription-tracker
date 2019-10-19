@@ -1,16 +1,16 @@
 .App {
   height: 100vh;
-  display: flex;
+  /* display: flex; */
   color: white;
 }
 
 .App__Aside {
-  width: 50%;
+  /* width: 50%; */
   background-color: #f6e7a8;
 }
 
 .App__Form {
-  width: 50%;
+  /* width: 50%; */
   background-color: #8ec9ac;
   padding: 25px 40px;
   overflow: auto;

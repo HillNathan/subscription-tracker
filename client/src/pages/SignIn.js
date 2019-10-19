@@ -48,13 +48,20 @@ class SignIn extends Component  {
   render () {
     return (
       <div className="App">
-        <div className="App__Aside"></div>
-          <div className="App__Form">
+        <div className="row sign-in-header">
+          <div className="col-sm App__Aside"></div>
+          <div className="col-sm App__Form">
 
             <div className="FormTitle">
               <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
               <a href="/sign-up" className="FormTitle__Link">Sign Up</a>
             </div>
+          </div>
+        </div>
+
+      <div className="row input-fields">
+          <div className="col-sm App__Aside"></div>
+          <div className="col-sm App__Form">
 
             <div className="FormCenter">
               <form className="Formfields">
@@ -76,7 +83,7 @@ class SignIn extends Component  {
             </div>
 
         </div>
-
+      </div>
       </div>
     );
   }
