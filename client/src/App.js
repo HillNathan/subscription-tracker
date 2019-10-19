@@ -54,13 +54,14 @@ class App extends Component {
     this.setState ({ isAuthenticated: status })
   }
 
-  addSub = (event, subInfo) => {
+  addSub = (event, cb, subInfo) => {
     event.preventDefault()
     console.log(subInfo)
     API.addSubscription(subInfo)
     .then(response => {
       this.updateUserInfo(response.data);
     })
+    return cb()
   }
 
   removeSub = (subId) => {
