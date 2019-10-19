@@ -1,5 +1,6 @@
 import React from "react";
-import Chart1 from "../components/GaugeChart";
+// import Chart1 from "../components/GaugeChart";
+import Chart2 from "../components/ActiveChart";
 import { PromiseProvider } from "mongoose";
 
 function getMonthlyTotal(subArray) {
@@ -56,6 +57,7 @@ function getYearlyTotal(subArray) {
 
 function makeDataMonthly(subArr) {
     let result = [];
+    let temp = 0;
     if (subArr.length > 0) {
         subArr.forEach(elem => {
             switch (elem.frequency){
@@ -63,10 +65,10 @@ function makeDataMonthly(subArr) {
                    result.push({ name: elem.name, cost: elem.cost });
                    break;
                 case "Weekly":
-                    result.push({ name: elem.name, cost: ((elem.cost * 52) / 12)});
+                    result.push({ name: elem.name, cost: ((elem.cost * 52) / 12) });
                     break;
                 case "Yearly":
-                    result.push({ name: elem.name, cost: (elem.cost / 12) });
+                    result.push({ name: elem.name, cost: (elem.cost / 12) }) ;
                     break;
                 case "Daily":
                     result.push({ name: elem.name, cost: ((elem.cost * 365) /12) });
@@ -83,10 +85,12 @@ function makeDataMonthly(subArr) {
 function Stats (props) {
     return (
     <div className="container justify-content-center">
+
         <div className="row">
-            <div className = "col">
-                <Chart1 
+            <div className = "col text-align-center">
+                <Chart2 
                 data = {makeDataMonthly(props.subscriptions)} />
+                {/* <h3>Monthly Subscription Breakdown</h3> */}
             </div>
         </div>
 
