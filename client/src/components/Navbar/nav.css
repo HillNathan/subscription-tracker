@@ -6,6 +6,7 @@ nav {
 h1, .font {
   color: #F66B66;
   font-size: 3rem;
+  font-family: 'Pacifico', cursive;
 }
 
 .top {
@@ -85,10 +86,10 @@ h1, .font {
   -moz-box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px #170c22, 0 2px 1px 0 rgba(52, 73, 94, 0.5), inset 0 0 4px 3px rgba(15, 8, 22, 0.2);
   box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px #170c22, 0 2px 1px 0 rgba(52, 73, 94, 0.5), inset 0 0 4px 3px rgba(15, 8, 22, 0.2);
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1f132e), color-stop(100%, #34495e));
-  background-image: -webkit-linear-gradient(#1f132e, #34495e);
-  background-image: -moz-linear-gradient(#1f132e, #34495e);
-  background-image: -o-linear-gradient(#1f132e, #34495e);
-  background-image: linear-gradient(#010002, #34495e);
+  background-image: -webkit-linear-gradient(#2b3c4e, #34495e);
+  background-image: -moz-linear-gradient(#2b3c4e, #34495e);
+  background-image: -o-linear-gradient(#2b3c4e, #34495e);
+  background-image: linear-gradient(#2b3c4e, #34495e);
   text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 0 10px rgba(223, 206, 228, 0.4), 0 0 2px #2a153c;
   color: #e4e3ce; 
 }
