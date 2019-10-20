@@ -5,7 +5,7 @@ import "./SignIn.css";
 
 function Main (props) {
 	return (
-		<div className="row">
+		<div className="App row">
 			<div className="col-sm left-side"></div>
 			<div className="col-sm right-side">
 				<SubList

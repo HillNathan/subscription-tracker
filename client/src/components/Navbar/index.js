@@ -24,7 +24,7 @@ class Navbar extends Component {
 
     render() {
         return (
-            <nav className="navbar">
+            <nav className="navbar" style={{ marginLeft: 0, marginRight: 0 }}>
                 <a className="navbar-brand font" href="/">Submarine</a>
                 <div>
                     <ul className="nav justify-content-end">

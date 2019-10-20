@@ -1,16 +1,13 @@
 .App {
   height: 100vh;
   min-height: 100%;
-  /* display: flex; */
-  /* flex-direction: row; */
+  margin-right: 0;
 }
 
 .App__Form {
-  /* width: 50%; */
   background-color: #8ec9ac;
   padding: 25px 40px;
   overflow: auto;
-  /* order: 1; */
 }
 
 .left-side {
@@ -22,11 +19,6 @@
   background-color: #8ec9ac;
   padding: 25px 40px;
   overflow: auto;
-}
-
-.input-fields {
-  /* height: 100vh; */
-  min-height: 100%;
 }
 
 .FormCenter {
