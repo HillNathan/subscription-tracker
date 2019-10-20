@@ -16,6 +16,8 @@
     padding: 10px 25px;
     font-size: 1em;
     font-weight: 500;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
   }
 
   .form {

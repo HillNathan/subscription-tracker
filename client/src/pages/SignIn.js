@@ -48,8 +48,8 @@ class SignIn extends Component  {
   render () {
     return (
       <div className="App row">
-        <div className="col-sm App__Aside"></div>
-        <div className="col-sm App__Form">
+        <div className="col-sm left-side"></div>
+        <div className="col-sm right-side">
 
           <div className="FormTitle">
             <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
