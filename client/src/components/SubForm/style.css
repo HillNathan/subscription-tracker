@@ -17,10 +17,8 @@
 .Formfield__Button {
     background-color: #F7C558;
     color: white;
-    /* border: none; */
-    /* outline: none; */
     border-radius: 25px;
-    padding: 15px 70px;
-    font-size: .9em;
+    padding: 10px 25px;
+    font-size: 1em;
     font-weight: 500;
   }

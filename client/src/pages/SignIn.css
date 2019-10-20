@@ -13,10 +13,11 @@
   /* width: 50%; */
   background-color: #8ec9ac;
   padding: 25px 40px;
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 .input-fields {
+  /* height: 100vh; */
   min-height: 100%;
 }
 
@@ -105,12 +106,12 @@
 .FormField__Button {
   background-color: #F7C558;
   color: white;
-  border: none;
-  outline: none;
+  /* border: none; */
   border-radius: 25px;
   padding: 10px 25px;
   font-size: 1em;
   font-weight: 500;
+  margin-right: 1em;
 }
 
 .FormField__Link {
