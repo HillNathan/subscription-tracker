@@ -25,8 +25,16 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar" style={{ marginLeft: 0, marginRight: 0 }}>
-                <a className="navbar-brand font" href="/">Submarine</a>
+                <h1><a className="navbar-brand font" href="/">Submarine</a></h1>
                 <div>
+                <div className='buttons'>
+									<a href='#' title='Title 1'>Subscriptions
+									</a>
+									<a href='#' title='Title 2'>Statistics
+									</a>
+									<a href='#' title='Title 3'>Logout
+									</a>
+                </div>
                     <ul className="nav justify-content-end">
                         {displayGreeting(this.props)}
                         <li className="nav-item">
