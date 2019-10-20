@@ -4,11 +4,6 @@
     max-width: 21rem;
 }
 
-.left-side {
-  background-color: #f6e7a8;
-  /* height: 100vh; */
-}
-
 .right-side {
   background-color: #8ec9ac;
   padding: 25px 40px;
@@ -21,4 +16,8 @@
     padding: 10px 25px;
     font-size: 1em;
     font-weight: 500;
+  }
+
+  .form {
+    min-height: 100%;
   }

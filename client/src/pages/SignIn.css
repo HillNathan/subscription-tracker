@@ -1,5 +1,6 @@
 .App {
   height: 100vh;
+  min-height: 100%;
   /* display: flex; */
   /* color: white; */
 }
@@ -7,6 +8,17 @@
 .App__Aside {
   /* width: 50%; */
   background-color: #f6e7a8;
+}
+
+.left-side {
+  background-color: #f6e7a8;
+  width: 50%;
+  height: 100vh;
+}
+
+.right-side {
+  background-color: #8ec9ac;
+  padding: 25px 40px;
 }
 
 .App__Form {
@@ -19,32 +31,6 @@
 .input-fields {
   /* height: 100vh; */
   min-height: 100%;
-}
-
-.PageSwitcher__Item {
-  background-color: #4C5D72;
-  color: #9DA6B1;
-  padding: 10px 25px;
-  cursor: pointer;
-  font-size: .9em;
-  border: none;
-  outline: none;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.PageSwitcher__Item--Active {
-  background-color: #5ED0C0;
-  color: white;
-}
-
-.PageSwitcher__Item:first-child {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-.PageSwitcher__Item:last-child {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
 }
 
 .FormCenter {

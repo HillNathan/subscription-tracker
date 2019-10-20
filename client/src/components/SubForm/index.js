@@ -10,9 +10,7 @@ function cb () {
 
 function SubForm(props) {
     return (
-            <div className="row">
-                <div className="col-sm left-side"></div>
-                <div className="col-sm right-side">
+                <div className="right-side">
                     <form id="sub-form">
                         <div className="form-group">
                             <label htmlFor="name">Subscription Name</label>
@@ -41,7 +39,7 @@ function SubForm(props) {
                             id="form-submit">Submit</button>
                     </form>
                 </div>
-            </div>
+            // </div>
     )
 }
 
