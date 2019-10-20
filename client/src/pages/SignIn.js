@@ -67,12 +67,12 @@ class SignIn extends Component  {
               <form className="Formfields">
 
                 <div className="FormField">
-                  <label className="FormField__Label" htmlFor="username">username</label>
+                  {/* <label className="FormField__Label" htmlFor="username">username</label> */}
                   <input type="text" id="username" className="FormField__Input" placeholder="enter username" name="username" value={this.state.username} onChange={this.handleChange}/>
                 </div>
                 
                 <div className="FormField">
-                  <label className="FormField__Label" htmlFor="password">password</label>
+                  {/* <label className="FormField__Label" htmlFor="password">password</label> */}
                   <input type="password" id="password" className="FormField__Input" placeholder="enter password" name="password" value={this.state.password} onChange={this.handleChange}/>
                 </div>
               </form>

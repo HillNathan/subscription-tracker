@@ -79,37 +79,37 @@ class SignUp extends Component {
           <form className="Formfields" onChange={this.handleChange}>
             
             <div className="FormField">
-              <label className="FormField__Label" htmlFor="username">username</label>
+              {/* <label className="FormField__Label" htmlFor="username">username</label> */}
               <input type="text" id="username" className="FormField__Input" placeholder="enter username" name="username" value={this.username} />
             </div>
 
             <div className="FormField">
-              <label className="FormField__Label" htmlFor="password">password</label>
+              {/* <label className="FormField__Label" htmlFor="password">password</label> */}
               <input type="text" id="password" className="FormField__Input" placeholder="enter password" name="password" value={this.password} />
             </div>
 
             <div className="FormField">
-              <label className="FormField__Label" htmlFor="verifyPass">verify password</label>
+              {/* <label className="FormField__Label" htmlFor="verifyPass">verify password</label> */}
               <input type="text" id="verifyPass" className="FormField__Input" placeholder="re-enter password" name="password2" value={this.verifyPass} />
             </div>
 
             <div className="FormField">
-              <label className="FormField__Label" htmlFor="firstName">first name</label>
+              {/* <label className="FormField__Label" htmlFor="firstName">first name</label> */}
               <input type="text" id="firstName" className="FormField__Input" placeholder="enter first name" name="firstname" value={this.firstName} />
             </div>
 
             <div className="FormField">
-              <label className="FormField__Label" htmlFor="lastName">last name</label>
+              {/* <label className="FormField__Label" htmlFor="lastName">last name</label> */}
               <input type="text" id="lastName" className="FormField__Input" placeholder="enter last name" name="lastname" value={this.lastName} />
             </div>
 
             <div className="FormField">
-              <label className="FormField__Label" htmlFor="email">email</label>
+              {/* <label className="FormField__Label" htmlFor="email">email</label> */}
               <input type="text" id="email" className="FormField__Input" placeholder="enter email" name="email" value={this.email} />
             </div>
 
             <div className="FormField">
-              <label className="FormField__Label" htmlFor="income">income</label>
+              {/* <label className="FormField__Label" htmlFor="income">income</label> */}
               <input type="text" id="income" className="FormField__Input" placeholder="est. monthly income" name="income" value={this.income} />
             </div>
 

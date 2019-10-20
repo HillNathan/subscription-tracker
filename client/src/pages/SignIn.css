@@ -1,7 +1,7 @@
 .App {
   height: 100vh;
   /* display: flex; */
-  color: white;
+  /* color: white; */
 }
 
 .App__Aside {
@@ -13,13 +13,11 @@
   /* width: 50%; */
   background-color: #8ec9ac;
   padding: 25px 40px;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
-.PageSwitcher {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10%;
+.input-fields {
+  min-height: 100%;
 }
 
 .PageSwitcher__Item {
@@ -49,13 +47,14 @@
 }
 
 .FormCenter {
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
+  max-width: 21rem;
 }
 
 .FormTitle {
   color: #707C8B;
   font-weight: 300;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 .FormTitle__Link {
@@ -109,8 +108,8 @@
   border: none;
   outline: none;
   border-radius: 25px;
-  padding: 15px 70px;
-  font-size: .8em;
+  padding: 10px 25px;
+  font-size: 1em;
   font-weight: 500;
 }
 
@@ -118,7 +117,7 @@
   color: #66707D;
   text-decoration: none;
   display: inline-block;
-  border-bottom: 1.5px solid #225E62;
+  /* border-bottom: 1.5px solid #225E62; */
   padding-bottom: 5px;
 }
 
@@ -134,7 +133,7 @@
 
 .FormField__TermsLink {
   color: white;
-  border-bottom: 1px solid #199087;
+  /* border-bottom: 1px solid #199087; */
   text-decoration: none;
   display: inline-block;
   padding-bottom: 2px;
