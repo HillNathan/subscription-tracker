@@ -110,7 +110,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="Main-App">
+        <div className="container-fluid">
           <Navbar
             firstname = {this.state.firstname}
             handleLogout = {this.userLogout} />

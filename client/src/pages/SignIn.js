@@ -48,24 +48,31 @@ class SignIn extends Component  {
   render () {
     return (
       <div className="App">
-        <div className="App__Aside"></div>
-          <div className="App__Form">
+        <div className="row sign-in-header">
+          <div className="col-sm App__Aside"></div>
+          <div className="col-sm App__Form">
 
             <div className="FormTitle">
               <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
               <a href="/sign-up" className="FormTitle__Link">Sign Up</a>
             </div>
+          </div>
+        </div>
+
+      <div className="row input-fields">
+          <div className="col-sm App__Aside"></div>
+          <div className="col-sm App__Form">
 
             <div className="FormCenter">
               <form className="Formfields">
 
                 <div className="FormField">
-                  <label className="FormField__Label" htmlFor="username">username</label>
+                  {/* <label className="FormField__Label" htmlFor="username">username</label> */}
                   <input type="text" id="username" className="FormField__Input" placeholder="enter username" name="username" value={this.state.username} onChange={this.handleChange}/>
                 </div>
                 
                 <div className="FormField">
-                  <label className="FormField__Label" htmlFor="password">password</label>
+                  {/* <label className="FormField__Label" htmlFor="password">password</label> */}
                   <input type="password" id="password" className="FormField__Input" placeholder="enter password" name="password" value={this.state.password} onChange={this.handleChange}/>
                 </div>
               </form>
@@ -76,7 +83,7 @@ class SignIn extends Component  {
             </div>
 
         </div>
-
+      </div>
       </div>
     );
   }
