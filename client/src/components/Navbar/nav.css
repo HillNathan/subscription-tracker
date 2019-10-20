@@ -1,16 +1,18 @@
 nav {
     background-color: #34495e;
-    color: #F66B66;
-    /* padding: 1rem; */
+    padding: .4rem;
 }
 
-h1 {
+h1, .font {
+  color: #F66B66;
   font-size: 3rem;
 }
 
 .top {
-  width: 33%;
+  width: 390px;
   margin: 1rem;
+  min-height: 3rem;
+  /* margin: 0 auto; */
 }
 
 .row {
@@ -189,6 +191,18 @@ h1 {
         font-size: 19px;
         margin-top: 1px;
         margin-left: 4px; }
+
+
+@media (max-width: 576px) {
+  .top {
+    text-align: center;
+  }
+
+  .right-side {
+    border-width: 5px;
+    border-color: #f6e7a8;
+  }
+}
   
   
   /* peripherial stuff: text and body (will freeze page from scrolling*/
