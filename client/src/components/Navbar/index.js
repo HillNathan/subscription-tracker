@@ -27,10 +27,10 @@ class Navbar extends Component {
             <nav  style={{ marginLeft: 0, marginRight: 0 }}>
                 <div className="row">
 									<div className="col-sm top">
-									<h1><a href="/">Submarine</a></h1>
+									<h1><a className="font" href="/">Submarine</a></h1>
 									</div>
 									<div className="col-sm top">
-										<h2>{displayGreeting(this.props)}</h2>
+										<h3>{displayGreeting(this.props)}</h3>
 									</div>
                 <div className='buttons col-sm top'>
 									<a href='/main' title='Title 1'>Subscriptions
