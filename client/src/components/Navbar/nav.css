@@ -1,17 +1,31 @@
-.navbar, .font {
+nav {
     background-color: #34495e;
     color: #F66B66;
-    /* font-size: 3rem; */
+    /* padding: 1rem; */
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.top {
+  width: 33%;
+  margin: 1rem;
+}
+
+.row {
+  margin-right: 0;
 }
 
 .buttons {
+  margin-top: 1.7rem;
   position: relative;
   white-space: nowrap;
-  min-height: 33px;
-  margin-bottom: 30px;
-  top: 100px;
-  margin-left: 50px; 
+  /* min-height: 33px; */
+  /* width: 80%; */
+  /* margin-left: 50px;  */
   font-size: 10;
+  /* margin: 0 auto; */
 }
 
 .buttons a {
@@ -177,8 +191,8 @@
         margin-left: 4px; }
   
   
-  /* peripherial stuff: text and body */
-  p { 
+  /* peripherial stuff: text and body (will freeze page from scrolling*/
+  /* p { 
     position: absolute; 
     bottom: 50px; 
     left: 13px; 
@@ -196,4 +210,4 @@
     background-image: -webkit-linear-gradient(#862077, #140027);
     background-image: -moz-linear-gradient(#862077, #140027);
     background-image: -o-linear-gradient(#862077, #140027);
-    background-image: linear-gradient(#862077, #140027); }
+    background-image: linear-gradient(#862077, #140027); } */

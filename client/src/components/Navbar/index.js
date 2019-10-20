@@ -24,18 +24,23 @@ class Navbar extends Component {
 
     render() {
         return (
-            <nav className="navbar" style={{ marginLeft: 0, marginRight: 0 }}>
-                <h1><a className="navbar-brand font" href="/">Submarine</a></h1>
-                <div>
-                <div className='buttons'>
-									<a href='#' title='Title 1'>Subscriptions
+            <nav  style={{ marginLeft: 0, marginRight: 0 }}>
+                <div className="row">
+									<div className="col-sm top">
+									<h1><a href="/">Submarine</a></h1>
+									</div>
+									<div className="col-sm top">
+										<h2>{displayGreeting(this.props)}</h2>
+									</div>
+                <div className='buttons col-sm top'>
+									<a href='/main' title='Title 1'>Subscriptions
 									</a>
-									<a href='#' title='Title 2'>Statistics
+									<a href='/stats' title='Title 2'>Statistics
 									</a>
-									<a href='#' title='Title 3'>Logout
+									<a href='#' onClick={(event) => this.props.handleLogout(event, this.redirect)} >Logout
 									</a>
                 </div>
-                    <ul className="nav justify-content-end">
+                    {/* <ul className="nav justify-content-end">
                         {displayGreeting(this.props)}
                         <li className="nav-item">
                             <a className="nav-link" href="/main">
@@ -54,7 +59,7 @@ class Navbar extends Component {
                                 Logout</button>
                             </span>
                         </li>
-                    </ul>
+                    </ul> */}
                 </div>
             </nav>
         )
