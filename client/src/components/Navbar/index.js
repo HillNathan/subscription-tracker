@@ -25,7 +25,7 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-dark bg-dark">
-                <a className="navbar-brand text-white" href="/">Submarine</a>
+                <a className="navbar-brand text-white lora" href="/">Submarine</a>
                 <div>
                     <ul className="nav justify-content-end">
                         {displayGreeting(this.props)}

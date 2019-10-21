@@ -50,9 +50,9 @@ class SignIn extends Component  {
     return (
       <div className="App">
         <div className="App__Aside">
-          <div className="sub-container">
+          {/* <div className="sub-container">
             <Submarine />
-          </div>
+          </div> */}
         </div>
           <div className="App__Form">
 

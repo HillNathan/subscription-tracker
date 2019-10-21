@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import "./style.css";
 import Submarine from "../../components/Submarine"
+import PaddingDiv from "../../components/PaddingDiv"
 const API = require("../../utils/API")
 
 class SignIn extends Component  {
@@ -10,7 +11,8 @@ class SignIn extends Component  {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      form: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -51,12 +53,13 @@ class SignIn extends Component  {
       <div className = "container">
           <div className = "row justify-content-between">
             <div className = "col-lg-5 col-sm-12">
-                <div className = "padding-div"></div>
+                <PaddingDiv height={60} />
                 <div className = "sub-container">
                     <Submarine />
                 </div>
             </div>  
-            <div className = "col-lg-5 col-sm-12">
+            <div className = "col-lg-6 col-sm-12">
+            <PaddingDiv height={30} />
                 <div className = "form-container">
                     <form>
                         <div className = "form-group">
