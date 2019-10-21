@@ -10,8 +10,7 @@ function cb () {
 
 function SubForm(props) {
     return (
-            <div className="row d-flex justify-content-center">
-                <div className="col-10">
+                <div className="right-side">
                     <form id="sub-form">
                         <div className="form-group">
                             <label htmlFor="name">Subscription Name</label>
@@ -36,11 +35,11 @@ function SubForm(props) {
                                 cost: document.getElementById("cost-input").value,
                                 frequency: document.getElementById("frequency-input").value 
                             })}
-                            className="btn btn-dark" 
+                            className="Formfield__Button" 
                             id="form-submit">Submit</button>
                     </form>
                 </div>
-            </div>
+            // </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import "./style.css";
+import "./nav.css";
 
 function displayGreeting(nameObj) {
     if (nameObj.firstname) {
@@ -24,13 +24,26 @@ class Navbar extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-dark bg-dark">
-                <a className="navbar-brand text-white" href="/">Submarine</a>
-                <div>
-                    <ul className="nav justify-content-end">
+            <nav  style={{ marginLeft: 0, marginRight: 0 }}>
+                <div className="row">
+									<div className="col-sm top">
+									<h1><a className="font" href="/">Submarine</a></h1>
+									</div>
+									<div className="col-sm top">
+										<h3>{displayGreeting(this.props)}</h3>
+									</div>
+                <div className='buttons col-sm top'>
+									<a href='/main' title='Title 1'>Subscriptions
+									</a>
+									<a href='/stats' title='Title 2'>Statistics
+									</a>
+									<a href='#' onClick={(event) => this.props.handleLogout(event, this.redirect)} >Logout
+									</a>
+                </div>
+                    {/* <ul className="nav justify-content-end">
                         {displayGreeting(this.props)}
                         <li className="nav-item">
-                            <a className="nav-link text-white" href="/main">
+                            <a className="nav-link" href="/main">
                                 <button className="btn btn-secondary">Subscriptions</button>
                             </a>
                         </li>
@@ -46,7 +59,7 @@ class Navbar extends Component {
                                 Logout</button>
                             </span>
                         </li>
-                    </ul>
+                    </ul> */}
                 </div>
             </nav>
         )

@@ -1,20 +1,17 @@
-.list-group {
-    margin: 20px;
+.left-side {
+    background-color: #f6e7a8;
 }
 
-.fas {
-    float: right;
+.right-side {
+    background-color: #8ec9ac;
 }
-
-.list-group-item {
-    width: 100%;
-    /* display: flex; */
-} 
-.details {
-    /* display: inline; */
-    float: right;
-    margin-right: 10px;
-} 
-
-
   
+ul {
+    margin: 0; 
+    padding:0
+  }
+
+  .list-group-item {
+      margin-bottom: 1rem;
+      max-width: 21rem;
+  }
