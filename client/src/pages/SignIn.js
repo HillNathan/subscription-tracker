@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import "./SignIn.css";
+import Submarine from "../components/Submarine"
 const API = require("../utils/API")
 
 class SignIn extends Component  {
@@ -47,9 +48,21 @@ class SignIn extends Component  {
 
   render () {
     return (
-      <div className="App row">
-        <div className="col-sm left-side"></div>
-        <div className="col-sm right-side">
+      <div className="App">
+        <div className="App__Aside">
+          {/* <div className="sub-container">
+            <Submarine />
+          </div> */}
+        </div>
+          <div className="App__Form">
+
+            <div className="FormTitle">
+              <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
+              <a href="/sign-up" className="FormTitle__Link">Sign Up</a>
+            </div>
+
+            <div className="FormCenter">
+              <form className="Formfields">
 
           <div className="FormTitle">
             <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
@@ -74,7 +87,6 @@ class SignIn extends Component  {
           <div className="FormField">
             <button onClick={this.handleSubmit} className="FormField__Button mr-20">Sign In</button> <a href="/sign-up" className="FormField__Link">Create Account</a>
           </div>
-
         </div>
       </div>
     );
