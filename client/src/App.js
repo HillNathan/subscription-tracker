@@ -110,10 +110,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="container-fluid">
+        <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
           <Navbar
             firstname = {this.state.firstname}
             handleLogout = {this.userLogout} />
+        
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}

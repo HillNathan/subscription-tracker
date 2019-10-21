@@ -4,11 +4,6 @@
     max-width: 21rem;
 }
 
-.left-side {
-  background-color: #f6e7a8;
-  /* height: 100vh; */
-}
-
 .right-side {
   background-color: #8ec9ac;
   padding: 25px 40px;
@@ -17,10 +12,14 @@
 .Formfield__Button {
     background-color: #F7C558;
     color: white;
-    /* border: none; */
-    /* outline: none; */
     border-radius: 25px;
-    padding: 15px 70px;
-    font-size: .9em;
+    padding: 10px 25px;
+    font-size: 1em;
     font-weight: 500;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+  }
+
+  .form {
+    min-height: 100%;
   }
