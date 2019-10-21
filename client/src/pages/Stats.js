@@ -57,28 +57,35 @@ function getYearlyTotal(subArray) {
 
 function makeDataMonthly(subArr) {
     let result = [];
-    let temp = 0;
+    let sum = 0;
     if (subArr.length > 0) {
         subArr.forEach(elem => {
             switch (elem.frequency){
                 case "Monthly":
-                   result.push({ name: elem.name, cost: elem.cost });
+                //    sum = (elem.cost).toFixed(2);
+                   sum = elem.cost
                    break;
                 case "Weekly":
-                    result.push({ name: elem.name, cost: ((elem.cost * 52) / 12) });
+                    // sum = ((elem.cost * 52) / 12).toFixed(2);
+                    sum = ((elem.cost * 52) / 12); 
                     break;
                 case "Yearly":
-                    result.push({ name: elem.name, cost: (elem.cost / 12) }) ;
+                    // sum = (elem.cost / 12).toFixed(2) ;
+                    sum = (elem.cost / 12)
                     break;
                 case "Daily":
-                    result.push({ name: elem.name, cost: ((elem.cost * 365) /12) });
+                    // sum = ((elem.cost * 365) /12).toFixed(2);
+                    sum = ((elem.cost * 365 ) / 12)
                     break;
                 default:
-                    result.push({ name: elem.name, cost: elem.cost });
+                    sum = (elem.cost).toFixed(2);
                     break;
             }    
+            console.log(sum);
+            result.push({ name: elem.name, cost: sum });
         })
     }
+    console.log(result)
     return result;
 }
 

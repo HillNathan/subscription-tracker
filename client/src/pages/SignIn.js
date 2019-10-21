@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import "./SignIn.css";
+import Submarine from "../components/Submarine"
 const API = require("../utils/API")
 
 class SignIn extends Component  {
@@ -48,7 +49,11 @@ class SignIn extends Component  {
   render () {
     return (
       <div className="App">
-        <div className="App__Aside"></div>
+        <div className="App__Aside">
+          <div className="sub-container">
+            <Submarine />
+          </div>
+        </div>
           <div className="App__Form">
 
             <div className="FormTitle">

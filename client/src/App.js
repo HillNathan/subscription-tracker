@@ -11,6 +11,7 @@ import './App.css';
 import Navbar from "./components/Navbar";
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
+import AltSignIn from "./pages/Sign-In"
 const API = require("./utils/API");
 
 class App extends Component {
@@ -141,6 +142,9 @@ class App extends Component {
                 lastname = {this.state.lastname}
                  />
             </ProtectedRoute>
+            <Route exact path = "/alt-signin">
+              <AltSignIn />
+            </Route>
             <Route component={NoMatch} />
           </ Switch>
         </div>
