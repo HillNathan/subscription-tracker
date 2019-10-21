@@ -1,4 +1,25 @@
 #sub-form {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     font-size: 18px;
+    max-width: 21rem;
 }
+
+.right-side {
+  background-color: #8ec9ac;
+  padding: 25px 40px;
+}
+
+.Formfield__Button {
+    background-color: #F7C558;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-size: 1em;
+    font-weight: 500;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+  }
+
+  .form {
+    min-height: 100%;
+  }

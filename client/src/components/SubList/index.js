@@ -4,9 +4,9 @@ import "./style.css"
 
 function SubList(props) {
     return (
-        <div className="row d-flex justify-content-center">
-            <div className="col-10">
-                <ul className="list-group" id="sub-list">
+        // <div className="row">
+            <div className="col-sm right-side">
+                <ul id="sub-list">
                     {props.subscriptions.map(data => {
                         return (
                             <li className="list-group-item" key={data._id}><strong>{data.name}</strong>
@@ -17,7 +17,7 @@ function SubList(props) {
                     })}
                 </ul>
             </div>
-        </div >
+        // </div >
     )
 }
 
