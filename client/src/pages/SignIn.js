@@ -50,19 +50,8 @@ class SignIn extends Component  {
     return (
       <div className="App">
         <div className="App__Aside">
-          {/* <div className="sub-container">
-            <Submarine />
-          </div> */}
         </div>
           <div className="App__Form">
-
-            <div className="FormTitle">
-              <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>
-              <a href="/sign-up" className="FormTitle__Link">Sign Up</a>
-            </div>
-
-            <div className="FormCenter">
-              <form className="Formfields">
 
           <div className="FormTitle">
             <a href="/" className="FormTitle__Link  FormTitle__Link--Active">Sign In</a>

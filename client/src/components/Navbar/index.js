@@ -3,74 +3,59 @@ import { withRouter } from "react-router-dom";
 import "./nav.css";
 
 function displayGreeting(nameObj) {
-    if (nameObj.firstname) {
-        return (
-            <li className="nav-item text-white nav-link pr-5">
-                <h4><strong>Greetings, {nameObj.firstname}!</strong></h4>
-            </li>
-        )
-    }
+  if (nameObj.firstname) {
+    return (
+      <li className="nav-item text-white nav-link pr-5">
+        <h4>
+          <strong>Greetings, {nameObj.firstname}!</strong>
+        </h4>
+      </li>
+    );
+  }
 }
-
-
 
 class Navbar extends Component {
+  redirect = () => {
+    console.log("Callback function hit");
+    this.props.history.push("/");
+  };
 
-    redirect = () => {
-        console.log("Callback function hit")
-        this.props.history.push("/");
-    }
-
-
-    render() {
-        return (
-<<<<<<< HEAD
-            <nav className="navbar navbar-dark bg-dark">
-                <a className="navbar-brand text-white lora" href="/">Submarine</a>
-                <div>
-                    <ul className="nav justify-content-end">
-=======
-            <nav  style={{ marginLeft: 0, marginRight: 0 }}>
-                <div className="row">
-									<div className="col-sm top">
-									<h1><a className="font" href="/">Submarine</a></h1>
-									</div>
-									<div className="col-sm top">
-										<h3>{displayGreeting(this.props)}</h3>
-									</div>
-                <div className='buttons col-sm top'>
-									<a href='/main' title='Title 1'>Subscriptions
-									</a>
-									<a href='/stats' title='Title 2'>Statistics
-									</a>
-									<a href='#' onClick={(event) => this.props.handleLogout(event, this.redirect)} >Logout
-									</a>
-                </div>
-                    {/* <ul className="nav justify-content-end">
->>>>>>> 550a6a52559e70d78b0715f097ba8a4e127ea80d
-                        {displayGreeting(this.props)}
-                        <li className="nav-item">
-                            <a className="nav-link" href="/main">
-                                <button className="btn btn-secondary">Subscriptions</button>
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link text-white" href="/stats">
-                                <button className="btn btn-secondary">Statistics</button>
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <span className = "nav-link text-white" >
-                                <button className="btn btn-secondary" 
-                                        onClick={(event) => this.props.handleLogout(event, this.redirect)} >
-                                Logout</button>
-                            </span>
-                        </li>
-                    </ul> */}
-                </div>
-            </nav>
-        )
-    }
+  render() {
+    return (
+      <nav style={{ marginLeft: 0, marginRight: 0 }}>
+        <div className="row">
+          <div className="col-sm top">
+            <h1>
+              <a className="font" href="/">
+                Submarine
+              </a>
+            </h1>
+          </div>
+          <div className="col-sm top">
+            <h3>{displayGreeting(this.props)}</h3>
+          </div>
+          <div className="col-sm top">
+            <button className="buttons">
+              <a href="/main" title="Title 1">
+                Subscriptions
+              </a>
+            </button>
+            <button className="buttons">
+              <a href="/stats" title="Title 2">
+                Statistics
+              </a>
+            </button>
+            <button
+              className="buttons"
+              onClick={event => this.props.handleLogout(event, this.redirect)}
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 }
 
-export default withRouter(Navbar)
+export default withRouter(Navbar);
