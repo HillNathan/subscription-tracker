@@ -4,7 +4,6 @@ nav {
   border-bottom: 3px solid #f1c40f;
 }
 
-h1,
 .font {
   color: #f1c40f;
   font-size: 3rem;
@@ -33,4 +32,16 @@ h1,
   font-weight: 500;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+a:hover {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+.buttons:hover {
+  color: #f1c40f;
+  background-color: #3d5f81;
 }
