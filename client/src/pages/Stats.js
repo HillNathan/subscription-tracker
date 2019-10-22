@@ -89,6 +89,18 @@ function makeDataMonthly(subArr) {
     return result;
 }
 
+function monthlySum (subArr) {
+    let array = makeDataMonthly(subArr)
+    let total = 0
+    for (var i = 0; i < array.length;i++){
+        total += array[i].cost
+    }
+    console.log(total)
+    return total
+}
+
+
+
 function Stats (props) {
     return (
     <div className="container justify-content-center">
