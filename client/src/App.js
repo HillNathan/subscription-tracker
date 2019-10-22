@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import AltSignIn from "./pages/Sign-In"
+import AltSignUp from "./pages/Sign-Up"
 const API = require("./utils/API");
 
 class App extends Component {
@@ -146,6 +147,10 @@ class App extends Component {
             <Route exact path = "/alt-signin">
               <AltSignIn />
             </Route>
+            <Route exact path = "/alt-signup">
+              <AltSignUp />
+            </Route>
+
             <Route component={NoMatch} />
           </ Switch>
         </div>

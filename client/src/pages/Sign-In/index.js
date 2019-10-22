@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import "./style.css";
 import Submarine from "../../components/Submarine"
 import PaddingDiv from "../../components/PaddingDiv"
-import Logo from "../../components/Logo"
 
 const API = require("../../utils/API")
 
@@ -64,13 +63,35 @@ class SignIn extends Component  {
             <div className = "col-lg-6 col-sm-12">
             <PaddingDiv height={30} />
                 <div className = "form-container">
+                    <PaddingDiv height={20} />
                     <form>
-                        <div className = "form-group">
-                            <h2>Sign-in or Sign Up Placeholder div.</h2>
+                        <div className="mainlinks">
+                            <span className = "activepage">Sign-In</span>
+                        </div>                        
+                        <div className="mainlinks">|</div>
+                        <div className="mainlinks">
+                            <a href="/alt-signup">Sign-Up</a>
                         </div>
-
+                        <PaddingDiv height={30} />
+                        <div className = "form-group">
+                            <label htmlFor="formGroupExampleInput">Username</label>
+                            <input 
+                                type="text" className="form-control" id="username" 
+                                placeholder="Username" value={this.state.username} 
+                                onChange={this.handleChange} name="username" />
+                        </div>
+                        <div className = "form-group">
+                            <label htmlFor="exampleInputPassword1">Password</label>
+                            <input 
+                                type="password" className="form-control" id="password" 
+                                placeholder="Password" value={this.state.password} 
+                                onChange={this.handleChange} name="password"/>
+                        </div>
+                        <button className = "buttons" onClick = {this.handleSubmit} >Log In</button>
 
                     </form>
+                    <PaddingDiv height={60} />
+
                 </div>
             </div>
           </div>
