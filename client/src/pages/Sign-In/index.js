@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import "./style.css";
 import Submarine from "../../components/Submarine"
 import PaddingDiv from "../../components/PaddingDiv"
+import Logo from "../../components/Logo"
+
 const API = require("../../utils/API")
 
 class SignIn extends Component  {
@@ -55,6 +57,7 @@ class SignIn extends Component  {
             <div className = "col-lg-5 col-sm-12">
                 <PaddingDiv height={60} />
                 <div className = "sub-container">
+                    {/* <Logo /> */}
                     <Submarine />
                 </div>
             </div>  
