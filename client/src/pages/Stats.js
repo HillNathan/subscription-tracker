@@ -95,12 +95,12 @@ function monthlySum (subArr) {
         total += array[i].cost
     }
     console.log(total)
-    return total
+    return Number(total.toFixed(2))
 }
 
 function incomeRatio (subArr, income) {
     let total = monthlySum(subArr)
-    let ratio = (total/income)*100+"%"
+    let ratio = ((total/income)*100).toFixed(2)+"%"
     return ratio
 }
 
@@ -113,6 +113,10 @@ function Stats (props) {
                 <Chart2 
                 data = {makeDataMonthly(props.subscriptions)} />
                 {/* <h3>Monthly Subscription Breakdown</h3> */}
+            </div>
+            <div className= "col text-align-center text-white">
+                <p>You are spending a total of ${monthlySum(props.subscriptions)} on subscriptions.</p>
+                <p>This accounts for {incomeRatio(props.subscriptions, props.income)} of your monthly budget.</p>
             </div>
         </div>
 
