@@ -2,18 +2,6 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./nav.css";
 
-// function displayGreeting(nameObj) {
-//   if (nameObj.firstname) {
-//     return (
-//       <li className="nav-item text-white nav-link pr-5">
-//         <h4>
-//           <strong>Greetings, {nameObj.firstname}!</strong>
-//         </h4>
-//       </li>
-//     );
-//   }
-// }
-
 class Navbar extends Component {
   redirect = () => {
     console.log("Callback function hit");
@@ -23,15 +11,15 @@ class Navbar extends Component {
   render() {
     return (
       <nav style={{ marginLeft: 0, marginRight: 0 }}>
-        <div className="row justify content between">
-          <div className="col-sm top">
+        <div className="row justify-content-between">
+          <div className="col-lg-3 col-md-4">
             <h1>
               <a className="font" href="/">
                 Submarine
               </a>
             </h1>
           </div>
-          <div className="col-sm top">
+          <div className="col-xl-4 col-lg-6 col-md-8">
             <a href="/main" title="Subscriptions">
               <button className="buttons">
                   Subscriptions

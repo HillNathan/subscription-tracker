@@ -61,30 +61,28 @@ function makeDataMonthly(subArr) {
         subArr.forEach(elem => {
             switch (elem.frequency){
                 case "Monthly":
-                //    sum = (elem.cost).toFixed(2);
-                   sum = elem.cost
+                   sum = Number((elem.cost).toFixed(2));
+                //    sum = elem.cost
                    break;
                 case "Weekly":
-                    // sum = ((elem.cost * 52) / 12).toFixed(2);
-                    sum = ((elem.cost * 52) / 12); 
+                    sum = Number(((elem.cost * 52) / 12).toFixed(2));
+                    // sum = ((elem.cost * 52) / 12); 
                     break;
                 case "Yearly":
-                    // sum = (elem.cost / 12).toFixed(2) ;
-                    sum = (elem.cost / 12)
+                    sum = Number((elem.cost / 12).toFixed(2)) ;
+                    // sum = (elem.cost / 12)
                     break;
                 case "Daily":
-                    // sum = ((elem.cost * 365) /12).toFixed(2);
-                    sum = ((elem.cost * 365 ) / 12)
+                    sum = Number(((elem.cost * 365) /12).toFixed(2));
+                    // sum = ((elem.cost * 365 ) / 12)
                     break;
                 default:
-                    sum = (elem.cost).toFixed(2);
+                    sum = Number((elem.cost).toFixed(2));
                     break;
             }    
-            console.log(sum);
             result.push({ name: elem.name, cost: sum });
         })
     }
-    console.log(result)
     return result;
 }
 
@@ -119,7 +117,9 @@ function Stats (props) {
                 <p>This accounts for {incomeRatio(props.subscriptions, props.income)} of your monthly budget</p>
             </div>
         </div>
-
+        <div 
+            something = {incomeRatio(props.subscriptions, props.income)} >
+        </div>
         
     </div>
     )

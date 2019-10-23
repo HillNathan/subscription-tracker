@@ -71,7 +71,7 @@ class SignIn extends Component  {
                     <PaddingDiv height={20} />
                     <form>
                         <div className="mainlinks">
-                          <a href="/alt-signin">
+                          <a href="/sign-in">
                             Sign-In
                           </a>
                         </div>                        

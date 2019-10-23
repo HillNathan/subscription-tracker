@@ -9,10 +9,8 @@ import Stats from "./pages/Stats"
 import NoMatch from "./pages/NoMatch"
 import './App.css';
 import Navbar from "./components/Navbar";
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
-import AltSignIn from "./pages/Sign-In"
-import AltSignUp from "./pages/Sign-Up"
+import SignUp from './pages/Sign-Up';
+import SignIn from './pages/Sign-In';
 const API = require("./utils/API");
 
 class App extends Component {
@@ -114,9 +112,7 @@ class App extends Component {
       <Router>
         <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
           <Navbar
-            firstname = {this.state.firstname}
             handleLogout = {this.userLogout} />
-        
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
@@ -144,13 +140,6 @@ class App extends Component {
                 lastname = {this.state.lastname}
                  />
             </ProtectedRoute>
-            <Route exact path = "/alt-signin">
-              <AltSignIn />
-            </Route>
-            <Route exact path = "/alt-signup">
-              <AltSignUp />
-            </Route>
-
             <Route component={NoMatch} />
           </ Switch>
         </div>
