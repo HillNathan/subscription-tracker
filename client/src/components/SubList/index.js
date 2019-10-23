@@ -5,7 +5,7 @@ import "./style.css"
 function SubList(props) {
     return (
         // <div className="row">
-            <div className="col-sm right-side">
+            <div className="col right-side">
                 <ul id="sub-list">
                     {props.subscriptions.map(data => {
                         return (

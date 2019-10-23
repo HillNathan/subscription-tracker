@@ -117,10 +117,6 @@ function Stats (props) {
                 <p>This accounts for {incomeRatio(props.subscriptions, props.income)} of your monthly budget</p>
             </div>
         </div>
-        <div 
-            something = {incomeRatio(props.subscriptions, props.income)} >
-        </div>
-        
     </div>
     )
 }
