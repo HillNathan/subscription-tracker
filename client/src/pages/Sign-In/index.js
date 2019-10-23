@@ -70,7 +70,7 @@ class SignIn extends Component  {
                         </div>                        
                         <div className="mainlinks">|</div>
                         <div className="mainlinks">
-                            <a href="/alt-signup">Sign-Up</a>
+                            <a href="/sign-up">Sign-Up</a>
                         </div>
                         <PaddingDiv height={30} />
                         <div className = "form-group">
