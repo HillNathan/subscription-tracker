@@ -8,17 +8,17 @@ function Main(props) {
   return (
     <div className="App row">
       <div className="container">
-			<PaddingDiv height={30} />
+        <PaddingDiv height={30} />
         <div className="row justify-content-center">
-				<div className="col subscription form-holder">
-				<SubList
-          subscriptions={props.subscriptions}
-          removeSub={props.removeSub}
-        />
-        <SubForm addSub={props.addSub} />
-				</div>
-				</div>
-			</div>
+          <div className="col-10 subscription form-holder">
+            <SubList
+              subscriptions={props.subscriptions}
+              removeSub={props.removeSub}
+            />
+            <SubForm addSub={props.addSub} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

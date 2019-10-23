@@ -136,7 +136,7 @@ render() {
                 <p>You are spending a total of ${this.state.monthlyTotal} per month on subscriptions.</p>
                 <p>This accounts for {this.state.ratio} of your monthly budget</p>
             </div>
-        </div>        
+        </div>
     </div>
     )}
 }
