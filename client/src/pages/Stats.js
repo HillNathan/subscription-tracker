@@ -116,7 +116,7 @@ function Stats (props) {
             </div>
             <div className= "col text-align-center text-white">
                 <p>You are spending a total of ${monthlySum(props.subscriptions)} on subscriptions.</p>
-                <p>This accounts for {incomeRatio(props.subscriptions, props.income)} of your monthly budget.</p>
+                <p>This accounts for {incomeRatio(props.subscriptions, props.income)} of your monthly budget</p>
             </div>
         </div>
 
