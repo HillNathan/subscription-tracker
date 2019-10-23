@@ -3,8 +3,8 @@
 } */
 
 .form-holder {
-	background-color:rgba(52, 152, 219, 0.3);
-	border: 2px solid #ecf0f1;
-	border-radius: 10px;
--moz-border-radius: 10px;
+  background-color: rgba(52, 152, 219, 0.3);
+  border: 2px solid #ecf0f1;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
 }

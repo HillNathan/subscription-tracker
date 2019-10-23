@@ -1,3 +1,7 @@
 .subLogo {
-	background-image: url("./yellowSub.png");
+	width: 50%;
+}
+
+img {
+	width: 50%;
 }
