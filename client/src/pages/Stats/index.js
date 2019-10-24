@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-// import Chart1 from "../components/GaugeChart";
-import Chart2 from "../components/ActiveChart";
+import Chart2 from "../../components/ActiveChart";
+import PageHeader from "../../components/PageHeader";
+
+import "./style.css";
 
 function getMonthlyTotal(subArray) {
     let sum = 0;
@@ -199,9 +201,11 @@ class Stats extends Component {
 render() {
     return (
     <div className="container justify-content-center">
+        <PageHeader headerText = "Statistics" />
+
         <div className="row">
-            <div className = "col-3">
-                <h3>Subscriptions</h3>
+            <div className = "col-xl-3 col-lg-12 group">
+                <h3 className = "group-header">Your Subscriptions</h3>
                 <br />
                 {this.state.statSubscriptions.map((elem, i) => {
                     return (
@@ -214,20 +218,21 @@ render() {
                                     onClick = {() => this.handleCheckboxChange(i, elem.active) } />
                             <label className = "form-check-label" 
                                     htmlFor = {elem.name} >
-                            {elem.name}
+                            {elem.name}, (${elem.cost})
                             </label>
                         </div>
                     )
                 })}
             </div>
-            <div className = "col text-align-center">
+            <div className = "col text-align-center group">
+                <h3 className = "group-header">Subscription Percent Adjusted to Monthly</h3>
                 <Chart2 
                 data = {makeDataMonthly(this.state.statSubscriptions)} />
                 {/* <h3>Monthly Subscription Breakdown</h3> */}
             </div>
-            <div className= "col text-align-center text-white">
-                <p>You are spending a total of ${this.state.monthlyTotal} per month on subscriptions.</p>
-                <p>This accounts for {this.state.ratio} of your monthly budget</p>
+            <div className= "col text-align-center group">
+                <p className = "group-text">You are spending a total of ${this.state.monthlyTotal} per month on subscriptions.</p>
+                <p className = "group-text">This accounts for {this.state.ratio} of your monthly budget</p>
             </div>
         </div>
     </div>

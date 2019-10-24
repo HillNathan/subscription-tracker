@@ -4,13 +4,14 @@ import {
   Route, 
   Switch,
   Redirect } from "react-router-dom";
-import Main from "./pages/Main"
+import Main from "./pages/Subscription"
 import Stats from "./pages/Stats"
 import NoMatch from "./pages/NoMatch"
-import './App.css';
 import Navbar from "./components/Navbar";
 import SignUp from './pages/Sign-Up';
 import SignIn from './pages/Sign-In';
+
+import './App.css';
 const API = require("./utils/API");
 
 class App extends Component {
