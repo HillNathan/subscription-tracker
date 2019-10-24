@@ -10,6 +10,7 @@ import NoMatch from "./pages/NoMatch"
 import Navbar from "./components/Navbar";
 import SignUp from './pages/Sign-Up';
 import SignIn from './pages/Sign-In';
+import Alert from "./components/ModalAlert"
 
 import './App.css';
 const API = require("./utils/API");
@@ -21,7 +22,10 @@ class App extends Component {
     firstname: "",
     lastname: "",
     email: "",
-    income: 0
+    income: 0,
+    isShowingModal: false,
+    modalHeader: "",
+    modalMessage: ""
   };
 
   componentDidMount() {
@@ -85,6 +89,16 @@ class App extends Component {
     return this.state.isAuthenticated
   }
 
+  handleModalClose = () => {
+    this.setState({ isShowingModal: false })
+  }
+
+  triggerModal = (header, message) => {
+    this.setState({ isShowingModal: true });
+    this.setState({ modalHeader: header });
+    this.setState({ modalMessage: message });
+  }
+
   updateAuthStatus = (status) => {
     this.setState ({ isAuthenticated: status })
     localStorage.setItem("isAuthenticated", status)
@@ -117,6 +131,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
+                triggerAlert = {this.triggerModal}
                 isUserAuth = {this.isUserAuth} 
                 updateAuthStatus = {this.updateAuthStatus}
                 updateUserInfo = {this.updateUserInfo} /> }
@@ -144,6 +159,11 @@ class App extends Component {
             <Route component={NoMatch} />
           </ Switch>
         </div>
+        <Alert  
+          handleAlertClose = {this.handleModalClose}
+          showMe = {this.state.isShowingModal}
+          header = {this.state.modalHeader}
+          message = {this.state.modalMessage} />
       </ Router>
     );
   }
@@ -171,6 +191,5 @@ function ProtectedRoute({ children, ...rest }) {
     />      
   )
 }
-
 
 export default App;
