@@ -4,7 +4,7 @@ import {
 } from 'recharts';
 import "./style.css";
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#F1C40F', '#00C49F', '#FFBB28', '#FF8042'];
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -68,13 +68,13 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <PieChart width={800} height={600} onMouseEnter={this.onPieEnter}>
+      <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
         <Pie
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
           data={this.props.data}
           cx={400}
-          cy={500}
+          cy={300}
           startAngle={180}
           endAngle={0}
           innerRadius={140}

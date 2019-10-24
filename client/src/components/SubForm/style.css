@@ -21,3 +21,19 @@
 .form {
   min-height: 100%;
 }
+
+#sub-form {
+  color: #f1c40f;
+  background-color: rgb(52, 73, 94, .33);
+  border-radius: 25px;
+  border-left: 2px solid lightgrey;
+  border-top: 2px solid lightgrey;
+  border-right: 2px solid grey;
+  border-bottom: 2px solid grey;
+  -moz-border-radius: 25px;
+  padding: 10px;
+}
+
+label {
+  font-weight: 500;
+}

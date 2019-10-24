@@ -4,20 +4,20 @@ import "./style.css"
 
 function SubList(props) {
     return (
-        // <div className="row">
-            <div className="col right-side">
+        <div className="row justify-content-center">
+            <div className="col-10 ">
                 <ul id="sub-list">
                     {props.subscriptions.map(data => {
                         return (
                             <li className="list-group-item" key={data._id}><strong>{data.name}</strong>
                             <i onClick={() => props.removeSub(data._id)} className="fas fa-minus-circle"></i>
-                            <div className="details">${data.cost} per {data.frequency}</div>
+                            <div className="details">${data.cost} {data.frequency}</div>
                             </li>
                         )
                     })}
                 </ul>
             </div>
-        // </div >
+        </div >
     )
 }
 
