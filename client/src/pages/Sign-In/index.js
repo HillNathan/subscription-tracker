@@ -30,23 +30,30 @@ class SignIn extends Component  {
 
   handleSubmit(event) {
     event.preventDefault();
-    API.loginUser(this.state)
-    .then(response => {
-      if (response.status === 200) {
-        console.log("login successful")
-        this.props.updateAuthStatus(true)
-        this.props.updateUserInfo(response.data)
-        this.props.history.push("/main");
-      }
-      if (response.status === 401) {
-        console.log("please try again")
-      }
-    })
-    .catch(err => {
-      console.log("please try again")
-      console.log(err)
-    })
-
+    if (this.state.username === "") {
+      this.props.triggerAlert("Alert", "There is no username entered!")
+    } else if (this.state.password === "") {
+      this.props.triggerAlert("Alert", "You forgot to enter a password!")
+    } else {
+      API.loginUser(this.state)
+      .then(response => {
+        if (response.status === 200) {
+          console.log("login successful")
+          this.props.updateAuthStatus(true)
+          this.props.updateUserInfo(response.data)
+          this.props.history.push("/main");
+        }
+        if (response.status === 401) {
+          console.log("If Clause")
+          console.log("please try again")
+        }
+      })
+      .catch(err => {
+        console.log("Catch function")
+        this.props.triggerAlert("Login failed", "Please check your information and try again.")
+        console.log(err)
+      })
+    }
   }
 
   render () {
@@ -88,6 +95,7 @@ class SignIn extends Component  {
                                 onChange={this.handleChange} name="password"/>
                         </div>
                         <button className = "buttons" onClick = {this.handleSubmit} >Log In</button>
+
 
                     </form>
                     <PaddingDiv height={60} />
