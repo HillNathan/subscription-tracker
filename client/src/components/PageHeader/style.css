@@ -1,0 +1,19 @@
+.header-font {
+    color: #f1c40f;
+    font-size: 24pt;
+    font-family: "Pacifico", cursive;
+    text-shadow: -1px -1px 0 #3498db, 1px -1px 0 #3498db, -1px 1px 0 #3498db,
+      1px 1px 0 #3498db;
+  }
+
+.header-div {
+    margin: 10px;
+    padding: 3px;
+    min-width: 250px;
+    background-color: #34495e;
+    border-radius: 25px;
+    border-left: 2px solid lightgrey;
+    border-top: 2px solid lightgrey;
+    border-right: 2px solid grey;
+    border-bottom: 2px solid grey;
+}
