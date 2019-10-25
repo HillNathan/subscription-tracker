@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Chart2 from "../../components/ActiveChart";
 import PageHeader from "../../components/PageHeader";
-
+import Logo from "../../components/Logo"
 import "./style.css";
 
 function getMonthlyTotal(subArray) {
@@ -202,7 +202,7 @@ render() {
     return (
     <div className="container justify-content-center">
         <PageHeader headerText = "Statistics" />
-
+        <Logo />
         <div className="row">
             <div className = "col-xl-3 col-lg-12 group">
                 <h3 className = "group-header">Your Subscriptions</h3>
