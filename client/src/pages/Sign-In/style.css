@@ -1,7 +1,12 @@
-body {
+/* body {
     background-color: rgb(62,165,231);
     background-image: url("../../images/underwater-802092_1920.jpg");
-}
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
+} */
+
+
 
 .sub-container {
     padding-top:30px;

@@ -145,6 +145,10 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <div className = "background-div">
+          <img  className = "background-div-image"
+                src="/images/underwater-802092_1920.jpg" />
+        </div>
         <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
           <Navbar
             handleLogout = {this.userLogout} />
