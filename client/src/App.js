@@ -165,7 +165,7 @@ class App extends Component {
                 <Main
                   subscriptions={this.state.subscriptions}
                   addSub={this.addSub}
-                  removeSub={this.removeSub}
+                  removeSub={this.triggerDelete}
                 />
               </ProtectedRoute>
               <ProtectedRoute exact path="/stats">
