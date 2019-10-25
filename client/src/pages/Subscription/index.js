@@ -8,7 +8,7 @@ import "./style.css";
 
 function Main(props) {
   return (
-    <div className="App row">
+    <div className="App">
       <Logo />
       <div className="container">
         <PageHeader headerText = "Subscriptions" />
