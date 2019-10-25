@@ -26,14 +26,17 @@ nav {
 .buttons {
   background-color: #34495e;
   color: #f1c40f;
+  width: 150px;
   border-radius: 25px;
   padding: 10px 25px;
   font-size: 1em;
   font-weight: 500;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  float: right;
 }
 
 a:hover {
