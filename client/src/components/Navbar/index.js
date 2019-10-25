@@ -19,10 +19,16 @@ class Navbar extends Component {
               </a>
             </h1>
           </div>
-          <div className="col-xl-4 col-lg-6 col-md-8">
+          <div className="col-xl-6 col-lg-8 col-md-9 col-sm-12">
+            <button
+              className="buttons"
+              onClick={event => this.props.handleLogout(event, this.redirect)}
+            >
+              Logout
+            </button>
             <a href="/main" title="Subscriptions">
               <button className="buttons">
-                  Subscriptions
+                Subscriptions
               </button>
             </a>
             <a href="/stats" title="Statistics">
@@ -30,12 +36,6 @@ class Navbar extends Component {
                 Statistics
               </button>
             </a>
-            <button
-              className="buttons"
-              onClick={event => this.props.handleLogout(event, this.redirect)}
-            >
-              Logout
-            </button>
           </div>
         </div>
       </nav>
