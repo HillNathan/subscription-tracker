@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import SignUp from './pages/Sign-Up';
 import SignIn from './pages/Sign-In';
 import Alert from "./components/ModalAlert"
+import Confirm from "./components/ModalConfirm"
 
 import './App.css';
 const API = require("./utils/API");
@@ -25,7 +26,10 @@ class App extends Component {
     income: 0,
     isShowingModal: false,
     modalHeader: "",
-    modalMessage: ""
+    modalMessage: "",
+    button: "",
+    isShowingConfirm: false,
+    subToDelete: ""
   };
 
   componentDidMount() {
@@ -85,6 +89,10 @@ class App extends Component {
     return callback()
   }
 
+  resetConfirm = () => {
+    this.setState({ modalConfirm: false })
+  }
+
   isUserAuth = () => {
     return this.state.isAuthenticated
   }
@@ -93,10 +101,22 @@ class App extends Component {
     this.setState({ isShowingModal: false })
   }
 
-  triggerModal = (header, message) => {
+  handleConfirmClose = () => {
+    this.setState ({ isShowingConfirm: false })
+  }
+
+  triggerModal = (header, message, button) => {
     this.setState({ isShowingModal: true });
     this.setState({ modalHeader: header });
     this.setState({ modalMessage: message });
+    this.setState({ button });
+  }
+
+  triggerDelete = (subName, subId) => {
+    this.setState({ isShowingConfirm: true });
+    this.setState({ modalHeader: "Confirm Delete" });
+    this.setState({ modalMessage: "Please confirm you would like to delete " + subName });
+    this.setState({ subToDelete: subId })
   }
 
   updateAuthStatus = (status) => {
@@ -115,7 +135,8 @@ class App extends Component {
   }
 
   removeSub = (subId) => {
-    console.log(subId);
+    console.log("DELETE " + subId);
+    this.setState ({ isShowingConfirm: false })
     API.deleteSubscription({ id: subId })
     .then(response => {
       this.updateUserInfo(response.data)
@@ -145,7 +166,7 @@ class App extends Component {
               <Main
                 subscriptions={this.state.subscriptions}
                 addSub={this.addSub}
-                removeSub={this.removeSub}
+                removeSub={this.triggerDelete}
               />
             </ProtectedRoute>
             <ProtectedRoute exact path="/stats" >
@@ -163,7 +184,15 @@ class App extends Component {
           handleAlertClose = {this.handleModalClose}
           showMe = {this.state.isShowingModal}
           header = {this.state.modalHeader}
-          message = {this.state.modalMessage} />
+          message = {this.state.modalMessage}
+          button = {this.state.button}  />
+        <Confirm 
+          handleClose = {this.handleConfirmClose}
+          showMe = {this.state.isShowingConfirm}
+          header = {this.state.modalHeader}
+          message = {this.state.modalMessage}
+          actionIfTrue = {this.removeSub} 
+          subToDelete = {this.state.subToDelete} />
       </ Router>
     );
   }

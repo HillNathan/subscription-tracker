@@ -19,20 +19,14 @@ class AlertDialogSlide extends Component {
             open: false,
             message: "",
             header: "",
-            button: "",
         }
     }
-
-    handleClickOpen = () => {
-        this.setState({ open:true });
-    };
 
     componentWillReceiveProps (incomingProps) {
         this.setState({ 
             open:incomingProps.showMe,
             header: incomingProps.header,
-            message: incomingProps.message,
-            button: incomingProps.button, })
+            message: incomingProps.message })
     }
   
   render() {
@@ -49,12 +43,15 @@ class AlertDialogSlide extends Component {
         <DialogTitle id="alert-dialog-slide-title">{this.state.header}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            {this.props.message}
+            {this.state.message}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => this.props.handleAlertClose()} color="primary">
-            {this.props.button}
+          <Button onClick={() => this.props.handleClose()} color="primary">
+            CANCEL
+          </Button>
+          <Button onClick={() => this.props.actionIfTrue(this.props.subToDelete)} color="primary">
+            CONFIRM
           </Button>
         </DialogActions>
       </Dialog>
