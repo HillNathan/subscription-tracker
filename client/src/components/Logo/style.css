@@ -1,3 +1,23 @@
+img {
+  width: 14rem;
+}
+
 .subLogo {
-	background-image: url("./yellowSub.png");
+  height: 0;
+  width: 50%;
+  animation: nudge 20s linear infinite;
+}
+
+@keyframes nudge {
+  0% {
+    transform: translate(-150px, 10rem);
+  }
+  
+  /* 50% {
+    transform: translate(2000px, 10rem);
+  } */
+  
+  100% {
+    transform: translate(2000px, 10rem);
+  }
 }

@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import { 
-  BrowserRouter as Router, 
-  Route, 
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
   Switch,
-  Redirect } from "react-router-dom";
-import Main from "./pages/Subscription"
-import Stats from "./pages/Stats"
-import NoMatch from "./pages/NoMatch"
+  Redirect
+} from "react-router-dom";
+import Main from "./pages/Subscription";
+import Stats from "./pages/Stats";
+import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
-import SignUp from './pages/Sign-Up';
-import SignIn from './pages/Sign-In';
-import Alert from "./components/ModalAlert"
-
-import './App.css';
+import SignUp from "./pages/Sign-Up";
+import SignIn from "./pages/Sign-In";
+import Alert from "./components/ModalAlert";
+// import Logo from "./components/Logo";
+import "./App.css";
 const API = require("./utils/API");
 
 class App extends Component {
@@ -29,17 +30,16 @@ class App extends Component {
   };
 
   componentDidMount() {
-    API.getUser()
-    .then(response => {
+    API.getUser().then(response => {
       if (response.data.result === "no user")
-      localStorage.setItem("isAuthenticated", false)
-      this.updateUserInfo(response.data)
-    })
+        localStorage.setItem("isAuthenticated", false);
+      this.updateUserInfo(response.data);
+    });
   }
 
-  updateUserInfo = (userObject) => {
-    let authStatus = false
-    if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
+  updateUserInfo = userObject => {
+    let authStatus = false;
+    if (localStorage.getItem("isAuthenticated") === "true") authStatus = true;
 
     this.setState({
       firstname: userObject.firstname,
@@ -48,148 +48,160 @@ class App extends Component {
       email: userObject.email,
       income: userObject.income,
       isAuthenticated: authStatus
-    })
-  }
+    });
+  };
 
-  userLogin = (userInfo) => {
+  userLogin = userInfo => {
     API.loginUser(userInfo)
-    .then(response => {
-      this.updateUserInfo(response.data)
-    })
-    .catch (err => {
-      throw err
-    })
-  }
-
-  userLogout = (event, callback) => {
-    event.preventDefault()
-    console.log(this.isUserAuth())
-    if (this.isUserAuth) {
-      API.logoutUser()
       .then(response => {
-        console.log(response)
-        this.setState({
-          firstname: "",
-          lastname: "",
-          subscriptions: [],
-          email: "",
-          income: 0,
-          isAuthenticated: false
-        })
-        localStorage.setItem("isAuthenticated", false)
+        this.updateUserInfo(response.data);
       })
       .catch(err => {
-        throw err
-      })
+        throw err;
+      });
+  };
+
+  userLogout = (event, callback) => {
+    event.preventDefault();
+    console.log(this.isUserAuth());
+    if (this.isUserAuth) {
+      API.logoutUser()
+        .then(response => {
+          console.log(response);
+          this.setState({
+            firstname: "",
+            lastname: "",
+            subscriptions: [],
+            email: "",
+            income: 0,
+            isAuthenticated: false
+          });
+          localStorage.setItem("isAuthenticated", false);
+        })
+        .catch(err => {
+          throw err;
+        });
     }
-    return callback()
-  }
+    return callback();
+  };
 
   isUserAuth = () => {
-    return this.state.isAuthenticated
-  }
+    return this.state.isAuthenticated;
+  };
 
   handleModalClose = () => {
-    this.setState({ isShowingModal: false })
-  }
+    this.setState({ isShowingModal: false });
+  };
 
   triggerModal = (header, message) => {
     this.setState({ isShowingModal: true });
     this.setState({ modalHeader: header });
     this.setState({ modalMessage: message });
-  }
+  };
 
-  updateAuthStatus = (status) => {
-    this.setState ({ isAuthenticated: status })
-    localStorage.setItem("isAuthenticated", status)
-  }
+  updateAuthStatus = status => {
+    this.setState({ isAuthenticated: status });
+    localStorage.setItem("isAuthenticated", status);
+  };
 
   addSub = (event, cb, subInfo) => {
-    event.preventDefault()
-    console.log(subInfo)
-    API.addSubscription(subInfo)
-    .then(response => {
+    event.preventDefault();
+    console.log(subInfo);
+    API.addSubscription(subInfo).then(response => {
       this.updateUserInfo(response.data);
-    })
-    return cb()
-  }
+    });
+    return cb();
+  };
 
-  removeSub = (subId) => {
+  removeSub = subId => {
     console.log(subId);
-    API.deleteSubscription({ id: subId })
-    .then(response => {
-      this.updateUserInfo(response.data)
-    })
-  }
+    API.deleteSubscription({ id: subId }).then(response => {
+      this.updateUserInfo(response.data);
+    });
+  };
 
   render() {
     return (
       <Router>
-        <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
-          <Navbar
-            handleLogout = {this.userLogout} />
-          <Switch>
-            <Route exact path="/"
-              render={(props) => <SignIn {...props}
-                triggerAlert = {this.triggerModal}
-                isUserAuth = {this.isUserAuth} 
-                updateAuthStatus = {this.updateAuthStatus}
-                updateUserInfo = {this.updateUserInfo} /> }
-            /> 
-            <Route exact path="/sign-up" 
-              render = {(props) => <SignUp {...props}
-                updateAuthStatus = {this.updateAuthStatus}
-                updateUserInfo = {this.updateUserInfo} /> }
-            />
-            <ProtectedRoute exact path="/main">
-              <Main
-                subscriptions={this.state.subscriptions}
-                addSub={this.addSub}
-                removeSub={this.removeSub}
+        <div
+          className="container-fluid"
+          style={{ paddingLeft: 0, paddingRight: 0 }}
+        >
+          <Navbar handleLogout={this.userLogout} />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <SignIn
+                    {...props}
+                    triggerAlert={this.triggerModal}
+                    isUserAuth={this.isUserAuth}
+                    updateAuthStatus={this.updateAuthStatus}
+                    updateUserInfo={this.updateUserInfo}
+                  />
+                )}
               />
-            </ProtectedRoute>
-            <ProtectedRoute exact path="/stats" >
-              <Stats
-                subscriptions = {this.state.subscriptions} 
-                income = {this.state.income} 
-                firstname = {this.state.firstname}
-                lastname = {this.state.lastname}
-                 />
-            </ProtectedRoute>
-            <Route component={NoMatch} />
-          </ Switch>
+              <Route
+                exact
+                path="/sign-up"
+                render={props => (
+                  <SignUp
+                    {...props}
+                    updateAuthStatus={this.updateAuthStatus}
+                    updateUserInfo={this.updateUserInfo}
+                  />
+                )}
+              />
+              <ProtectedRoute exact path="/main">
+                <Main
+                  subscriptions={this.state.subscriptions}
+                  addSub={this.addSub}
+                  removeSub={this.removeSub}
+                />
+              </ProtectedRoute>
+              <ProtectedRoute exact path="/stats">
+                <Stats
+                  subscriptions={this.state.subscriptions}
+                  income={this.state.income}
+                  firstname={this.state.firstname}
+                  lastname={this.state.lastname}
+                />
+              </ProtectedRoute>
+              <Route component={NoMatch} />
+            </Switch>
         </div>
-        <Alert  
-          handleAlertClose = {this.handleModalClose}
-          showMe = {this.state.isShowingModal}
-          header = {this.state.modalHeader}
-          message = {this.state.modalMessage} />
-      </ Router>
+        <Alert
+          handleAlertClose={this.handleModalClose}
+          showMe={this.state.isShowingModal}
+          header={this.state.modalHeader}
+          message={this.state.modalMessage}
+        />
+      </Router>
     );
   }
 }
 
 function testAuth() {
-  let authStatus = false
-  if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
-  return authStatus
+  let authStatus = false;
+  if (localStorage.getItem("isAuthenticated") === "true") authStatus = true;
+  return authStatus;
 }
 
 function ProtectedRoute({ children, ...rest }) {
   return (
-    <Route 
+    <Route
       {...rest}
-      render = {() => 
+      render={() =>
         testAuth() ? (
-        // this.props.isUserAuth() ? (
+          // this.props.isUserAuth() ? (
           children
         ) : (
-          <Redirect 
-            to = {{ pathname: "/"}} 
-          />
-      )}
-    />      
-  )
+          <Redirect to={{ pathname: "/" }} />
+        )
+      }
+    />
+  );
 }
 
 export default App;
