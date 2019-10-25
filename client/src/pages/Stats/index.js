@@ -114,7 +114,6 @@ function initialYearlyTotal(subArray) {
     return Number(sum.toFixed(2));
 }
 
-
 function makeDataMonthly(subArr) {
     let result = [];
     let sum = 0;
@@ -133,6 +132,36 @@ function makeDataMonthly(subArr) {
                         break;
                     case "Daily":
                         sum = Number(((elem.cost * 365) /12).toFixed(2));
+                        break;
+                    default:
+                        sum = Number((elem.cost).toFixed(2));
+                        break;
+                }
+                result.push({ name: elem.name, cost: sum });
+            }
+        })
+    }
+    return result;
+}
+
+function makeDataYearly(subArr) {
+    let result = [];
+    let sum = 0;
+    if (subArr.length > 0) {
+        subArr.forEach(elem => {
+            if (elem.active) {
+                switch (elem.frequency){
+                    case "Monthly":
+                        sum = Number((elem.cost * 12).toFixed(2));
+                        break;
+                    case "Weekly":
+                        sum = Number((elem.cost * 52).toFixed(2));
+                        break;
+                    case "Yearly":
+                        sum = Number((elem.cost).toFixed(2)) ;
+                        break;
+                    case "Daily":
+                        sum = Number((elem.cost * 365).toFixed(2));
                         break;
                     default:
                         sum = Number((elem.cost).toFixed(2));
@@ -180,6 +209,7 @@ class Stats extends Component {
         yearlyTotal: 0,
         ratio: "",
         statSubscriptions: [],
+        toggleMonthly: true
     }
 
     handleCheckboxChange(index, event) {
@@ -189,6 +219,10 @@ class Stats extends Component {
         this.setState({ statSubscriptions: tempArr })
         this.setState({ monthlyTotal: getMonthlyTotal(this.state.statSubscriptions) })
         this.setState({ ratio: incomeRatio(this.state.statSubscriptions, this.props.income)})
+    }
+
+    handleToggle(toggle) {
+        this.setState({ toggleMonthly: toggle})
     }
 
     componentWillReceiveProps(incomingProps) {        
@@ -227,8 +261,15 @@ render() {
             <div className = "col text-align-center group">
                 <h3 className = "group-header">Subscription Percent Adjusted to Monthly</h3>
                 <Chart2 
-                data = {makeDataMonthly(this.state.statSubscriptions)} />
-                {/* <h3>Monthly Subscription Breakdown</h3> */}
+                data = {(this.state.toggleMonthly) ? 
+                    makeDataMonthly(this.state.statSubscriptions)
+                    : makeDataYearly(this.state.statSubscriptions) } />
+                <div className = "toggleGroup">
+                    <span className = {(this.state.toggleMonthly) ? "toggleOn" : "toggleOff"} 
+                          onClick = {() => this.handleToggle(true)}>Monthly</span> | 
+                    <span className = {(this.state.toggleMonthly) ? "toggleOff" : "toggleOn"} 
+                          onClick = {() => this.handleToggle(false)}>Yearly</span>  
+                </div>
             </div>
             <div className= "col text-align-center group">
                 <p className = "group-text">You are spending a total of ${this.state.monthlyTotal} per month on subscriptions.</p>
