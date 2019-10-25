@@ -23,10 +23,10 @@ nav {
   margin-right: 0;
 }
 
-.buttons {
+.nav-buttons {
   background-color: #34495e;
   color: #f1c40f;
-  width: 150px;
+  width: 149px;
   border-radius: 25px;
   padding: 10px 25px;
   font-size: 1em;
