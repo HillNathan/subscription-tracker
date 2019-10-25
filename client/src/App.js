@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { 
-  BrowserRouter as Router, 
-  Route, 
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
   Switch,
-  Redirect } from "react-router-dom";
-import Main from "./pages/Subscription"
-import Stats from "./pages/Stats"
-import NoMatch from "./pages/NoMatch"
+  Redirect
+} from "react-router-dom";
+import Main from "./pages/Subscription";
+import Stats from "./pages/Stats";
+import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
 import SignUp from './pages/Sign-Up';
 import SignIn from './pages/Sign-In';
@@ -33,17 +34,16 @@ class App extends Component {
   };
 
   componentDidMount() {
-    API.getUser()
-    .then(response => {
+    API.getUser().then(response => {
       if (response.data.result === "no user")
-      localStorage.setItem("isAuthenticated", false)
-      this.updateUserInfo(response.data)
-    })
+        localStorage.setItem("isAuthenticated", false);
+      this.updateUserInfo(response.data);
+    });
   }
 
-  updateUserInfo = (userObject) => {
-    let authStatus = false
-    if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
+  updateUserInfo = userObject => {
+    let authStatus = false;
+    if (localStorage.getItem("isAuthenticated") === "true") authStatus = true;
 
     this.setState({
       firstname: userObject.firstname,
@@ -52,54 +52,54 @@ class App extends Component {
       email: userObject.email,
       income: userObject.income,
       isAuthenticated: authStatus
-    })
-  }
+    });
+  };
 
-  userLogin = (userInfo) => {
+  userLogin = userInfo => {
     API.loginUser(userInfo)
-    .then(response => {
-      this.updateUserInfo(response.data)
-    })
-    .catch (err => {
-      throw err
-    })
-  }
-
-  userLogout = (event, callback) => {
-    event.preventDefault()
-    console.log(this.isUserAuth())
-    if (this.isUserAuth) {
-      API.logoutUser()
       .then(response => {
-        console.log(response)
-        this.setState({
-          firstname: "",
-          lastname: "",
-          subscriptions: [],
-          email: "",
-          income: 0,
-          isAuthenticated: false
-        })
-        localStorage.setItem("isAuthenticated", false)
+        this.updateUserInfo(response.data);
       })
       .catch(err => {
-        throw err
-      })
+        throw err;
+      });
+  };
+
+  userLogout = (event, callback) => {
+    event.preventDefault();
+    console.log(this.isUserAuth());
+    if (this.isUserAuth) {
+      API.logoutUser()
+        .then(response => {
+          console.log(response);
+          this.setState({
+            firstname: "",
+            lastname: "",
+            subscriptions: [],
+            email: "",
+            income: 0,
+            isAuthenticated: false
+          });
+          localStorage.setItem("isAuthenticated", false);
+        })
+        .catch(err => {
+          throw err;
+        });
     }
-    return callback()
-  }
+    return callback();
+  };
 
   resetConfirm = () => {
     this.setState({ modalConfirm: false })
   }
 
   isUserAuth = () => {
-    return this.state.isAuthenticated
-  }
+    return this.state.isAuthenticated;
+  };
 
   handleModalClose = () => {
-    this.setState({ isShowingModal: false })
-  }
+    this.setState({ isShowingModal: false });
+  };
 
   handleConfirmClose = () => {
     this.setState ({ isShowingConfirm: false })
@@ -119,20 +119,19 @@ class App extends Component {
     this.setState({ subToDelete: subId })
   }
 
-  updateAuthStatus = (status) => {
-    this.setState ({ isAuthenticated: status })
-    localStorage.setItem("isAuthenticated", status)
-  }
+  updateAuthStatus = status => {
+    this.setState({ isAuthenticated: status });
+    localStorage.setItem("isAuthenticated", status);
+  };
 
   addSub = (event, cb, subInfo) => {
-    event.preventDefault()
-    console.log(subInfo)
-    API.addSubscription(subInfo)
-    .then(response => {
+    event.preventDefault();
+    console.log(subInfo);
+    API.addSubscription(subInfo).then(response => {
       this.updateUserInfo(response.data);
-    })
-    return cb()
-  }
+    });
+    return cb();
+  };
 
   removeSub = (subId) => {
     console.log("DELETE " + subId);
@@ -162,23 +161,23 @@ class App extends Component {
                 updateAuthStatus = {this.updateAuthStatus}
                 updateUserInfo = {this.updateUserInfo} /> }
             />
-            <ProtectedRoute exact path="/main">
-              <Main
-                subscriptions={this.state.subscriptions}
-                addSub={this.addSub}
-                removeSub={this.triggerDelete}
-              />
-            </ProtectedRoute>
-            <ProtectedRoute exact path="/stats" >
-              <Stats
-                subscriptions = {this.state.subscriptions} 
-                income = {this.state.income} 
-                firstname = {this.state.firstname}
-                lastname = {this.state.lastname}
-                 />
-            </ProtectedRoute>
-            <Route component={NoMatch} />
-          </ Switch>
+              <ProtectedRoute exact path="/main">
+                <Main
+                  subscriptions={this.state.subscriptions}
+                  addSub={this.addSub}
+                  removeSub={this.removeSub}
+                />
+              </ProtectedRoute>
+              <ProtectedRoute exact path="/stats">
+                <Stats
+                  subscriptions={this.state.subscriptions}
+                  income={this.state.income}
+                  firstname={this.state.firstname}
+                  lastname={this.state.lastname}
+                />
+              </ProtectedRoute>
+              <Route component={NoMatch} />
+            </Switch>
         </div>
         <Alert  
           handleAlertClose = {this.handleModalClose}
@@ -199,26 +198,25 @@ class App extends Component {
 }
 
 function testAuth() {
-  let authStatus = false
-  if (localStorage.getItem("isAuthenticated") === "true") authStatus = true
-  return authStatus
+  let authStatus = false;
+  if (localStorage.getItem("isAuthenticated") === "true") authStatus = true;
+  return authStatus;
 }
 
 function ProtectedRoute({ children, ...rest }) {
   return (
-    <Route 
+    <Route
       {...rest}
-      render = {() => 
+      render={() =>
         testAuth() ? (
-        // this.props.isUserAuth() ? (
+          // this.props.isUserAuth() ? (
           children
         ) : (
-          <Redirect 
-            to = {{ pathname: "/"}} 
-          />
-      )}
-    />      
-  )
+          <Redirect to={{ pathname: "/" }} />
+        )
+      }
+    />
+  );
 }
 
 export default App;

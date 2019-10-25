@@ -1,0 +1,25 @@
+img {
+  width: 20rem;
+}
+
+.subLogo-2 {
+  /* animation: subMove 2s infinite ;
+  /* width: 10%; */
+  height: 0;
+  /* width: 30%; */
+  animation: bump 4s linear infinite;
+}
+
+@keyframes bump {
+  0% {
+    transform: translate(0px, 7rem);
+  }
+  
+  50% {
+    transform: translate(0px, 2rem);
+  }
+  
+  100% {
+    transform: translate(0px, 7rem);
+  }
+}

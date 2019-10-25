@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import "./style.css";
-import Submarine from "../../components/Submarine"
+import SignInLogo from "../../components/SignInLogo";
 import PaddingDiv from "../../components/PaddingDiv"
 
 const API = require("../../utils/API")
@@ -62,10 +62,8 @@ class SignIn extends Component  {
           <div className = "row justify-content-between">
             <div className = "col-lg-5 col-sm-12">
                 <PaddingDiv height={60} />
-                <div className = "sub-container">
-                    {/* <Logo /> */}
-                    <Submarine />
-                </div>
+                
+                    <SignInLogo />
             </div>  
             <div className = "col-lg-6 col-sm-12">
             <PaddingDiv height={30} />
