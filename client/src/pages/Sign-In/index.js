@@ -31,9 +31,9 @@ class SignIn extends Component  {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.username === "") {
-      this.props.triggerAlert("Alert", "There is no username entered!")
+      this.props.triggerAlert("Alert", "There is no username entered!", "CLOSE")
     } else if (this.state.password === "") {
-      this.props.triggerAlert("Alert", "You forgot to enter a password!")
+      this.props.triggerAlert("Alert", "You forgot to enter a password!", "CLOSE")
     } else {
       API.loginUser(this.state)
       .then(response => {
@@ -50,7 +50,7 @@ class SignIn extends Component  {
       })
       .catch(err => {
         console.log("Catch function")
-        this.props.triggerAlert("Login failed", "Please check your information and try again.")
+        this.props.triggerAlert("Login failed", "Please check your information and try again.", "CLOSE")
         console.log(err)
       })
     }
@@ -93,11 +93,8 @@ class SignIn extends Component  {
                                 onChange={this.handleChange} name="password"/>
                         </div>
                         <button className = "buttons" onClick = {this.handleSubmit} >Log In</button>
-
-
                     </form>
                     <PaddingDiv height={60} />
-
                 </div>
             </div>
           </div>

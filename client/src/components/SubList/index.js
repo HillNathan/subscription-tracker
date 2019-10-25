@@ -10,7 +10,7 @@ function SubList(props) {
                     {props.subscriptions.map(data => {
                         return (
                             <li className="list-group-item" key={data._id}><strong>{data.name}</strong>
-                            <i onClick={() => props.removeSub(data._id)} className="fas fa-minus-circle"></i>
+                            <i onClick={() => props.removeSub(data.name, data._id)} className="fas fa-minus-circle"></i>
                             <div className="details">${data.cost} {data.frequency}</div>
                             </li>
                         )

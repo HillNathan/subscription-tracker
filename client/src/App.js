@@ -9,11 +9,12 @@ import Main from "./pages/Subscription";
 import Stats from "./pages/Stats";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
-import SignUp from "./pages/Sign-Up";
-import SignIn from "./pages/Sign-In";
-import Alert from "./components/ModalAlert";
-// import Logo from "./components/Logo";
-import "./App.css";
+import SignUp from './pages/Sign-Up';
+import SignIn from './pages/Sign-In';
+import Alert from "./components/ModalAlert"
+import Confirm from "./components/ModalConfirm"
+
+import './App.css';
 const API = require("./utils/API");
 
 class App extends Component {
@@ -26,7 +27,10 @@ class App extends Component {
     income: 0,
     isShowingModal: false,
     modalHeader: "",
-    modalMessage: ""
+    modalMessage: "",
+    button: "",
+    isShowingConfirm: false,
+    subToDelete: ""
   };
 
   componentDidMount() {
@@ -85,6 +89,10 @@ class App extends Component {
     return callback();
   };
 
+  resetConfirm = () => {
+    this.setState({ modalConfirm: false })
+  }
+
   isUserAuth = () => {
     return this.state.isAuthenticated;
   };
@@ -93,11 +101,23 @@ class App extends Component {
     this.setState({ isShowingModal: false });
   };
 
-  triggerModal = (header, message) => {
+  handleConfirmClose = () => {
+    this.setState ({ isShowingConfirm: false })
+  }
+
+  triggerModal = (header, message, button) => {
     this.setState({ isShowingModal: true });
     this.setState({ modalHeader: header });
     this.setState({ modalMessage: message });
-  };
+    this.setState({ button });
+  }
+
+  triggerDelete = (subName, subId) => {
+    this.setState({ isShowingConfirm: true });
+    this.setState({ modalHeader: "Confirm Delete" });
+    this.setState({ modalMessage: "Please confirm you would like to delete " + subName });
+    this.setState({ subToDelete: subId })
+  }
 
   updateAuthStatus = status => {
     this.setState({ isAuthenticated: status });
@@ -113,46 +133,34 @@ class App extends Component {
     return cb();
   };
 
-  removeSub = subId => {
-    console.log(subId);
-    API.deleteSubscription({ id: subId }).then(response => {
-      this.updateUserInfo(response.data);
-    });
-  };
+  removeSub = (subId) => {
+    console.log("DELETE " + subId);
+    this.setState ({ isShowingConfirm: false })
+    API.deleteSubscription({ id: subId })
+    .then(response => {
+      this.updateUserInfo(response.data)
+    })
+  }
 
   render() {
     return (
       <Router>
-        <div
-          className="container-fluid"
-          style={{ paddingLeft: 0, paddingRight: 0 }}
-        >
-          <Navbar handleLogout={this.userLogout} />
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <SignIn
-                    {...props}
-                    triggerAlert={this.triggerModal}
-                    isUserAuth={this.isUserAuth}
-                    updateAuthStatus={this.updateAuthStatus}
-                    updateUserInfo={this.updateUserInfo}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path="/sign-up"
-                render={props => (
-                  <SignUp
-                    {...props}
-                    updateAuthStatus={this.updateAuthStatus}
-                    updateUserInfo={this.updateUserInfo}
-                  />
-                )}
-              />
+        <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <Navbar
+            handleLogout = {this.userLogout} />
+          <Switch>
+            <Route exact path="/"
+              render={(props) => <SignIn {...props}
+                triggerAlert = {this.triggerModal}
+                isUserAuth = {this.isUserAuth} 
+                updateAuthStatus = {this.updateAuthStatus}
+                updateUserInfo = {this.updateUserInfo} /> }
+            /> 
+            <Route exact path="/sign-up" 
+              render = {(props) => <SignUp {...props}
+                updateAuthStatus = {this.updateAuthStatus}
+                updateUserInfo = {this.updateUserInfo} /> }
+            />
               <ProtectedRoute exact path="/main">
                 <Main
                   subscriptions={this.state.subscriptions}
@@ -171,13 +179,20 @@ class App extends Component {
               <Route component={NoMatch} />
             </Switch>
         </div>
-        <Alert
-          handleAlertClose={this.handleModalClose}
-          showMe={this.state.isShowingModal}
-          header={this.state.modalHeader}
-          message={this.state.modalMessage}
-        />
-      </Router>
+        <Alert  
+          handleAlertClose = {this.handleModalClose}
+          showMe = {this.state.isShowingModal}
+          header = {this.state.modalHeader}
+          message = {this.state.modalMessage}
+          button = {this.state.button}  />
+        <Confirm 
+          handleClose = {this.handleConfirmClose}
+          showMe = {this.state.isShowingConfirm}
+          header = {this.state.modalHeader}
+          message = {this.state.modalMessage}
+          actionIfTrue = {this.removeSub} 
+          subToDelete = {this.state.subToDelete} />
+      </ Router>
     );
   }
 }
