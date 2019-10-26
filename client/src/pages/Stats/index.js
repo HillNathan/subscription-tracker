@@ -253,7 +253,6 @@ class Stats extends Component {
         <div className="row">
           <div className="col-xl-3 col-lg-12 group">
             <h3 className="group-header">Your Subscriptions</h3>
-            <br />
             {this.state.statSubscriptions.map((elem, i) => {
               return (
                 <div className="form-check">
@@ -274,8 +273,8 @@ class Stats extends Component {
           </div>
           <div className="col text-align-center group">
             <h3 className="group-header">
-              Subscription Percent Adjusted to 
-              {this.state.toggleMonthly ? " Monthly" : " Yearly" }
+              Subscription Percent Adjusted to
+              {this.state.toggleMonthly ? " Monthly" : " Yearly"}
             </h3>
             <Chart2
               data={

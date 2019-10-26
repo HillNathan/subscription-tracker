@@ -61,6 +61,13 @@ input[type='checkbox']:checked {
 }
 
 .toggleOff { 
-    color: #FF8042;
+    color: #3498db;
     text-decoration: underline; 
 }
+
+@media screen and (max-width: 480px) {
+    .recharts-surface {
+      width:400px;
+      height: 200px;
+    }
+  }
