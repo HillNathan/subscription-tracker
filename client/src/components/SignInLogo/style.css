@@ -1,22 +1,22 @@
 img {
-  width: 20rem;
+  width: 25rem;
 }
 
 .subLogo-2 {
   height: 0;
-  animation: bump 4s linear infinite;
+  animation: bump 5s linear infinite;
 }
 
 @keyframes bump {
   0% {
-    transform: translate(0px, 7rem);
+    transform: translate(3rem, 1rem);
   }
   
   50% {
-    transform: translate(0px, 3rem);
+    transform: translate(3rem, -4rem);
   }
   
   100% {
-    transform: translate(0px, 7rem);
+    transform: translate(3rem, 1rem);
   }
 }

@@ -59,10 +59,11 @@ class SignIn extends Component  {
   render () {
     return (
       <div className = "container">
+        
           <div className = "row justify-content-between">
-            <div className = "col-lg-5 col-sm-12">
-                <PaddingDiv height={60} />
-                
+            <div className = "col-lg-5 col-sm-12 logo">
+                <PaddingDiv height={30} />
+                <div className="Submarine-big">Submarine</div>
                     <SignInLogo />
             </div>  
             <div className = "col-lg-6 col-sm-12">

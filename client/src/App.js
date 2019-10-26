@@ -150,8 +150,7 @@ class App extends Component {
                 src="/images/underwater-802092_1920.jpg" />
         </div>
         <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
-          <Navbar
-            handleLogout = {this.userLogout} />
+          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
@@ -167,6 +166,8 @@ class App extends Component {
                 sendAlert = {this.triggerModal} /> }
             />
               <ProtectedRoute exact path="/main">
+              <Navbar
+            handleLogout = {this.userLogout} />
                 <Main
                   subscriptions={this.state.subscriptions}
                   addSub={this.addSub}
@@ -174,6 +175,8 @@ class App extends Component {
                 />
               </ProtectedRoute>
               <ProtectedRoute exact path="/stats">
+              <Navbar
+            handleLogout = {this.userLogout} />
                 <Stats
                   subscriptions={this.state.subscriptions}
                   income={this.state.income}
