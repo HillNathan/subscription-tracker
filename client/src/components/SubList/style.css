@@ -1,15 +1,22 @@
 
 ul {
-    margin: 0; 
-    padding: 10px;
-  }
+  margin: 0; 
+  padding: 10px;
+}
+
 .list-group-item {
-      margin: 1rem;
-      border-radius: 25px;
-      -moz-border-radius: 25px;
-      -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);  
-  }
+  background-color: #ecf0f1;
+  margin: 1rem;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);  
+}
+
+.list-group-item:hover {
+  top: -2px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);  
+}
  
 .list-group-item:first-child {
   border-radius: 25px;
