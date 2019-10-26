@@ -3,7 +3,7 @@ require("dotenv").config();
 // SET EXPRESS ENVIRONMENT
 const express = require("express");
 const app = express();
-const path = require("path")
+// const path = require("path")
 
 // imports session, logger, passport, and path
 const middleware = require("../middleware");
@@ -25,7 +25,7 @@ app.use(middleware.passport.session());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "client/build")));
+    app.use(express.static("client/build"));
   }
 
 require("../routes/apiRoutes")(app);
