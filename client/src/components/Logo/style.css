@@ -1,51 +1,41 @@
-img {
-  width: 100px;
+.logoHolder {
+  position: fixed;
 }
 
 .subLogo {
   height: 0;
-  /* width: 40%; */
-  animation: nudge 20s ease-in infinite;
-  animation-delay: 3s;
+  width: 2rem;
+  animation: nudge 30s linear infinite;
   opacity: 0;
 }
 
 @keyframes nudge {
   0% {
-    transform: translate(-400px, 10rem);
+    transform: translate(-2700px, 8rem);
     opacity: 1;
   }
-  
-  /* 50% {
-    transform: translate(2000px, 10rem);
-  } */
-  
+
   100% {
-    transform: translate(1400px, 10rem);
+    transform: translate(2900px, 8rem);
     opacity: 1;
   }
 }
 
 .subLogoAlt {
   height: 0;
-  /* width: 50%; */
-  animation: float 20s ease-in infinite;
-  animation-delay: 13s;
+  animation: float 30s linear infinite;
+  animation-delay: 19s;
   opacity: 0;
 }
 
 @keyframes float {
   0% {
-    transform: translate(1400px, 25rem);
+    transform: translate(2900px, 28rem);
     opacity: 1;
   }
   
-  /* 50% {
-    transform: translate(2000px, 10rem);
-  } */
-  
   100% {
-    transform: translate(-400px, 25rem);
+    transform: translate(-2700px, 28rem);
     opacity: 1;
   }
 }

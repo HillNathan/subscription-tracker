@@ -3,10 +3,7 @@ img {
 }
 
 .subLogo-2 {
-  /* animation: subMove 2s infinite ;
-  /* width: 10%; */
   height: 0;
-  /* width: 30%; */
   animation: bump 4s linear infinite;
 }
 
@@ -16,7 +13,7 @@ img {
   }
   
   50% {
-    transform: translate(0px, 2rem);
+    transform: translate(0px, 3rem);
   }
   
   100% {
