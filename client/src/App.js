@@ -166,8 +166,9 @@ class App extends Component {
                 sendAlert = {this.triggerModal} /> }
             />
               <ProtectedRoute exact path="/main">
-              <Navbar
-            handleLogout = {this.userLogout} />
+              <Navbar 
+                handleLogout = {this.userLogout}
+                page = "main" />
                 <Main
                   subscriptions={this.state.subscriptions}
                   addSub={this.addSub}
@@ -176,7 +177,8 @@ class App extends Component {
               </ProtectedRoute>
               <ProtectedRoute exact path="/stats">
               <Navbar
-            handleLogout = {this.userLogout} />
+                handleLogout = {this.userLogout}
+                page = "stats" />
                 <Stats
                   subscriptions={this.state.subscriptions}
                   income={this.state.income}

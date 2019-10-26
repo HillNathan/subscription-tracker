@@ -7,13 +7,14 @@
   }
 
 .header-div {
-    margin: 10px;
-    padding: 3px;
-    min-width: 250px;
-    background-color: #34495e;
-    border-radius: 25px;
-    border-left: 2px solid lightgrey;
-    border-top: 2px solid lightgrey;
-    border-right: 2px solid grey;
-    border-bottom: 2px solid grey;
+  text-align: center;
+  margin: 10px;
+  padding: 3px;
+  /* max-width: 250px; */
+  background-color: #34495e;
+  border-radius: 25px;
+  border-left: 2px solid lightgrey;
+  border-top: 2px solid lightgrey;
+  border-right: 2px solid grey;
+  border-bottom: 2px solid grey;
 }

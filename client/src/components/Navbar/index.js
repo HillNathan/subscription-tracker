@@ -20,22 +20,26 @@ class Navbar extends Component {
             </h1>
           </div>
           <div className="col-xl-6 col-lg-8 col-md-9 col-sm-12">
+          {console.log(this.props.location)}
             <button
               className="nav-buttons"
               onClick={event => this.props.handleLogout(event, this.redirect)}
             >
               Logout
             </button>
-            <a href="/main" title="Subscriptions">
-              <button className="nav-buttons">
-                Subscriptions
-              </button>
-            </a>
-            <a href="/stats" title="Statistics">
-              <button className="nav-buttons">
-                Statistics
-              </button>
-            </a>
+            { (this.props.page === "stats") ?
+              <a href="/main" title="Subscriptions">
+                <button className="nav-buttons">
+                  Subscriptions
+                </button>
+              </a>
+              :
+              <a href="/stats" title="Statistics">
+                <button className="nav-buttons">
+                  Statistics
+                </button>
+              </a>
+            }
           </div>
         </div>
       </nav>

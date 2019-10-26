@@ -4,8 +4,8 @@ import "./style.css"
 function PageHeader(props) {
     return(
         <div className = "row justify-content-center">
-            <div className = "col-4 text-center ">
-                <div className = "header-font header-div">
+            <div className = "col-sm-12 col-md-6 col-lg-4 justify-content-center">
+                <div className = "header-font header-div ">
                     {props.headerText}
                 </div>
             </div>
