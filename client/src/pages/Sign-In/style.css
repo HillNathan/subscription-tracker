@@ -79,3 +79,10 @@ form {
 input {
   margin-right: 40px;
 }
+
+@media screen and (max-width: 480px) {
+  .Submarine-big {
+    font-size: 5rem;
+    margin-left: 0;
+  }
+}
