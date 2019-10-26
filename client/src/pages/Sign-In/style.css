@@ -4,13 +4,20 @@
   font-family: "Pacifico", cursive;
   text-shadow: -2px -2px 0 #3498db, 2px -2px 0 #3498db, -2px 2px 0 #3498db,
     2px 2px 0 #3498db;
+  margin-left: -3rem;
 }
 
 .logo {
-  padding-right: 5rem
+  padding-right: 5rem;
 }
 .sub-container {
   padding-top: 30px;
+}
+
+.dive-in {
+  color: #f1c40f;
+  text-shadow: -1px -1px 0 #3498db, 1px -1px 0 #3498db, -1px 1px 0 #3498db,
+    1px 1px 0 #3498db;
 }
 
 .padding-div {
@@ -55,12 +62,12 @@
 }
 
 .page-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .activepage {
-    font-weight: 600;
-    text-decoration: none;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 a {
@@ -77,4 +84,11 @@ form {
 
 input {
   margin-right: 40px;
+}
+
+@media screen and (max-width: 480px) {
+  .Submarine-big {
+    font-size: 5rem;
+    margin-left: 0.7rem;
+  }
 }

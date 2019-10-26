@@ -9,14 +9,14 @@ img {
 
 @keyframes bump {
   0% {
-    transform: translate(3rem, 1rem);
+    transform: translate(0rem, 1rem);
   }
   
   50% {
-    transform: translate(3rem, -4rem);
+    transform: translate(0rem, -4rem);
   }
   
   100% {
-    transform: translate(3rem, 1rem);
+    transform: translate(0rem, 1rem);
   }
 }
