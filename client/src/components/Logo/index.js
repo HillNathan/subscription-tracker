@@ -5,12 +5,12 @@ import SubLogoAlt from "./yellowSubAlt.png";
 
 function Logo() {
   return (
-    <div>
+    <div className="logoHolder">
       <div className="subLogo">
-        <img src={SubLogo} alt="sublogo"></img>
+        <img src={SubLogo} alt="sublogo" style={{width: '13rem'}}></img>
       </div>
       <div className="subLogoAlt">
-        <img src={SubLogoAlt} alt="sublogoAlt"></img>
+        <img src={SubLogoAlt} alt="sublogoAlt" style={{width: '13rem'}}></img>
       </div>
     </div>
   );
