@@ -150,7 +150,7 @@ class App extends Component {
                 src="/images/underwater-802092_1920.jpg" />
         </div>
         <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
-          
+          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
