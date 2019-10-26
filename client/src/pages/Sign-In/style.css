@@ -18,6 +18,7 @@
   color: #f1c40f;
   text-shadow: -1px -1px 0 #3498db, 1px -1px 0 #3498db, -1px 1px 0 #3498db,
     1px 1px 0 #3498db;
+  padding-left: 10px;
 }
 
 .padding-div {
