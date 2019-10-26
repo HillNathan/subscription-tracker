@@ -82,7 +82,7 @@ class SignIn extends Component {
             <div className="form-container">
               <form>
                 <div className="dive-in">
-                  <h2>Dive in!</h2>
+                  <h2>Dive In!</h2>
                 </div>
                 <div className="form-group">
                   <label htmlFor="formGroupExampleInput">Username</label>

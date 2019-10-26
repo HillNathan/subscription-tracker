@@ -10,6 +10,26 @@
 .logo {
   padding-right: 5rem;
 }
+
+.subLogo-2 {
+  height: 0;
+  animation: bump 5s ease-in-out infinite;
+}
+
+@keyframes bump {
+  0% {
+    transform: translate(0rem, -2rem);
+  }
+  
+  50% {
+    transform: translate(0rem, -7rem);
+  }
+  
+  100% {
+    transform: translate(0rem, -2rem);
+  }
+}
+
 .sub-container {
   padding-top: 30px;
 }
@@ -18,6 +38,7 @@
   color: #f1c40f;
   text-shadow: -1px -1px 0 #3498db, 1px -1px 0 #3498db, -1px 1px 0 #3498db,
     1px 1px 0 #3498db;
+  padding-left: 10px;
 }
 
 .padding-div {

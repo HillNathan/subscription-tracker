@@ -37,18 +37,22 @@ class SignIn extends Component {
     if (this.state.username === "") return "Username is Empty";
     if (this.state.password === "") return "You have not selected a password.";
     if (this.state.password2 === "") return "You did not verify your password.";
-    if (this.state.password !== this.state.password2) return "Your passwords do not match.";
+    if (this.state.password !== this.state.password2)
+      return "Your passwords do not match.";
     if (this.state.firstname === "") return "Please enter your first name.";
     if (this.state.lastname === "") return "Please enter your last name.";
-    if (!this.state.email.match(mailFormat)) return "Please enter a valid email address"; 
-    if (this.state.income === "") return "Please enter an estimate monthly income.";
-    if (!Number(this.state.income)) return "Please enter a number as your income.";
-    return "YES"
+    if (!this.state.email.match(mailFormat))
+      return "Please enter a valid email address";
+    if (this.state.income === "")
+      return "Please enter an estimate monthly income.";
+    if (!Number(this.state.income))
+      return "Please enter a number as your income.";
+    return "YES";
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    let formValidresponse = this.formIsValidated()
+    let formValidresponse = this.formIsValidated();
     if (formValidresponse === "YES") {
       API.loginUser(this.state)
         .then(response => {
@@ -66,9 +70,8 @@ class SignIn extends Component {
           console.log("please try again");
           console.log(err);
         });
-      }
-    else {
-      this.props.sendAlert("Alert", formValidresponse, "CLOSE")
+    } else {
+      this.props.sendAlert("Alert", formValidresponse, "CLOSE");
     }
   }
 
@@ -76,37 +79,35 @@ class SignIn extends Component {
     return (
       <div className="container">
         <div className="row justify-content-between">
-          <div className="col-lg-5 col-sm-12">
+          <div className="col-lg-6 logo">
             <PaddingDiv height={30} />
             <div className="Submarine-big">Submarine</div>
             <SignInLogo />
           </div>
-          <div className="col-lg-6 col-sm-12">
+          <div className="col-lg-6">
             <PaddingDiv height={30} />
             <div className="form-container">
               <PaddingDiv height={20} />
               <form>
-                <div className="mainlinks">
-                    <a href="/">Sign-In</a>
+                <div className="dive-in">
+                  <h2>Sign Up!</h2>
                 </div>
-                <div className="mainlinks">|</div>
-                <div className="mainlinks">
-                  <span className="activepage">Sign-Up</span>
-                </div>
-                <PaddingDiv height={30} />
                 <div className="form-group">
-                  <div className="row"><div className="col">
-                  <label htmlFor="formGroupExampleInput">Username</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="username"
-                    placeholder="Username"
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                    name="username"
-                  />
-                </div></div></div>
+                  <div className="row">
+                    <div className="col">
+                      <label htmlFor="formGroupExampleInput">Username</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="username"
+                        placeholder="Username"
+                        value={this.state.username}
+                        onChange={this.handleChange}
+                        name="username"
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div className="form-group">
                   <div className="row passwords">
                     <div className="col-sm-12 col-md-6">
@@ -133,9 +134,13 @@ class SignIn extends Component {
                         name="password2"
                       />
                     </div>
-                    { (this.state.password === this.state.password2) ? 
-                         <div></div>
-                    : <div className = "passMatchAlert">Passwords do not Match!!!</div> }
+                    {this.state.password === this.state.password2 ? (
+                      <div></div>
+                    ) : (
+                      <div className="passMatchAlert">
+                        Passwords do not Match!!!
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="form-group">
@@ -168,37 +173,37 @@ class SignIn extends Component {
                 </div>
                 <div className="form-group">
                   <div className="row">
-                      <div className="col-sm-12 col-md-8">
-                        <label htmlFor="EmailAddress">Email Address</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="email"
-                          placeholder="Email Address"
-                          value={this.state.email}
-                          onChange={this.handleChange}
-                          name="email"
-                        />
-                  </div>
-                  <div className="col-sm-12 col-md-4">
-                    <label htmlFor="Income">Monthly Income</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="username"
-                      placeholder="Income"
-                      value={this.state.income}
-                      onChange={this.handleChange}
-                      name="income"
-                    />
+                    <div className="col-sm-12 col-md-8">
+                      <label htmlFor="EmailAddress">Email Address</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="email"
+                        placeholder="Email Address"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        name="email"
+                      />
+                    </div>
+                    <div className="col-sm-12 col-md-4">
+                      <label htmlFor="Income">Monthly Income</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="username"
+                        placeholder="Income"
+                        value={this.state.income}
+                        onChange={this.handleChange}
+                        name="income"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
                 <button className="buttons" onClick={this.handleSubmit}>
                   Sign Up
                 </button>
+                <a href="/">Already a member?</a>
               </form>
-              <PaddingDiv height={20} />
             </div>
           </div>
         </div>
