@@ -32,24 +32,35 @@ class SignIn extends Component {
     });
   }
 
+  formIsValidated() {
+    if (this.state.username === "") return "Username is Empty"
+    return "YES"
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    API.loginUser(this.state)
-      .then(response => {
-        if (response.status === 200) {
-          console.log("login successful");
-          this.props.updateAuthStatus(true);
-          this.props.updateUserInfo(response.data);
-          this.props.history.push("/main");
-        }
-        if (response.status === 401) {
+    let formValidresponse = this.formIsValidated()
+    if (formValidresponse === "YES") {
+      API.loginUser(this.state)
+        .then(response => {
+          if (response.status === 200) {
+            console.log("login successful");
+            this.props.updateAuthStatus(true);
+            this.props.updateUserInfo(response.data);
+            this.props.history.push("/main");
+          }
+          if (response.status === 401) {
+            console.log("please try again");
+          }
+        })
+        .catch(err => {
           console.log("please try again");
-        }
-      })
-      .catch(err => {
-        console.log("please try again");
-        console.log(err);
-      });
+          console.log(err);
+        });
+      }
+    else {
+      this.props.sendAlert("Alert", formValidresponse, "CLOSE")
+    }
   }
 
   render() {
@@ -76,6 +87,7 @@ class SignIn extends Component {
                 </div>
                 <PaddingDiv height={30} />
                 <div className="form-group">
+                  <div className="row"><div className="col">
                   <label htmlFor="formGroupExampleInput">Username</label>
                   <input
                     type="text"
@@ -86,10 +98,10 @@ class SignIn extends Component {
                     onChange={this.handleChange}
                     name="username"
                   />
-                </div>
+                </div></div></div>
                 <div className="form-group">
-                  <div className="row">
-                    <div className="col">
+                  <div className="row passwords">
+                    <div className="col-sm-12 col-md-6">
                       <label htmlFor="Password">Password</label>
                       <input
                         type="password"
@@ -101,7 +113,7 @@ class SignIn extends Component {
                         name="password"
                       />
                     </div>
-                    <div className="col">
+                    <div className="col-sm-12 col-md-6">
                       <label htmlFor="verifyPassword">Password</label>
                       <input
                         type="password"
@@ -113,11 +125,14 @@ class SignIn extends Component {
                         name="password2"
                       />
                     </div>
+                    { (this.state.password === this.state.password2) ? 
+                         <div></div>
+                    : <div className = "passMatchAlert">Passwords do not Match!!!</div> }
                   </div>
                 </div>
                 <div className="form-group">
                   <div className="row">
-                    <div className="col">
+                    <div className="col-sm-12 col-md-6">
                       <label htmlFor="FirstName">First Name</label>
                       <input
                         type="text"
@@ -129,7 +144,7 @@ class SignIn extends Component {
                         name="firstname"
                       />
                     </div>
-                    <div className="col">
+                    <div className="col-sm-12 col-md-6">
                       <label htmlFor="LastName">Last Name</label>
                       <input
                         type="text"
@@ -144,30 +159,33 @@ class SignIn extends Component {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="EmailAddress">Email Address</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="email"
-                    placeholder="Email Address"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    name="email"
-                  />
+                  <div className="row">
+                      <div className="col-sm-12 col-md-8">
+                        <label htmlFor="EmailAddress">Email Address</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="email"
+                          placeholder="Email Address"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                          name="email"
+                        />
+                  </div>
+                  <div className="col-sm-12 col-md-4">
+                    <label htmlFor="Income">Monthly Income</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      placeholder="Income"
+                      value={this.state.income}
+                      onChange={this.handleChange}
+                      name="income"
+                    />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="Income">Estimated Monthly Income</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="username"
-                    placeholder="Monthly Income"
-                    value={this.state.income}
-                    onChange={this.handleChange}
-                    name="income"
-                  />
-                </div>
-
+              </div>
                 <button className="buttons" onClick={this.handleSubmit}>
                   Sign Up
                 </button>
