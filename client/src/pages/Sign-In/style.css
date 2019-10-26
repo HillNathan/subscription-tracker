@@ -1,75 +1,76 @@
-/* body {
-    background-color: rgb(62,165,231);
-    background-image: url("../../images/underwater-802092_1920.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 100%;
-} */
+h1 {
+  color: #f1c40f;
+  font-size: 7rem;
+  font-family: "Pacifico", cursive;
+  text-shadow: -2px -2px 0 #3498db, 2px -2px 0 #3498db, -2px 2px 0 #3498db,
+    2px 2px 0 #3498db;
+}
 
-
-
+.logo {
+  padding-right: 5rem
+}
 .sub-container {
-    padding-top:30px;
+  padding-top: 30px;
 }
 
 .padding-div {
-    height:50px;
-    width: 100%;
+  height: 50px;
+  width: 100%;
 }
 
 .form-container {
-    background-color:rgba(52, 152, 219, 0.3);
-    border-left: 2px solid lightgrey;
-    border-top: 2px solid lightgrey;
-    border-right: 2px solid grey;
-    border-bottom: 2px solid grey;
-    border-radius: 25px;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  background-color: rgba(52, 152, 219, 0.3);
+  border-left: 2px solid lightgrey;
+  border-top: 2px solid lightgrey;
+  border-right: 2px solid grey;
+  border-bottom: 2px solid grey;
+  border-radius: 25px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
 }
 
 .buttons {
-    background-color: #34495e;
-    color: #f1c40f;
-    border-radius: 25px;
-    padding: 10px 25px;
-    font-size: 1em;
-    font-weight: 500;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-    margin-left: 10px;
-    margin-right: 10px;
+  background-color: #34495e;
+  color: #f1c40f;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1em;
+  font-weight: 500;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .buttons:hover {
-    color: #f1c40f;
-    background-color: #3d5f81;
+  color: #f1c40f;
+  background-color: #3d5f81;
 }
 
 .mainlinks {
-    font-size: 24pt;
-    display: inline;
-    padding: 10px;
-    margin: 10px;
+  font-size: 24pt;
+  display: inline;
+  padding: 10px;
+  margin: 10px;
 }
 
 .activepage {
-    text-decoration: underline;
-    font-weight: 600;
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 a {
-    color: #19222c;
+  color: #19222c;
 }
 
 form {
-    margin: 20px;
+  margin: 20px;
 }
 
 .form-group {
-    padding: 10px;
+  padding: 10px;
 }
 
 input {
-    margin-right: 40px;
+  margin-right: 40px;
 }
