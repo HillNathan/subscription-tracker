@@ -63,7 +63,7 @@ class SignIn extends Component  {
           <div className = "row justify-content-between">
             <div className = "col-lg-5 col-sm-12 logo">
                 <PaddingDiv height={30} />
-                <h1>Submarine</h1>
+                <div className="Submarine-big">Submarine</div>
                     <SignInLogo />
             </div>  
             <div className = "col-lg-6 col-sm-12">
