@@ -274,7 +274,8 @@ class Stats extends Component {
           </div>
           <div className="col text-align-center group">
             <h3 className="group-header">
-              Subscription Percent Adjusted to Monthly
+              Subscription Percent Adjusted to 
+              {this.state.toggleMonthly ? " Monthly" : " Yearly" }
             </h3>
             <Chart2
               data={
