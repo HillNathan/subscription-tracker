@@ -167,7 +167,7 @@ class SignIn extends Component {
                   </div>
                 </div>
                 <div className="form-group">
-                  <div className="row">
+                  <div className="row align-items-end">
                       <div className="col-sm-12 col-md-8">
                         <label htmlFor="EmailAddress">Email Address</label>
                         <input
