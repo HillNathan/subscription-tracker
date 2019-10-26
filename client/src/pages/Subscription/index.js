@@ -9,11 +9,12 @@ import "./style.css";
 function Main(props) {
   return (
     <div className="App">
-      <div className="container">
+      <div className="container ">
         <Logo />
         <PageHeader headerText="Subscriptions" />
+
         <div className="row justify-content-center">
-          <div className="col-10 subscription form-holder">
+          <div className="col-md-10 col-sm-12 subscription form-holder">
             <SubList
               subscriptions={props.subscriptions}
               removeSub={props.removeSub}
