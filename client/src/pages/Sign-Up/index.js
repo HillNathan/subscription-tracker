@@ -4,6 +4,7 @@ import "./style.css";
 import SignInLogo from "../../components/SignInLogo";
 import PaddingDiv from "../../components/PaddingDiv";
 
+const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const API = require("../../utils/API");
 
 class SignIn extends Component {
@@ -33,7 +34,15 @@ class SignIn extends Component {
   }
 
   formIsValidated() {
-    if (this.state.username === "") return "Username is Empty"
+    if (this.state.username === "") return "Username is Empty";
+    if (this.state.password === "") return "You have not selected a password.";
+    if (this.state.password2 === "") return "You did not verify your password.";
+    if (this.state.password !== this.state.password2) return "Your passwords do not match.";
+    if (this.state.firstname === "") return "Please enter your first name.";
+    if (this.state.lastname === "") return "Please enter your last name.";
+    if (!this.state.email.match(mailFormat)) return "Please enter a valid email address"; 
+    if (this.state.income === "") return "Please enter an estimate monthly income.";
+    if (!Number(this.state.income)) return "Please enter a number as your income.";
     return "YES"
   }
 
@@ -79,7 +88,7 @@ class SignIn extends Component {
               <PaddingDiv height={20} />
               <form>
                 <div className="mainlinks">
-                  <a href="/">Sign-In</a>
+                    <a href="/">Sign-In</a>
                 </div>
                 <div className="mainlinks">|</div>
                 <div className="mainlinks">

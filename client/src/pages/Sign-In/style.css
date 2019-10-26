@@ -53,9 +53,13 @@
     margin: 10px;
 }
 
-.activepage {
+.page-link {
     text-decoration: underline;
+}
+
+.activepage {
     font-weight: 600;
+    text-decoration: none;
 }
 
 a {

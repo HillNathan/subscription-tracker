@@ -45,16 +45,24 @@
     font-size: 24pt;
     display: inline;
     padding: 10px;
-    margin: 10px;
+    margin: 10px;    
+}
+
+.page-link {
+    text-decoration: underline;
 }
 
 .activepage {
-    text-decoration: underline;
     font-weight: 600;
+    text-decoration: none;
 }
 
 a {
     color: #19222c;
+}
+
+a.page-link {
+    text-decoration: underline;
 }
 
 form {
