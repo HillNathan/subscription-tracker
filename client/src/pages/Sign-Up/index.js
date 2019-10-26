@@ -172,31 +172,30 @@ class SignIn extends Component {
                   </div>
                 </div>
                 <div className="form-group">
-                  <div className="row">
-                    <div className="col-sm-12 col-md-8">
-                      <label htmlFor="EmailAddress">Email Address</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="email"
-                        placeholder="Email Address"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        name="email"
-                      />
-                    </div>
-                    <div className="col-sm-12 col-md-4">
-                      <label htmlFor="Income">Monthly Income</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="username"
-                        placeholder="Income"
-                        value={this.state.income}
-                        onChange={this.handleChange}
-                        name="income"
-                      />
-                    </div>
+                  <div className="row align-items-end">
+                      <div className="col-sm-12 col-md-8">
+                        <label htmlFor="EmailAddress">Email Address</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="email"
+                          placeholder="Email Address"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                          name="email"
+                        />
+                  </div>
+                  <div className="col-sm-12 col-md-4">
+                    <label htmlFor="Income">Monthly Income</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      placeholder="Income"
+                      value={this.state.income}
+                      onChange={this.handleChange}
+                      name="income"
+                    />
                   </div>
                 </div>
                 <button className="buttons" onClick={this.handleSubmit}>
