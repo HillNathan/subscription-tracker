@@ -68,3 +68,23 @@ form {
 input {
     margin-right: 40px;
 }
+
+.passwords {
+    position:relative;
+}
+
+.passMatchAlert {
+    font-weight: 600;
+    color: darkred;
+    position: absolute;
+    height: 40px;
+    overflow: visible;
+    top: 80px;
+    left: 20px;
+}
+
+@media (max-width: 767.98px) {
+    .passMatchAlert {
+        top: 143px;
+    }
+}

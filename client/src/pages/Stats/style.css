@@ -57,9 +57,10 @@ input[type='checkbox']:checked {
 }
 
 .toggleOn {
-    text-decoration: underline; 
+    color: #f1c40f;
 }
 
 .toggleOff { 
-    color: #FF8042
+    color: #FF8042;
+    text-decoration: underline; 
 }

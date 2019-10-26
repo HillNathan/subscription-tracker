@@ -163,7 +163,8 @@ class App extends Component {
             <Route exact path="/sign-up" 
               render = {(props) => <SignUp {...props}
                 updateAuthStatus = {this.updateAuthStatus}
-                updateUserInfo = {this.updateUserInfo} /> }
+                updateUserInfo = {this.updateUserInfo}
+                sendAlert = {this.triggerModal} /> }
             />
               <ProtectedRoute exact path="/main">
                 <Main
