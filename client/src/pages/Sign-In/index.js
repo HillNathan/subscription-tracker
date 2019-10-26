@@ -78,18 +78,12 @@ class SignIn extends Component {
             <SignInLogo />
           </div>
           <div className="col-lg-6">
-            <PaddingDiv height={30} />
+            <PaddingDiv height={65} />
             <div className="form-container">
-              <PaddingDiv height={20} />
               <form>
-                {/* <div className="mainlinks">
-                  <span className="activepage">Sign-In</span>
+                <div className="dive-in">
+                  <h2>Dive in!</h2>
                 </div>
-                <div className="mainlinks">|</div>
-                <div className="mainlinks">
-                  <a href="/sign-up">Sign-Up</a>
-                </div> */}
-                <PaddingDiv height={30} />
                 <div className="form-group">
                   <label htmlFor="formGroupExampleInput">Username</label>
                   <input
@@ -119,7 +113,6 @@ class SignIn extends Component {
                 </button>
                 <a href="/sign-up">Not a member? Sign up!</a>
               </form>
-              <PaddingDiv height={60} />
             </div>
           </div>
         </div>

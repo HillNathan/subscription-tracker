@@ -14,6 +14,12 @@
   padding-top: 30px;
 }
 
+.dive-in {
+  color: #f1c40f;
+  text-shadow: -1px -1px 0 #3498db, 1px -1px 0 #3498db, -1px 1px 0 #3498db,
+    1px 1px 0 #3498db;
+}
+
 .padding-div {
   height: 50px;
   width: 100%;
@@ -83,6 +89,6 @@ input {
 @media screen and (max-width: 480px) {
   .Submarine-big {
     font-size: 5rem;
-    margin-left: 0;
+    margin-left: 0.7rem;
   }
 }
