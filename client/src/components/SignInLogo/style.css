@@ -2,7 +2,7 @@ img {
   width: 25rem;
 }
 
-.subLogo-2 {
+/* .subLogo-2 {
   height: 0;
   animation: bump 5s linear infinite;
 }
@@ -19,4 +19,4 @@ img {
   100% {
     transform: translate(0rem, 1rem);
   }
-}
+} */
