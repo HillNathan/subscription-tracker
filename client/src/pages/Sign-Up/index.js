@@ -90,7 +90,7 @@ class SignIn extends Component {
               <PaddingDiv height={20} />
               <form>
                 <div className="dive-in">
-                  <h2>Sign up!</h2>
+                  <h2>Sign Up!</h2>
                 </div>
                 <div className="form-group">
                   <div className="row">
