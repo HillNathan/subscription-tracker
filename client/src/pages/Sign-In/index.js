@@ -111,7 +111,7 @@ class SignIn extends Component {
                 <button className="buttons" onClick={this.handleSubmit}>
                   Log In
                 </button>
-                <a href="/sign-up">Not a member? Sign up!</a>
+                <div className="sign-up-link"><a href="/sign-up">Not a member? Sign up!</a></div>
               </form>
             </div>
           </div>

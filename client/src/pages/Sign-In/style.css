@@ -18,15 +18,15 @@
 
 @keyframes bump {
   0% {
-    transform: translate(0rem, -2rem);
+    transform: translate(1rem, -2rem);
   }
-  
+
   50% {
-    transform: translate(0rem, -7rem);
+    transform: translate(1rem, -7rem);
   }
-  
+
   100% {
-    transform: translate(0rem, -2rem);
+    transform: translate(1rem, -2rem);
   }
 }
 
@@ -107,9 +107,38 @@ input {
   margin-right: 40px;
 }
 
+.sign-up-link {
+  padding: 10px;
+}
+
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 480px) {
   .Submarine-big {
-    font-size: 5rem;
-    margin-left: 0.7rem;
+    font-size: 4.2rem;
+    margin-left: 1.1rem;
+  }
+
+  img {
+    width: 18rem;
+  }
+
+  @keyframes bump {
+    0% {
+      transform: translate(1rem, -4rem);
+    }
+
+    50% {
+      transform: translate(1rem, -6rem);
+    }
+
+    100% {
+      transform: translate(1rem, -4rem);
+    }
+  }
+
+  .form-container {
+    background-color: rgba(52, 152, 219, 0.5);
+    margin-left: 14px;
   }
 }
