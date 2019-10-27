@@ -35,10 +35,10 @@ function SubForm(props) {
                   className="form-control form-control-lg"
                   id="frequency-input"
                 >
-                  <option>Daily</option>
-                  <option>Weekly</option>
                   <option>Monthly</option>
                   <option>Yearly</option>
+                  <option>Weekly</option>
+                  <option>Daily</option>
                 </select>
               </div>
             </div>
