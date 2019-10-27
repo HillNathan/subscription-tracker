@@ -13,16 +13,25 @@ function SubForm(props) {
     <div className="row">
       <div className="col-sm">
         <form id="sub-form">
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="name">Subscription Name</label>
             <input
               className="form-control form-control-lg"
               id="name-input"
             ></input>
-          </div>
+          </div> */}
           <div className="form-group">
             <div className="row">
               <div className="col-sm">
+                <label htmlFor="name">Subscription Name</label>
+                <input
+                  className="form-control form-control-lg"
+                  id="name-input"
+                ></input>
+								</div>
+								</div>
+								<div className="row">
+								<div className="col-sm">
                 <label htmlFor="cost">Cost (USD):</label>
                 <input
                   className="form-control form-control-lg"
@@ -51,7 +60,7 @@ function SubForm(props) {
                 frequency: document.getElementById("frequency-input").value
               })
             }
-            className="Formfield__Button"
+            className="Formfield__Button subscription-page-button"
             id="form-submit"
           >
             Submit
