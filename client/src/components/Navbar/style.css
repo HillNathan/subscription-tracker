@@ -55,7 +55,7 @@ a:hover {
     width: 143px;
   }
 
-  .button-holder {
+  .button-holder, .font {
     margin: 0 auto;
   }
 }

@@ -12,7 +12,7 @@ class Navbar extends Component {
     return (
       <nav style={{ marginLeft: 0, marginRight: 0 }}>
         <div className="row justify-content-between">
-          <div className="col-lg-3 col-md-4">
+          <div className="col-sm font">
             <h1>
               <a className="font" href="/">
                 Submarine

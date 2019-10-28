@@ -9,8 +9,7 @@
 .header-div {
   text-align: center;
   margin: 10px;
-  padding: 3px;
-  /* max-width: 250px; */
+  padding: 8px 16px;
   background-color: #34495e;
   border-radius: 25px;
   border-left: 2px solid lightgrey;
