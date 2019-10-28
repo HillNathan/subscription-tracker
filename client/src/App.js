@@ -30,15 +30,58 @@ class App extends Component {
     modalMessage: "",
     button: "",
     isShowingConfirm: false,
-    subToDelete: ""
+    subToDelete: "",
+    windowWidth: 0,
+    chart: {
+      width: 800,
+      height: 400,
+      cx: 400, 
+      cy: 300,
+      innerRadius: 140,
+      outerRadius: 220
+    }
   };
 
   componentDidMount() {
+    this.updateWindowSize();
+    window.addEventListener("resize", this.updateWindowSize);
     API.getUser().then(response => {
       if (response.data.result === "no user")
         localStorage.setItem("isAuthenticated", false);
       this.updateUserInfo(response.data);
     });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowSize)
+  }
+
+  updateWindowSize = () => {
+    this.setState({ windowWidth: window.innerWidth })
+
+    if (window.innerWidth < 993) {
+      this.setState({
+        chart: {
+          width: 600,
+          height: 300,
+          cx: 300,
+          cy: 250,
+          innerRadius: 85,
+          outerRadius: 135
+        }
+      })
+    } else {
+      this.setState({
+        chart: {
+          width: 800,
+          height: 400,
+          cx: 400,
+          cy: 300,
+          innerRadius: 140,
+          outerRadius: 220
+        }
+      })
+    }
   }
 
   updateUserInfo = userObject => {
@@ -180,6 +223,8 @@ class App extends Component {
                 handleLogout = {this.userLogout}
                 page = "stats" />
                 <Stats
+                  windowWidth={this.state.windowWidth}
+                  chartDimensions={this.state.chart}
                   subscriptions={this.state.subscriptions}
                   income={this.state.income}
                   firstname={this.state.firstname}

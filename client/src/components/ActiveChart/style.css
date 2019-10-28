@@ -1,3 +1,15 @@
 #center {
     font-size: 24pt;
 }
+
+@media (max-width: 993px) {
+    #center {
+        font-size: 20pt;
+    }
+}
+
+@media (max-width: 767px) {
+    #center {
+        font-size: 14pt;
+    }
+}

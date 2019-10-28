@@ -65,9 +65,6 @@ input[type='checkbox']:checked {
     text-decoration: underline; 
 }
 
-/* @media screen and (max-width: 480px) {
-    .recharts-surface {
-      width:400px;
-      height: 200px;
-    }
-  } */
+/* .recharts-wrapper {
+    border: 2px solid #f1c40f;
+} */

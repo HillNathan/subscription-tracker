@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Chart2 from "../../components/ActiveChart";
+import Chart1 from "../../components/GaugeChart";
 import PageHeader from "../../components/PageHeader";
 import Logo from "../../components/Logo";
 import "./style.css";
@@ -207,7 +208,9 @@ class Stats extends Component {
     yearlyTotal: 0,
     ratio: "",
     statSubscriptions: [],
-    toggleMonthly: true
+    toggleMonthly: true,
+    windowWidth: 0,
+    dimensions: {}
   };
 
   handleCheckboxChange(index, event) {
@@ -243,6 +246,12 @@ class Stats extends Component {
         incomingProps.income
       )
     });
+    this.setState({
+      windowWidth: incomingProps.windowWidth
+    });
+    this.setState({ 
+      dimensions: incomingProps.chartDimensions
+    });
   }
 
   render() {
@@ -272,32 +281,49 @@ class Stats extends Component {
             })}
           </div>
           <div className="col text-align-center group">
-            <h3 className="group-header">
-              Subscription Percent Adjusted to
-              {this.state.toggleMonthly ? " Monthly" : " Yearly"}
-            </h3>
-            <Chart2
+            {(this.state.windowWidth > 766) ? 
+              <h3 className="group-header">
+                Subscription Percent Adjusted to 
+                {this.state.toggleMonthly ? " Monthly" : " Yearly" }
+              </h3>
+              :
+              <h3> Subscription Percent </h3>
+            }
+            {(this.state.windowWidth > 766) ? 
+              <Chart2
               data={
                 this.state.toggleMonthly
                   ? makeDataMonthly(this.state.statSubscriptions)
                   : makeDataYearly(this.state.statSubscriptions)
               }
-            />
-            <div className="toggleGroup">
-              <span
-                className={this.state.toggleMonthly ? "toggleOn" : "toggleOff"}
-                onClick={() => this.handleToggle(true)}
-              >
-                Monthly
-              </span>{" "}
-              |
-              <span
-                className={this.state.toggleMonthly ? "toggleOff" : "toggleOn"}
-                onClick={() => this.handleToggle(false)}
-              >
-                Yearly
-              </span>
-            </div>
+              dimensions={this.state.dimensions}
+            /> : 
+              <Chart1
+                data={
+                  this.state.toggleMonthly
+                    ? makeDataMonthly(this.state.statSubscriptions)
+                    : makeDataYearly(this.state.statSubscriptions)
+                }
+              />
+            }
+            {(this.state.windowWidth > 766) ? 
+              <div className="toggleGroup">
+                <span
+                  className={this.state.toggleMonthly ? "toggleOn" : "toggleOff"}
+                  onClick={() => this.handleToggle(true)}
+                >
+                  Monthly
+                </span>{" "}
+                |
+                <span
+                  className={this.state.toggleMonthly ? "toggleOff" : "toggleOn"}
+                  onClick={() => this.handleToggle(false)}
+                >
+                  Yearly
+                </span>
+              </div>
+              :
+            <div></div> }
           </div>
           <div className="col text-align-center group">
             <p className="group-text">
