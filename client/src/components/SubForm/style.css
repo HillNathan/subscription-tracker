@@ -43,7 +43,7 @@ label {
     padding: 0;
   }
   #sub-form {
-    margin-bottom: 2px;
+    margin:0px 0px 2px 0px;
     background: none;
     border: none;
     padding: 10px 0px;
