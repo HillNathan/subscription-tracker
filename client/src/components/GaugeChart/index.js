@@ -10,15 +10,15 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <PieChart width={1000} height={600} onMouseEnter={this.onPieEnter}>
+      <PieChart width={400} height={200} onMouseEnter={this.onPieEnter}>
         <Pie
           data={this.props.data}
-          cx={420}
+          cx={175}
           cy={200}
           startAngle={180}
           endAngle={0}
-          innerRadius={60}
-          outerRadius={80}
+          innerRadius={90}
+          outerRadius={150}
           fill="#8884d8"
           paddingAngle={5}
           dataKey="cost"
