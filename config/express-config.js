@@ -28,6 +28,6 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
   }
 
-require("../routes/apiRoutes")(app);
+require("../routes/apiroutes")(app);
 
 module.exports = app;
