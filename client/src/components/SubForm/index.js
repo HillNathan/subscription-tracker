@@ -11,7 +11,7 @@ function cb() {
 function SubForm(props) {
   return (
     <div className="row">
-      <div className="col-sm">
+      <div className="col-sm subscription-page-input-fields">
         <form id="sub-form">
           <div className="form-group cost">
             <div className="row cost">
@@ -24,7 +24,7 @@ function SubForm(props) {
               </div>
             </div>
             <div className="row">
-              <div className="col-sm">
+              <div className="col-sm ">
                 <label htmlFor="cost">Cost (USD):</label>
                 <input
                   className="form-control form-control-lg"

@@ -1,37 +1,39 @@
+/* Subscription page style.css */
+
 .form-holder {
-	background-color:rgba(52, 152, 219, 0.3);
-    border-radius: 25px;
-    border-left: 2px solid lightgrey;
-    border-top: 2px solid lightgrey;
-    border-right: 2px solid grey;
-    border-bottom: 2px solid grey;
-    -moz-border-radius: 25px;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);  
+  background-color: rgba(52, 152, 219, 0.3);
+  border-radius: 25px;
+  border-left: 2px solid lightgrey;
+  border-top: 2px solid lightgrey;
+  border-right: 2px solid grey;
+  border-bottom: 2px solid grey;
+  -moz-border-radius: 25px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
 }
 
 .App {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .row {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
 .container {
-    padding-left: 0px;
+  padding-left: 0px;
 }
 
 .header-div {
-    padding-bottom: 6px;
+  padding-bottom: 6px;
 }
 @media screen and (max-width: 480px) {
-    .cost {
-        margin-bottom: 0rem;
-    }
+  .cost {
+    margin-bottom: 0rem;
+  }
 
-    .subscription{
-        /* border: none;
-        background: none; */
-   }
+  /* .subscription {
+    border: none;
+    background-color:  rgba(52, 152, 219, 0);
+  } */
 }
