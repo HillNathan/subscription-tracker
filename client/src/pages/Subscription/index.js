@@ -14,7 +14,7 @@ function Main(props) {
         <PageHeader headerText="Subscriptions" />
 
         <div className="row justify-content-center">
-          <div className="col-md-6 col-lg-8 subscription form-holder">
+          <div className="col-md-10 col-lg-8 subscription form-holder">
             <SubList
               subscriptions={props.subscriptions}
               removeSub={props.removeSub}

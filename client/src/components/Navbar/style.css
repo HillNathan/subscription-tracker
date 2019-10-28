@@ -54,4 +54,8 @@ a:hover {
   .nav-buttons {
     width: 143px;
   }
+
+  .button-holder {
+    margin: 0 auto;
+  }
 }

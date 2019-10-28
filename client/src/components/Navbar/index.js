@@ -19,7 +19,7 @@ class Navbar extends Component {
               </a>
             </h1>
           </div>
-          <div className="col-xl-6 col-lg-8">
+          <div className="button-holder">
           {console.log(this.props.location)}
             <button
               className="nav-buttons"
