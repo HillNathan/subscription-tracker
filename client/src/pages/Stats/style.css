@@ -64,3 +64,7 @@ input[type='checkbox']:checked {
     color: #FF8042;
     text-decoration: underline; 
 }
+
+/* .recharts-wrapper {
+    border: 2px solid #f1c40f;
+} */
