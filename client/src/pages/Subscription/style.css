@@ -22,6 +22,9 @@
     padding-left: 0px;
 }
 
+.header-div {
+    padding-bottom: 6px;
+}
 @media screen and (max-width: 480px) {
     .cost {
         margin-bottom: 0rem;
