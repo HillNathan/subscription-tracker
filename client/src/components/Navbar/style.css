@@ -6,7 +6,7 @@ nav {
 
 .font {
   color: #f1c40f;
-  font-size: 3rem;
+  font-size: 3.4rem;
   font-family: "Pacifico", cursive;
   text-shadow: -1px -1px 0 #3498db, 1px -1px 0 #3498db, -1px 1px 0 #3498db,
     1px 1px 0 #3498db;
@@ -49,13 +49,30 @@ a:hover {
   background-color: #3d5f81;
 }
 
+.button-holder {
+  padding: 8px 5px 0px 0px;
+}
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
   .nav-buttons {
     width: 143px;
+    margin: 0px 10px;
+    /* border-color: #f1c40f; */
   }
 
-  .button-holder, .font {
+  /* .font {
+    font-size: 4rem;
+  } */
+
+  .button-holder {
     margin: 0 auto;
+  }
+  .center-mobile {
+    text-align: center;
+  }
+
+  nav {
+    background-color:  rgba(0, 0, 0, 0);
+    border-bottom: none;
   }
 }

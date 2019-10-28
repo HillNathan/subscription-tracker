@@ -11,13 +11,11 @@ class Navbar extends Component {
   render() {
     return (
       <nav style={{ marginLeft: 0, marginRight: 0 }}>
-        <div className="row justify-content-between">
-          <div className="col-sm font">
-            <h1>
+        <div className="row">
+          <div className="col center-mobile">
               <a className="font" href="/">
                 Submarine
               </a>
-            </h1>
           </div>
           <div className="button-holder">
           {console.log(this.props.location)}
