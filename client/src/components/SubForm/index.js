@@ -13,25 +13,18 @@ function SubForm(props) {
     <div className="row">
       <div className="col-sm">
         <form id="sub-form">
-          {/* <div className="form-group">
-            <label htmlFor="name">Subscription Name</label>
-            <input
-              className="form-control form-control-lg"
-              id="name-input"
-            ></input>
-          </div> */}
-          <div className="form-group">
-            <div className="row">
+          <div className="form-group cost">
+            <div className="row cost">
               <div className="col-sm">
                 <label htmlFor="name">Subscription Name</label>
                 <input
                   className="form-control form-control-lg"
                   id="name-input"
                 ></input>
-								</div>
-								</div>
-								<div className="row">
-								<div className="col-sm">
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm">
                 <label htmlFor="cost">Cost (USD):</label>
                 <input
                   className="form-control form-control-lg"

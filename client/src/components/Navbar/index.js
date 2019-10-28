@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import "./nav.css";
+import "./style.css";
 
 class Navbar extends Component {
   redirect = () => {
@@ -19,7 +19,7 @@ class Navbar extends Component {
               </a>
             </h1>
           </div>
-          <div className="col-xl-6 col-lg-8 col-md-9 col-sm-12">
+          <div className="col-xl-6 col-lg-8">
           {console.log(this.props.location)}
             <button
               className="nav-buttons"

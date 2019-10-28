@@ -10,16 +10,25 @@
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);  
 }
 
-.subscription-page-button {
-    margin-left: 10px;
-}
-
 .App {
     margin-left: 15px;
 }
 
-/* @media screen and (max-width: 480px) {
+.row {
+    margin-left: 0px;
+}
+
+.container {
+    padding-left: 0px;
+}
+
+@media screen and (max-width: 480px) {
+    .cost {
+        margin-bottom: 0rem;
+    }
+
     .subscription{
-        display: none;
+        /* border: none;
+        background: none; */
    }
-} */
+}
