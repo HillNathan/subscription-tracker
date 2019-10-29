@@ -138,4 +138,8 @@ input {
     background-color: rgba(52, 152, 219, 0.5);
     margin-left: 14px;
   }
+
+  #sign-in-form {
+    padding-right: 30px;
+  }
 }

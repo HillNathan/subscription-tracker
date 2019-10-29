@@ -259,7 +259,7 @@ class Stats extends Component {
       <div className="container justify-content-center">
         <Logo />
         <PageHeader headerText="Statistics" />
-        <div className="row">
+        <div className="row mobile-margin">
           <div className="col-xl-3 col-lg-12 group">
             <h3 className="group-header">Your Subscriptions</h3>
             {this.state.statSubscriptions.map((elem, i) => {
@@ -280,14 +280,14 @@ class Stats extends Component {
               );
             })}
           </div>
-          <div className="col text-align-center group">
+          <div className="col text-align-center group" id="guage-chart">
             {(this.state.windowWidth > 766) ? 
               <h3 className="group-header">
                 Subscription Percent Adjusted to 
                 {this.state.toggleMonthly ? " Monthly" : " Yearly" }
               </h3>
               :
-              <h3> Subscription Percent </h3>
+              <h3 className="group-header"> Subscription Percent </h3>
             }
             {(this.state.windowWidth > 766) ? 
               <Chart2

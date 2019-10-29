@@ -102,3 +102,9 @@ input {
     top: 143px;
   }
 }
+
+@media screen and (max-width: 480px) {
+    #sign-up-form{
+        padding-left: 30px;
+    }
+}
