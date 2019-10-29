@@ -84,7 +84,6 @@ function getYearlyTotal(subArray) {
       }
     }
   }
-  console.log("Yearly Sum from fn" + sum);
   return Number(sum.toFixed(2));
 }
 
@@ -111,7 +110,6 @@ function initialYearlyTotal(subArray) {
       }
     }
   }
-  console.log("Yearly Sum from fn" + sum);
   return Number(sum.toFixed(2));
 }
 

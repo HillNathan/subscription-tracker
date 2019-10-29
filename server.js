@@ -7,5 +7,5 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://submarine:submar1ne@ds
 // connect to MongoDB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-// console.log that your server is up and running
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+//server is up and running
+app.listen(PORT);

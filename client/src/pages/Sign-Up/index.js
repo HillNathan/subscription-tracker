@@ -57,18 +57,16 @@ class SignIn extends Component {
       API.loginUser(this.state)
         .then(response => {
           if (response.status === 200) {
-            console.log("login successful");
             this.props.updateAuthStatus(true);
             this.props.updateUserInfo(response.data);
             this.props.history.push("/main");
           }
           if (response.status === 401) {
-            console.log("please try again");
+            this.props.triggerAlert("Alert","Check your information and try again","Close")
           }
         })
         .catch(err => {
-          console.log("please try again");
-          console.log(err);
+          throw (err)
         });
     } else {
       this.props.sendAlert("Alert", formValidresponse, "CLOSE");

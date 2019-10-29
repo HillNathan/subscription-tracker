@@ -70,11 +70,9 @@ class App extends Component {
 
   userLogout = (event, callback) => {
     event.preventDefault();
-    console.log(this.isUserAuth());
     if (this.isUserAuth) {
       API.logoutUser()
         .then(response => {
-          console.log(response);
           this.setState({
             firstname: "",
             lastname: "",
@@ -129,7 +127,6 @@ class App extends Component {
 
   addSub = (event, cb, subInfo) => {
     event.preventDefault();
-    console.log(subInfo);
     if (subInfo.name && subInfo.cost) {
       API.addSubscription(subInfo).then(response => {
         this.updateUserInfo(response.data);
@@ -142,7 +139,6 @@ class App extends Component {
   };
 
   removeSub = (subId) => {
-    console.log("DELETE " + subId);
     this.setState({ isShowingConfirm: false })
     API.deleteSubscription({ id: subId })
       .then(response => {

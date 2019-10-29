@@ -17,7 +17,6 @@ class Navbar extends Component {
               </Link>
           </div>
           <div className="button-holder">
-          {console.log(this.props.location)}
             <button
               className="nav-buttons"
               onClick={event => this.props.handleLogout(event, this.redirect)}

@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 function cb() {
-  console.log("Callback hit");
   document.getElementById("name-input").value = "";
   document.getElementById("cost-input").value = "";
   document.getElementById("frequency-input").value = "";
