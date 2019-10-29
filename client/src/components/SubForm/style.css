@@ -10,7 +10,6 @@
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   margin-left: 25px;
-  /* mobile 15px */
 }
 
 .form {
@@ -21,10 +20,10 @@
   color: #f1c40f;
   background-color: rgb(52, 73, 94, 0.33);
   border-radius: 25px;
-  border-left: 2px solid lightgrey;
-  border-top: 2px solid lightgrey;
-  border-right: 2px solid grey;
-  border-bottom: 2px solid grey;
+  border-left: 2px solid #ecf0f1;
+  border-top: 2px solid #ecf0f1;
+  border-right: 2px solid #c0cdd1;
+  border-bottom: 2px solid #c0cdd1;
   -moz-border-radius: 25px;
   padding: 10px;
   margin: 10px 0px 15px 0px;
@@ -36,6 +35,13 @@ label {
 
 .cost {
   margin-bottom: 1rem;
+}
+
+button {
+  border-left: 1.5px solid #ecf0f1;
+  border-top: 1.5px solid #ecf0f1;
+  border-right: 1.5px solid #c0cdd1;
+  border-bottom: 1.5px solid #c0cdd1;
 }
 
 @media screen and (max-width: 480px) {
@@ -54,6 +60,7 @@ label {
   }
 
   .subscription-page-button {
-    margin-left: 15px;
+    margin:12px 0px 0px 16px;
+    /* margin-top */
   }
 }

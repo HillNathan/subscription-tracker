@@ -3,10 +3,10 @@
 .form-holder {
   background-color: rgba(52, 152, 219, 0.3);
   border-radius: 25px;
-  border-left: 2px solid lightgrey;
-  border-top: 2px solid lightgrey;
-  border-right: 2px solid grey;
-  border-bottom: 2px solid grey;
+  border-left: 2px solid #ecf0f1;
+  border-top: 2px solid #ecf0f1;
+  border-right: 2px solid #c0cdd1;
+  border-bottom: 2px solid #c0cdd1;
   -moz-border-radius: 25px;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
@@ -31,9 +31,4 @@
   .cost {
     margin-bottom: 0rem;
   }
-
-  /* .subscription {
-    border: none;
-    background-color:  rgba(52, 152, 219, 0);
-  } */
 }

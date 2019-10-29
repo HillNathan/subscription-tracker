@@ -53,7 +53,7 @@ function SubForm(props) {
                 frequency: document.getElementById("frequency-input").value
               })
             }
-            className="Formfield__Button subscription-page-button"
+            className="subscription-page-button"
             id="form-submit"
           >
             Submit

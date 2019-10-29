@@ -137,10 +137,5 @@ input {
   .form-container {
     background-color: rgba(52, 152, 219, 0.5);
     margin-left: 14px;
-    /* border: none; */
-  }
-
-  .col {
-    /* padding: 0; */
   }
 }
