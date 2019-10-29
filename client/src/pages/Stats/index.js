@@ -365,7 +365,7 @@ class Stats extends Component {
               on subscriptions.
             </p>
             <p className="group-text">
-              This accounts for {this.state.ratio} of your monthly budget
+              This accounts for {this.state.ratio} of your monthly budget.
             </p>
           </div>
         </div>
