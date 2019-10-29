@@ -1,98 +1,104 @@
-/* body {
-    background-color: rgb(62,165,231);
-    background-image: url("../../images/underwater-802092_1920.jpg");
-} */
+/* Sign-Up component style.css */
 
 .sub-container {
-    padding-top:30px;
+  padding-top: 30px;
 }
 
 .padding-div {
-    height:50px;
-    width: 100%;
+  height: 50px;
+  width: 100%;
 }
 
-.form-container {
-    background-color:rgba(52, 152, 219, 0.3);
-    border-left: 2px solid lightgrey;
-    border-top: 2px solid lightgrey;
-    border-right: 2px solid grey;
-    border-bottom: 2px solid grey;
-    border-radius: 25px;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+.form-container-sign-up {
+  background-color: rgba(52, 152, 219, 0.3);
+  border-left: 2px solid #ecf0f1;
+  border-top: 2px solid #ecf0f1;
+  border-right: 2px solid #c0cdd1;
+  border-bottom: 2px solid #c0cdd1;
+  border-radius: 25px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  padding: 20px 5px;
 }
 
 .buttons {
-    background-color: #34495e;
-    color: #f1c40f;
-    border-radius: 25px;
-    padding: 10px 25px;
-    font-size: 1em;
-    font-weight: 500;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-    margin-left: 10px;
-    margin-right: 10px;
+  background-color: #34495e;
+  color: #f1c40f;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1em;
+  font-weight: 500;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#sign-up-button {
+  margin-left: 25px;
 }
 
 .buttons:hover {
-    color: #f1c40f;
-    background-color: #3d5f81;
+  color: #f1c40f;
+  background-color: #3d5f81;
 }
 
 .mainlinks {
-    font-size: 24pt;
-    display: inline;
-    padding: 10px;
-    margin: 10px;    
+  font-size: 24pt;
+  display: inline;
+  padding: 10px;
+  margin: 10px;
 }
 
 .page-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .activepage {
-    font-weight: 600;
-    text-decoration: none;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 a {
-    color: #19222c;
+  color: #19222c;
 }
 
 a.page-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* form {
-    margin: 20px;
-} */
-
 .form-group {
-    padding: 4px;
+  padding: 0px;
+}
+
+.do-not-match-margin {
+  margin-bottom: 10px;
 }
 
 input {
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
 .passwords {
-    position:relative;
+  position: relative;
 }
 
 .passMatchAlert {
-    font-weight: 600;
-    color: darkred;
-    position: absolute;
-    height: 40px;
-    overflow: visible;
-    top: 80px;
-    left: 20px;
+  font-weight: 600;
+  color: darkred;
+  position: absolute;
+  height: 40px;
+  overflow: visible;
+  top: 80px;
+  left: 20px;
+}
+
+#sign-up {
+  margin-left: 15px;
 }
 
 @media (max-width: 767.98px) {
-    .passMatchAlert {
-        top: 143px;
-    }
+  .passMatchAlert {
+    top: 143px;
+  }
 }
