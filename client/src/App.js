@@ -35,7 +35,7 @@ class App extends Component {
     chart: {
       width: 800,
       height: 400,
-      cx: 400, 
+      cx: 400,
       cy: 300,
       innerRadius: 140,
       outerRadius: 220
@@ -145,7 +145,7 @@ class App extends Component {
   };
 
   handleConfirmClose = () => {
-    this.setState ({ isShowingConfirm: false })
+    this.setState({ isShowingConfirm: false })
   }
 
   triggerModal = (header, message, button) => {
@@ -170,83 +170,88 @@ class App extends Component {
   addSub = (event, cb, subInfo) => {
     event.preventDefault();
     console.log(subInfo);
-    API.addSubscription(subInfo).then(response => {
-      this.updateUserInfo(response.data);
-    });
-    return cb();
+    if (subInfo.name && subInfo.cost) {
+      API.addSubscription(subInfo).then(response => {
+        this.updateUserInfo(response.data);
+      });
+      return cb();
+    }
+    else {
+      this.triggerModal("Alert:","Please fill in all fields to submit","Close")
+    }
   };
 
   removeSub = (subId) => {
     console.log("DELETE " + subId);
-    this.setState ({ isShowingConfirm: false })
+    this.setState({ isShowingConfirm: false })
     API.deleteSubscription({ id: subId })
-    .then(response => {
-      this.updateUserInfo(response.data)
-    })
+      .then(response => {
+        this.updateUserInfo(response.data)
+      })
   }
 
   render() {
     return (
       <Router>
-        <div className = "background-div">
-          <img  className = "background-div-image"
-                src="/images/underwater-802092_1920.jpg" />
+        <div className="background-div">
+          <img className="background-div-image"
+            src="/images/underwater-802092_1920.jpg" />
         </div>
         <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
           {/* <Navbar /> */}
           <Switch>
             <Route exact path="/"
               render={(props) => <SignIn {...props}
-                triggerAlert = {this.triggerModal}
-                isUserAuth = {this.isUserAuth} 
-                updateAuthStatus = {this.updateAuthStatus}
-                updateUserInfo = {this.updateUserInfo} /> }
-            /> 
-            <Route exact path="/sign-up" 
-              render = {(props) => <SignUp {...props}
-                updateAuthStatus = {this.updateAuthStatus}
-                updateUserInfo = {this.updateUserInfo}
-                sendAlert = {this.triggerModal} /> }
+                triggerAlert={this.triggerModal}
+                isUserAuth={this.isUserAuth}
+                updateAuthStatus={this.updateAuthStatus}
+                updateUserInfo={this.updateUserInfo} />}
             />
-              <ProtectedRoute exact path="/main">
-              <Navbar 
-                handleLogout = {this.userLogout}
-                page = "main" />
-                <Main
-                  subscriptions={this.state.subscriptions}
-                  addSub={this.addSub}
-                  removeSub={this.triggerDelete}
-                />
-              </ProtectedRoute>
-              <ProtectedRoute exact path="/stats">
+            <Route exact path="/sign-up"
+              render={(props) => <SignUp {...props}
+                updateAuthStatus={this.updateAuthStatus}
+                updateUserInfo={this.updateUserInfo}
+                sendAlert={this.triggerModal} />}
+            />
+            <ProtectedRoute exact path="/main">
               <Navbar
-                handleLogout = {this.userLogout}
-                page = "stats" />
-                <Stats
-                  windowWidth={this.state.windowWidth}
-                  chartDimensions={this.state.chart}
-                  subscriptions={this.state.subscriptions}
-                  income={this.state.income}
-                  firstname={this.state.firstname}
-                  lastname={this.state.lastname}
-                />
-              </ProtectedRoute>
-              <Route component={NoMatch} />
-            </Switch>
+                handleLogout={this.userLogout}
+                page="main" />
+              <Main
+                subscriptions={this.state.subscriptions}
+                addSub={this.addSub}
+                removeSub={this.triggerDelete}
+              />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/stats">
+              <Navbar
+                handleLogout={this.userLogout}
+                page="stats" />
+              <Stats
+                windowWidth={this.state.windowWidth}
+                chartDimensions={this.state.chart}
+                subscriptions={this.state.subscriptions}
+                income={this.state.income}
+                firstname={this.state.firstname}
+                lastname={this.state.lastname}
+              />
+            </ProtectedRoute>
+            <Route component={NoMatch} />
+          </Switch>
         </div>
-        <Alert  
-          handleAlertClose = {this.handleModalClose}
-          showMe = {this.state.isShowingModal}
-          header = {this.state.modalHeader}
-          message = {this.state.modalMessage}
-          button = {this.state.button}  />
-        <Confirm 
-          handleClose = {this.handleConfirmClose}
-          showMe = {this.state.isShowingConfirm}
-          header = {this.state.modalHeader}
-          message = {this.state.modalMessage}
-          actionIfTrue = {this.removeSub} 
-          subToDelete = {this.state.subToDelete} />
+        <Alert
+          handleAlertClose={this.handleModalClose}
+          showMe={this.state.isShowingModal}
+          header={this.state.modalHeader}
+          message={this.state.modalMessage}
+          button={this.state.button} />
+        <Confirm
+          handleClose={this.handleConfirmClose}
+          showMe={this.state.isShowingConfirm}
+          header={this.state.modalHeader}
+          message={this.state.modalMessage}
+          actionIfTrue={this.removeSub}
+          subToDelete={this.state.subToDelete} />
       </ Router>
     );
   }
@@ -267,8 +272,8 @@ function ProtectedRoute({ children, ...rest }) {
           // this.props.isUserAuth() ? (
           children
         ) : (
-          <Redirect to={{ pathname: "/" }} />
-        )
+            <Redirect to={{ pathname: "/" }} />
+          )
       }
     />
   );
