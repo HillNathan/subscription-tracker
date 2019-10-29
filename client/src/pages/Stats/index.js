@@ -210,7 +210,14 @@ class Stats extends Component {
     statSubscriptions: [],
     toggleMonthly: true,
     windowWidth: 0,
-    dimensions: {}
+    dimensions: {
+      width: 800,
+      height: 400,
+      cx: 400,
+      cy: 300,
+      innerRadius: 140,
+      outerRadius: 220
+    }
   };
 
   handleCheckboxChange(index, event) {
@@ -230,28 +237,57 @@ class Stats extends Component {
     this.setState({ toggleMonthly: toggle });
   }
 
-  componentWillReceiveProps(incomingProps) {
+  componentDidMount() {
     this.setState({
-      statSubscriptions: setUpSubs(incomingProps.subscriptions)
+      statSubscriptions: setUpSubs(this.props.subscriptions)
     });
     this.setState({
-      yearlyTotal: initialYearlyTotal(incomingProps.subscriptions)
+      yearlyTotal: initialYearlyTotal(this.props.subscriptions)
     });
     this.setState({
-      monthlyTotal: initialMonthlyTotal(incomingProps.subscriptions)
+      monthlyTotal: initialMonthlyTotal(this.props.subscriptions)
     });
     this.setState({
       ratio: initialIncomeRatio(
-        incomingProps.subscriptions,
-        incomingProps.income
+        this.props.subscriptions,
+        this.props.income
       )
     });
-    this.setState({
-      windowWidth: incomingProps.windowWidth
-    });
-    this.setState({ 
-      dimensions: incomingProps.chartDimensions
-    });
+    // =================================
+    this.updateWindowSize();
+    window.addEventListener("resize", this.updateWindowSize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowSize)
+  }
+
+  updateWindowSize = () => {
+    this.setState({ windowWidth: window.innerWidth })
+
+    if (window.innerWidth < 993) {
+      this.setState({
+        dimensions: {
+          width: 600,
+          height: 300,
+          cx: 300,
+          cy: 250,
+          innerRadius: 85,
+          outerRadius: 135
+        }
+      })
+    } else {
+      this.setState({
+        dimensions: {
+          width: 800,
+          height: 400,
+          cx: 400,
+          cy: 300,
+          innerRadius: 140,
+          outerRadius: 220
+        }
+      })
+    }
   }
 
   render() {

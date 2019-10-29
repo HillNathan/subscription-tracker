@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./style.css";
 import SignInLogo from "../../components/SignInLogo";
 import PaddingDiv from "../../components/PaddingDiv";
@@ -201,7 +201,8 @@ class SignIn extends Component {
                 <button className="buttons" id="sign-up-button" onClick={this.handleSubmit}>
                   Sign Up
                 </button>
-                <a href="/">Already a member?</a>
+                {/* <a href="/">Already a member?</a> */}
+                <Link to={"/"}>Already a member?</Link>
               </form>
             </div>
           </div>
