@@ -86,11 +86,10 @@ class SignIn extends Component {
           </div>
           <div className="col-lg-6">
             <PaddingDiv height={30} />
-            <div className="form-container">
-              <PaddingDiv height={20} />
+            <div className="form-container-sign-up">
               <form>
                 <div className="dive-in">
-                  <h2>Sign Up!</h2>
+                  <h2 id="sign-up">Sign Up!</h2>
                 </div>
                 <div className="form-group">
                   <div className="row">
@@ -110,7 +109,7 @@ class SignIn extends Component {
                 </div>
                 <div className="form-group">
                   <div className="row passwords">
-                    <div className="col-sm-12 col-md-6">
+                    <div className="col-sm-12 col-md-6 do-not-match-margin">
                       <label htmlFor="Password">Password</label>
                       <input
                         type="password"
@@ -122,7 +121,7 @@ class SignIn extends Component {
                         name="password"
                       />
                     </div>
-                    <div className="col-sm-12 col-md-6">
+                    <div className="col-sm-12 col-md-6 do-not-match-margin">
                       <label htmlFor="verifyPassword">Password</label>
                       <input
                         type="password"
@@ -199,7 +198,7 @@ class SignIn extends Component {
                     </div>
                   </div>
                 </div>
-                <button className="buttons" onClick={this.handleSubmit}>
+                <button className="buttons" id="sign-up-button" onClick={this.handleSubmit}>
                   Sign Up
                 </button>
                 <a href="/">Already a member?</a>

@@ -5,7 +5,7 @@ import "./style.css"
 function SubList(props) {
     return (
         <div className="row justify-content-center">
-            <div className="col-md-10 col-sm-12 ">
+            <div className="col-md-10">
                 <ul id="sub-list">
                     {props.subscriptions.map(data => {
                         return (

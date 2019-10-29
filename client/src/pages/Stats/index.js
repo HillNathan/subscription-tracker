@@ -262,7 +262,6 @@ class Stats extends Component {
         <div className="row">
           <div className="col-xl-3 col-lg-12 group">
             <h3 className="group-header">Your Subscriptions</h3>
-            <br />
             {this.state.statSubscriptions.map((elem, i) => {
               return (
                 <div className="form-check">

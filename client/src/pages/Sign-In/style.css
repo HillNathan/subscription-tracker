@@ -18,15 +18,15 @@
 
 @keyframes bump {
   0% {
-    transform: translate(0rem, -2rem);
+    transform: translate(1rem, -5rem);
   }
-  
+
   50% {
-    transform: translate(0rem, -7rem);
+    transform: translate(1rem, -8rem);
   }
-  
+
   100% {
-    transform: translate(0rem, -2rem);
+    transform: translate(1rem, -5rem);
   }
 }
 
@@ -48,13 +48,14 @@
 
 .form-container {
   background-color: rgba(52, 152, 219, 0.3);
-  border-left: 2px solid lightgrey;
-  border-top: 2px solid lightgrey;
-  border-right: 2px solid grey;
-  border-bottom: 2px solid grey;
+  border-left: 2px solid #ecf0f1;
+  border-top: 2px solid #ecf0f1;
+  border-right: 2px solid #c0cdd1;
+  border-bottom: 2px solid #c0cdd1;
   border-radius: 25px;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  padding: 20px;
 }
 
 .buttons {
@@ -95,21 +96,46 @@ a {
   color: #19222c;
 }
 
-form {
-  margin: 20px;
-}
-
 .form-group {
-  padding: 10px;
+  padding: 0px 10px;
 }
 
 input {
   margin-right: 40px;
 }
 
+.sign-up-link {
+  padding: 10px;
+}
+
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 480px) {
   .Submarine-big {
-    font-size: 5rem;
-    margin-left: 0.7rem;
+    font-size: 4.2rem;
+    margin-left: 1.1rem;
+  }
+
+  img {
+    width: 18rem;
+  }
+
+  @keyframes bump {
+    0% {
+      transform: translate(1rem, -4.2rem);
+    }
+
+    50% {
+      transform: translate(1rem, -5.5rem);
+    }
+
+    100% {
+      transform: translate(1rem, -4.2rem);
+    }
+  }
+
+  .form-container {
+    background-color: rgba(52, 152, 219, 0.5);
+    margin-left: 14px;
   }
 }

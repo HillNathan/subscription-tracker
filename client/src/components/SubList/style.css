@@ -1,6 +1,7 @@
+/* SubList component style.css */
 
 ul {
-  margin: 0; 
+  margin: 0;
   padding: 10px;
 }
 
@@ -10,26 +11,46 @@ ul {
   border-radius: 25px;
   -moz-border-radius: 25px;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);  
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
 }
 
 .list-group-item:hover {
   top: -2px;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);  
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
 }
- 
+
 .list-group-item:first-child {
   border-radius: 25px;
   -moz-border-radius: 25px;
-
 }
 
 .list-group-item:last-child {
   border-radius: 25px;
   -moz-border-radius: 25px;
-
 }
 
 .fa-minus-circle {
   float: right;
+  margin-top: 4px;
+}
+
+@media screen and (max-width: 480px) {
+  ul {
+    padding: 0;
+  }
+  .list-group-item {
+    padding: 6px 15px;
+    border-radius: 16px;
+    -moz-border-radius: 16px;
+  }
+
+  .list-group-item:first-child {
+    border-radius: 16px;
+    -moz-border-radius: 16px;
+  }
+
+  .list-group-item:last-child {
+    border-radius: 16px;
+    -moz-border-radius: 16px;
+  }
 }

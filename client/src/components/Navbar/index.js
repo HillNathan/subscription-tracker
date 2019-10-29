@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import "./nav.css";
+import "./style.css";
 
 class Navbar extends Component {
   redirect = () => {
@@ -11,15 +11,13 @@ class Navbar extends Component {
   render() {
     return (
       <nav style={{ marginLeft: 0, marginRight: 0 }}>
-        <div className="row justify-content-between">
-          <div className="col-lg-3 col-md-4">
-            <h1>
+        <div className="row">
+          <div className="col center-mobile">
               <a className="font" href="/">
                 Submarine
               </a>
-            </h1>
           </div>
-          <div className="col-xl-6 col-lg-8 col-md-9 col-sm-12">
+          <div className="button-holder">
           {console.log(this.props.location)}
             <button
               className="nav-buttons"
