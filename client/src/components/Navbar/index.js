@@ -4,7 +4,6 @@ import "./style.css";
 
 class Navbar extends Component {
   redirect = () => {
-    console.log("Callback function hit");
     this.props.history.push("/");
   };
 
@@ -18,7 +17,6 @@ class Navbar extends Component {
               </a>
           </div>
           <div className="button-holder">
-          {console.log(this.props.location)}
             <button
               className="nav-buttons"
               onClick={event => this.props.handleLogout(event, this.redirect)}
