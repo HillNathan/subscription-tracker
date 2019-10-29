@@ -4,6 +4,10 @@ nav {
   border-bottom: 3px solid #f1c40f;
 }
 
+Link {
+  background-color:pink;
+}
+
 .font {
   color: #f1c40f;
   font-size: 3.4rem;
@@ -37,6 +41,10 @@ nav {
   margin-left: 10px;
   margin-right: 10px;
   float: right;
+}
+
+a {
+  color: #f1c40f;
 }
 
 a:hover {
