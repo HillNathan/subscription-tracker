@@ -56,11 +56,11 @@ button {
   }
 
   .col-sm {
-    padding: 0px 5px;
+    padding: 0px 10px;
   }
 
   .subscription-page-button {
-    margin:12px 0px 0px 16px;
+    margin:12px 0px 0px 21px;
     /* margin-top */
   }
 }

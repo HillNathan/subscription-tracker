@@ -31,7 +31,7 @@ ul {
 
 .fa-minus-circle {
   float: right;
-  margin: 16px 0px;
+  margin-top: 4px;
 }
 
 @media screen and (max-width: 480px) {
