@@ -199,7 +199,6 @@ class SignIn extends Component {
                 <button className="buttons" id="sign-up-button" onClick={this.handleSubmit}>
                   Sign Up
                 </button>
-                {/* <a href="/">Already a member?</a> */}
                 <Link to={"/"}>Already a member?</Link>
               </form>
             </div>

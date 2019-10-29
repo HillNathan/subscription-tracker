@@ -11,8 +11,8 @@ class Navbar extends Component {
     return (
       <nav style={{ marginLeft: 0, marginRight: 0 }}>
         <div className="row">
-          <div className="col center-mobile font">
-              <Link to={"/"} label={"Home"} >
+          <div className="col center-mobile">
+              <Link to={"/"} label={"Home"} className={"font"}>
                 Submarine
               </Link>
           </div>
