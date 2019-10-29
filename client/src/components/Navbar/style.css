@@ -28,9 +28,13 @@ nav {
   color: #f1c40f;
   width: 149px;
   border-radius: 25px;
-  padding: 10px 25px;
+  padding: 10px 21px;
   font-size: 1em;
   font-weight: 500;
+  border-left: 1px solid #ecf0f1;
+  border-top: 1px solid #ecf0f1;
+  border-right: 1px solid #c0cdd1;
+  border-bottom: 1px solid #c0cdd1;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   margin-top: 10px;
