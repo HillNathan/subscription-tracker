@@ -209,6 +209,7 @@ class App extends Component {
             />
             <Route exact path="/sign-up"
               render={(props) => <SignUp {...props}
+                triggerAlert={this.triggerModal}
                 updateAuthStatus={this.updateAuthStatus}
                 updateUserInfo={this.updateUserInfo}
                 sendAlert={this.triggerModal} />}

@@ -13,9 +13,11 @@ class Navbar extends Component {
       <nav style={{ marginLeft: 0, marginRight: 0 }}>
         <div className="row">
           <div className="col center-mobile">
-              <a className="font" href="/">
+              {/* <a className="font" href="/"> */}
+              <Link to={"/"} label={"Home"} >
                 Submarine
-              </a>
+              </Link>
+              {/* </a> */}
           </div>
           <div className="button-holder">
           {console.log(this.props.location)}
@@ -26,17 +28,21 @@ class Navbar extends Component {
               Logout
             </button>
             { (this.props.page === "stats") ?
-              <a href="/main" title="Subscriptions">
+              // <a href="/main" title="Subscriptions">
+              <Link to={"/main"} label={"Subscriptions"}>
                 <button className="nav-buttons">
                   Subscriptions
                 </button>
-              </a>
+              </Link>
+              // </a>
               :
-              <a href="/stats" title="Statistics">
+              // <a href="/stats" title="Statistics">
+              <Link to={"/stats"} label={"Statistics"}>
                 <button className="nav-buttons">
                   Statistics
                 </button>
-              </a>
+              </Link>  
+              // </a>
             }
           </div>
         </div>
