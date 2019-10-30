@@ -32,7 +32,7 @@ input[type="checkbox"]:checked {
   -moz-border-radius: 25px;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
-  margin-bottom: 2px;
+  margin: 0px 2px 2px 0px;
   padding-bottom: 25px;
   color: #f1c40f;
 }
@@ -65,17 +65,24 @@ input[type="checkbox"]:checked {
   text-decoration: underline;
 }
 
-/* .recharts-wrapper {
-    border: 2px solid #f1c40f;
-} */
+.text {
+    padding-top: 13px;
+}
 
 @media screen and (max-width: 480px) {
   .mobile-margin {
     margin: 2px 2px 2px 15px;
   }
 
+  .group {
+  margin: 0px 0px 2px 0px;
+  }
+
   #guage-chart {
     padding: 12px 10px 25px 1px;
-    /* min-height: 400px; */
+  }
+
+  .recharts-surface {
+      max-width: 374px;
   }
 }

@@ -249,7 +249,7 @@ class Stats extends Component {
     this.setState({
       windowWidth: incomingProps.windowWidth
     });
-    this.setState({ 
+    this.setState({
       dimensions: incomingProps.chartDimensions
     });
   }
@@ -280,24 +280,28 @@ class Stats extends Component {
               );
             })}
           </div>
-          <div className="col-lg-12 group" id="guage-chart">
-            {(this.state.windowWidth > 766) ? 
+          <div
+            className="col text-align-center group"
+            id="guage-chart"
+          >
+            {this.state.windowWidth > 766 ? (
               <h3 className="group-header">
-                Subscription Percent Adjusted to 
-                {this.state.toggleMonthly ? " Monthly" : " Yearly" }
+                Subscription Percent Adjusted to
+                {this.state.toggleMonthly ? " Monthly" : " Yearly"}
               </h3>
-              :
+            ) : (
               <h3 className="group-header"> Subscription Percent </h3>
-            }
-            {(this.state.windowWidth > 766) ? 
+            )}
+            {this.state.windowWidth > 766 ? (
               <Chart2
-              data={
-                this.state.toggleMonthly
-                  ? makeDataMonthly(this.state.statSubscriptions)
-                  : makeDataYearly(this.state.statSubscriptions)
-              }
-              dimensions={this.state.dimensions}
-            /> : 
+                data={
+                  this.state.toggleMonthly
+                    ? makeDataMonthly(this.state.statSubscriptions)
+                    : makeDataYearly(this.state.statSubscriptions)
+                }
+                dimensions={this.state.dimensions}
+              />
+            ) : (
               <Chart1
                 data={
                   this.state.toggleMonthly
@@ -305,28 +309,33 @@ class Stats extends Component {
                     : makeDataYearly(this.state.statSubscriptions)
                 }
               />
-            }
-            {(this.state.windowWidth > 766) ? 
+            )}
+            {this.state.windowWidth > 766 ? (
               <div className="toggleGroup">
                 <span
-                  className={this.state.toggleMonthly ? "toggleOn" : "toggleOff"}
+                  className={
+                    this.state.toggleMonthly ? "toggleOn" : "toggleOff"
+                  }
                   onClick={() => this.handleToggle(true)}
                 >
                   Monthly
                 </span>{" "}
                 |
                 <span
-                  className={this.state.toggleMonthly ? "toggleOff" : "toggleOn"}
+                  className={
+                    this.state.toggleMonthly ? "toggleOff" : "toggleOn"
+                  }
                   onClick={() => this.handleToggle(false)}
                 >
                   Yearly
                 </span>
               </div>
-              :
-            <div></div> }
+            ) : (
+              <div></div>
+            )}
           </div>
-          </div>
-          <div className="row mobile-margin">
+        </div>
+        <div className="row mobile-margin">
           <div className="col text-align-center group">
             <p className="group-text">
               You are spending a total of ${this.state.monthlyTotal} per month
