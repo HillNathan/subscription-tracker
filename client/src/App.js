@@ -41,9 +41,6 @@ class App extends Component {
     });
   }
 
-
-  
-
   updateUserInfo = userObject => {
     let authStatus = false;
     if (localStorage.getItem("isAuthenticated") === "true") authStatus = true;
@@ -62,6 +59,7 @@ class App extends Component {
     API.loginUser(userInfo)
       .then(response => {
         this.updateUserInfo(response.data);
+        console.log(response.data)
       })
       .catch(err => {
         throw err;

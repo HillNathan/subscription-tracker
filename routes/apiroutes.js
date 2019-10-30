@@ -29,6 +29,18 @@ module.exports = app => {
     }
   );
 
+  app.get("/login",
+    passport.authenticate("local"), (req, res) => {
+    try {
+      API.controller.getUser(req.user._id, response => {
+        return res.json(scrubUser(response))
+      })
+    } 
+    catch(err) {
+      throw (err)
+    }}
+  );
+
   app.get("/logout", (req, res) => {
     req.logout();
     res.send({ result:"success" });
