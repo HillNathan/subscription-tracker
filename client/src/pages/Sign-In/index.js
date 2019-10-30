@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./style.css";
 import SignInLogo from "../../components/SignInLogo";
 import PaddingDiv from "../../components/PaddingDiv";
@@ -46,24 +46,25 @@ class SignIn extends Component {
       API.loginUser(this.state)
         .then(response => {
           if (response.status === 200) {
-            console.log("login successful");
             this.props.updateAuthStatus(true);
             this.props.updateUserInfo(response.data);
             this.props.history.push("/main");
           }
           if (response.status === 401) {
-            console.log("If Clause");
-            console.log("please try again");
+            this.props.triggerAlert(
+              "Login failed",
+              "Please check your information and try again.",
+              "CLOSE"
+            )
           }
         })
         .catch(err => {
-          console.log("Catch function");
           this.props.triggerAlert(
             "Login failed",
             "Please check your information and try again.",
             "CLOSE"
           );
-          console.log(err);
+          throw (err);
         });
     }
   }
@@ -111,7 +112,7 @@ class SignIn extends Component {
                 <button className="buttons" onClick={this.handleSubmit}>
                   Log In
                 </button>
-                <div className="sign-up-link"><a href="/sign-up">Not a member? Sign up!</a></div>
+                <div className = "sign-up-link"><Link to={"/sign-up"}>Not a member? Sign up!</Link></div>
               </form>
             </div>
           </div>

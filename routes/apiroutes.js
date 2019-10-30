@@ -24,11 +24,14 @@ module.exports = app => {
       })
     }
     catch(err) {
-      console.log("======== ERROR ==========")
-      console.log(err)
+     throw (err)
     }
     }
   );
+
+  app.get("/login", (req,res) => {
+    res.json(req)
+  });
 
   app.get("/logout", (req, res) => {
     req.logout();
@@ -52,7 +55,7 @@ module.exports = app => {
       });
 
       User.createUser(newUser, (err, user) => {
-        if(err) console.log(err);
+        if(err) throw (err)
         res.send(user).end();
       });
     } else{
@@ -69,8 +72,7 @@ module.exports = app => {
       })
     }
     catch(err) {
-      console.log("======== ERROR ==========")
-      console.log(err)
+      throw (err)
     }
   });
 

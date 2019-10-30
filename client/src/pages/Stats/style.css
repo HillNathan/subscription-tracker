@@ -57,32 +57,13 @@ input[type="checkbox"]:checked {
 }
 
 .toggleOn {
-  color: #f1c40f;
+    color: #f1c40f;
+    cursor: default;
 }
 
-.toggleOff {
-  color: #3498db;
-  text-decoration: underline;
+.toggleOff { 
+    color: #3498db;
+    text-decoration: underline; 
+    cursor: pointer;
 }
 
-.text {
-    padding-top: 13px;
-}
-
-@media screen and (max-width: 480px) {
-  .mobile-margin {
-    margin: 2px 2px 2px 15px;
-  }
-
-  .group {
-  margin: 0px 0px 2px 0px;
-  }
-
-  #guage-chart {
-    padding: 12px 10px 25px 1px;
-  }
-
-  .recharts-surface {
-      max-width: 374px;
-  }
-}
