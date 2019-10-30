@@ -11,12 +11,12 @@
 
 @keyframes nudge {
   0% {
-    transform: translate(-2700px, 2rem);
+    transform: translate(-2700px, 7.4rem);
     opacity: 1;
   }
 
   100% {
-    transform: translate(2900px, 2rem);
+    transform: translate(2900px, 7.4rem);
     opacity: 1;
   }
 }
@@ -30,12 +30,38 @@
 
 @keyframes float {
   0% {
-    transform: translate(2900px, 18rem);
+    transform: translate(2900px, 30rem);
     opacity: 1;
   }
-  
+
   100% {
-    transform: translate(-2700px, 18rem);
+    transform: translate(-2700px, 30rem);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  @keyframes nudge {
+    0% {
+      transform: translate(-2700px, 2rem);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate(2900px, 2rem);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(2900px, 18rem);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate(-2700px, 18rem);
+      opacity: 1;
+    }
   }
 }
