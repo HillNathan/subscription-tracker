@@ -187,7 +187,7 @@ class SignIn extends Component {
                       <input
                         type="text"
                         className="form-control"
-                        id="username"
+                        id="income"
                         placeholder="Income"
                         value={this.state.income}
                         onChange={this.handleChange}
