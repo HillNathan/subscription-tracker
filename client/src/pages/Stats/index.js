@@ -280,7 +280,7 @@ class Stats extends Component {
               );
             })}
           </div>
-          <div className="col text-align-center group" id="guage-chart">
+          <div className="col-lg-12 group" id="guage-chart">
             {(this.state.windowWidth > 766) ? 
               <h3 className="group-header">
                 Subscription Percent Adjusted to 
@@ -325,6 +325,8 @@ class Stats extends Component {
               :
             <div></div> }
           </div>
+          </div>
+          <div className="row mobile-margin">
           <div className="col text-align-center group">
             <p className="group-text">
               You are spending a total of ${this.state.monthlyTotal} per month
