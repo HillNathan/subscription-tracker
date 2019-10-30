@@ -96,7 +96,7 @@ module.exports = app => {
   })
 
   app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"), function(err) {
+    res.sendFile(path.join(__dirname, "../../public/index.html"), function(err) {
       // res.sendFile("index.html", function(err) {
       if (err) {
         res.status(500).send(err)
