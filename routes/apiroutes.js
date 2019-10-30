@@ -1,7 +1,8 @@
 const middleware = require("../middleware");
 const passport = middleware.passport;
-const User = require("../models/User")
+const User = require("../models/User");
 const API = require("../controller");
+const path = require("path");
 
 const scrubUser = (userObject) => {
   let cleanUser = {};
