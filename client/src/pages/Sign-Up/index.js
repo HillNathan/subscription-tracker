@@ -54,7 +54,7 @@ class SignIn extends Component {
     event.preventDefault();
     let formValidresponse = this.formIsValidated();
     if (formValidresponse === "YES") {
-      API.loginUser(this.state)
+      API.registerUser(this.state)
         .then(response => {
           if (response.status === 200) {
             this.props.updateAuthStatus(true);
