@@ -58,13 +58,12 @@ input[type='checkbox']:checked {
 
 .toggleOn {
     color: #f1c40f;
+    cursor: default;
 }
 
 .toggleOff { 
     color: #3498db;
     text-decoration: underline; 
+    cursor: pointer;
 }
 
-/* .recharts-wrapper {
-    border: 2px solid #f1c40f;
-} */
