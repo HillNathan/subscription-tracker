@@ -293,7 +293,7 @@ class Stats extends Component {
       <div className="container justify-content-center">
         <Logo />
         <PageHeader headerText="Statistics" />
-        <div className="row">
+        <div className="row mobile-margin">
           <div className="col-xl-3 col-lg-12 group">
             <h3 className="group-header">Your Subscriptions</h3>
             {this.state.statSubscriptions.map((elem, i) => {
@@ -314,24 +314,28 @@ class Stats extends Component {
               );
             })}
           </div>
-          <div className="col text-align-center group">
-            {(this.state.windowWidth > 766) ? 
+          <div
+            className="col text-align-center group"
+            id="guage-chart"
+          >
+            {this.state.windowWidth > 766 ? (
               <h3 className="group-header">
-                Subscription Percent Adjusted to 
-                {this.state.toggleMonthly ? " Monthly" : " Yearly" }
+                Subscription Percent Adjusted to
+                {this.state.toggleMonthly ? " Monthly" : " Yearly"}
               </h3>
-              :
-              <h3> Subscription Percent </h3>
-            }
-            {(this.state.windowWidth > 766) ? 
+            ) : (
+              <h3 className="group-header"> Subscription Percent </h3>
+            )}
+            {this.state.windowWidth > 766 ? (
               <Chart2
-              data={
-                this.state.toggleMonthly
-                  ? makeDataMonthly(this.state.statSubscriptions)
-                  : makeDataYearly(this.state.statSubscriptions)
-              }
-              dimensions={this.state.dimensions}
-            /> : 
+                data={
+                  this.state.toggleMonthly
+                    ? makeDataMonthly(this.state.statSubscriptions)
+                    : makeDataYearly(this.state.statSubscriptions)
+                }
+                dimensions={this.state.dimensions}
+              />
+            ) : (
               <Chart1
                 data={
                   this.state.toggleMonthly
@@ -339,27 +343,34 @@ class Stats extends Component {
                     : makeDataYearly(this.state.statSubscriptions)
                 }
               />
-            }
-            {(this.state.windowWidth > 766) ? 
+            )}
+            {this.state.windowWidth > 766 ? (
               <div className="toggleGroup">
                 <span
-                  className={this.state.toggleMonthly ? "toggleOn" : "toggleOff"}
+                  className={
+                    this.state.toggleMonthly ? "toggleOn" : "toggleOff"
+                  }
                   onClick={() => this.handleToggle(true)}
                 >
                   Monthly
                 </span>{" "}
                 |
                 <span
-                  className={this.state.toggleMonthly ? "toggleOff" : "toggleOn"}
+                  className={
+                    this.state.toggleMonthly ? "toggleOff" : "toggleOn"
+                  }
                   onClick={() => this.handleToggle(false)}
                 >
                   Yearly
                 </span>
               </div>
-              :
-            <div></div> }
+            ) : (
+              <div></div>
+            )}
           </div>
-          <div className="col text-align-center group">
+        </div>
+        <div className="row mobile-margin">
+          <div className="col text-align-center group text">
             <p className="group-text">
               You are spending a total of ${this.state.monthlyTotal} per month
               on subscriptions.

@@ -149,7 +149,7 @@ class App extends Component {
       <Router>
         <div className="background-div">
           <img className="background-div-image"
-            src="/images/underwater-802092_1920.jpg" />
+            src="/images/underwater-802092_1920.jpg" alt="underwater"/>
         </div>
         <div className="container-fluid" style={{ paddingLeft: 0, paddingRight: 0 }}>
           {/* <Navbar /> */}

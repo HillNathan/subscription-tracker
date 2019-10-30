@@ -108,9 +108,9 @@ input {
   padding: 10px;
 }
 
-/* MEDIA QUERIES */
 
 @media screen and (max-width: 480px) {
+  /* 480px for phone if necessary */
   .Submarine-big {
     font-size: 4.2rem;
     margin-left: 1.1rem;
@@ -137,5 +137,9 @@ input {
   .form-container {
     background-color: rgba(52, 152, 219, 0.5);
     margin-left: 14px;
+  }
+
+  #sign-in-form {
+    padding-right: 15px;
   }
 }

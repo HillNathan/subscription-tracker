@@ -78,7 +78,7 @@ class SignIn extends Component {
             <div className="Submarine-big">Submarine</div>
             <SignInLogo />
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-6" id="sign-in-form">
             <PaddingDiv height={30} />
             <div className="form-container">
               <form>
