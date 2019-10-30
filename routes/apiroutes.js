@@ -29,10 +29,6 @@ module.exports = app => {
     }
   );
 
-  app.get("/login", (req,res) => {
-    res.json(req)
-  });
-
   app.get("/logout", (req, res) => {
     req.logout();
     res.send({ result:"success" });
