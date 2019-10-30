@@ -67,6 +67,10 @@ input[type="checkbox"]:checked {
     cursor: pointer;
 }
 
+.text {
+	padding-top: 12px;
+}
+
 @media screen and (max-width: 480px) {
 	.mobile-margin {
 		margin: 2px 2px 2px 15px;

@@ -370,7 +370,7 @@ class Stats extends Component {
           </div>
         </div>
         <div className="row mobile-margin">
-          <div className="col text-align-center group">
+          <div className="col text-align-center group text">
             <p className="group-text">
               You are spending a total of ${this.state.monthlyTotal} per month
               on subscriptions.
