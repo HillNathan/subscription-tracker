@@ -84,6 +84,7 @@ class SignIn extends Component {
               <form>
                 <div className="dive-in">
                   <h2>Dive In!</h2>
+                  <div className = "guest-link"><Link to={"/main"}>Sign in as guest</Link></div>
                 </div>
                 <div className="form-group">
                   <label htmlFor="formGroupExampleInput">Username</label>
