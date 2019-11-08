@@ -6,7 +6,7 @@
 <li> Nathan Hill
 </ul>
 
-<img src="client\public\logo192.png">
+<img src="client\build\logo192.png">
 <p>
 <h2>How much do you pay every month in subscriptions?</h2>
 <p>
@@ -31,5 +31,6 @@ Submarine was developed as a final project for the Penn LPS Coding Boot Camp. It
 <h2>Next Steps</h2>
 <p>
 There are some bugs to fix (yes, we know about those) and definitely some enhancements to add. Once the bugs are resolved, our first plan is to add categories to the subscriptions. This will allow us to give the user some more detailed statistics about their subscriptions plans, such as multiple plans that may overlap or perhaps some more inexpensive options. We also want to look at the entirety of our data and how that could be useful to the user, or to us as we plan next steps for the web application. 
+<br><br>To try the app out, please check out our <a href="https://submarine-sub-tracker.herokuapp.com/">Deployed Website</a> on Heroku and use the user name "guest" and password "guest" to log in and play around. 
 <p>
 Thank you for taking a look at the Submarine subscriptions tracker!
