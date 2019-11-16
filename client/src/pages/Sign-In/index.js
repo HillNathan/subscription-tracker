@@ -55,7 +55,7 @@ class SignIn extends Component {
               "Login failed",
               "Please check your information and try again.",
               "CLOSE"
-            )
+            );
           }
         })
         .catch(err => {
@@ -64,7 +64,7 @@ class SignIn extends Component {
             "Please check your information and try again.",
             "CLOSE"
           );
-          throw (err);
+          throw err;
         });
     }
   }
@@ -84,7 +84,6 @@ class SignIn extends Component {
               <form>
                 <div className="dive-in">
                   <h2>Dive In!</h2>
-                  <div className = "guest-link"><Link to={"/main"}>Sign in as guest</Link></div>
                 </div>
                 <div className="form-group">
                   <label htmlFor="formGroupExampleInput">Username</label>
@@ -113,7 +112,12 @@ class SignIn extends Component {
                 <button className="buttons" onClick={this.handleSubmit}>
                   Log In
                 </button>
-                <div className = "sign-up-link"><Link to={"/sign-up"}>Not a member? Sign up!</Link></div>
+                <div className="sign-up-link">
+                  <Link to={"/sign-up"}>Not a member? Sign up!</Link>
+                </div>
+                <div className="guest-link">
+                  {/* <Link to={"/main"}>Just wanna look around? Sign in as a guest!</Link> */}
+                </div>
               </form>
             </div>
           </div>

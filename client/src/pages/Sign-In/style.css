@@ -104,8 +104,7 @@ a {
 input {
   margin-right: 40px;
 }
-
-.sign-up-link {
+.sign-up-link, .guest-link {
   padding: 10px;
 }
 
