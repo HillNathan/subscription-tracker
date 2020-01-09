@@ -4,7 +4,7 @@ import "./style.css";
 import SignInLogo from "../../components/SignInLogo";
 import PaddingDiv from "../../components/PaddingDiv";
 
-const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const mailFormat = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
 const API = require("../../utils/API");
 
 class SignIn extends Component {

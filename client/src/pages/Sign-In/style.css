@@ -56,6 +56,7 @@
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
   padding: 20px;
+  color: #f1c40f;
 }
 
 .buttons {
@@ -103,8 +104,7 @@ a {
 input {
   margin-right: 40px;
 }
-
-.sign-up-link {
+.sign-up-link, .guest-link {
   padding: 10px;
 }
 
